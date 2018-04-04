@@ -1,0 +1,23 @@
+{
+  "name": "recipebox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html",
+    "deploy": "parcel build ./src/index.html --public-url ./ && gh-pages -d dist -b gh-pages"
+  },
+  "keywords": [],
+  "author": "Jimmy Guzman",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "gh-pages": "^1.1.0",
+    "node-sass": "^4.8.3",
+    "parcel-bundler": "^1.7.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  }
+}

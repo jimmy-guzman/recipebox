@@ -1,0 +1,50 @@
+// font stacks
+$font-url--google: "https://fonts.googleapis.com/css?family=Indie+Flower|Raleway";
+$font-family--primary: "Raleway", sans-serif;
+$font-family--secondary: "Indie Flower", cursive;
+
+// font weights
+$font-weight--regular: 400;
+
+// text
+$base__font-size: 16px;
+$base__line: 26px;
+
+//descriptive color variables
+$white: #fff;
+$black: #000;
+$medium-red-velvet: #bf268a;
+$starship: #edf25e;
+$caribbean-green: #04d9b2;
+$mariner: #2975d9;
+$sandy-brown: #f29d52;
+
+//functional color variables
+
+$color-primary: $medium-red-velvet;
+$color-secondary: $white;
+
+$color-text-light: $white;
+$color-text-base: $medium-red-velvet;
+
+$color-title-primary: $caribbean-green;
+$color-title-secondary: $starship;
+
+// $color-link-default: $periwinkle;
+// $color-link-visited: $rock-blue;
+// // breakpoints
+
+// $brkpoint--sm: 1px;
+// $brkpoint--md: 768px;
+// $brkpoint--lg: 1024px;
+
+// // border radius
+
+// $br--default: 0.3em;
+
+// //grid
+
+// $g-col-width: 65px;
+// $g-gutter-width: 20px;
+// $g-col-count: 12;
+// $g-cont-max-w: 1400px;
