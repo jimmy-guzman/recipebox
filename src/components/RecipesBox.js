@@ -10,7 +10,7 @@ const RecipesBox = props => {
 
       <ul className="recipes__list">
         {Object.keys(props.recipes).map(recipe => (
-          <Recipe details={props.recipes[recipe]} key={recipe} />
+          <Recipe details={props.recipes[recipe]} key={recipe} index={recipe} />
         ))}
       </ul>
     </div>

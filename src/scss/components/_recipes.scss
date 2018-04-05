@@ -10,13 +10,15 @@
     @include flex(flex, column, center, center);
   }
   @include e(list) {
-    @include flex(flex, column, center, center);
+    @include flex(flex, column, space-between, center);
   }
   @include e(item) {
     background: $color-secondary;
     width: 90%;
     margin-bottom: em(20px);
     padding: em(8px);
+    font-weight: $font-weight--regular;
+    letter-spacing: em(1px);
     @include flex(flex, row, space-between);
     &:hover {
       cursor: pointer;

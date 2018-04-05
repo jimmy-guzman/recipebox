@@ -1,10 +1,12 @@
 // font stacks
-$font-url--google: "https://fonts.googleapis.com/css?family=Indie+Flower|Raleway";
-$font-family--primary: "Raleway", sans-serif;
-$font-family--secondary: "Indie Flower", cursive;
+$font-url--google: "https://fonts.googleapis.com/css?family=Caveat:400,700|Raleway:400,700";
+$font-family--primary: "Raleway", cursive;
+$font-family--secondary: "Caveat", cursive;
 
 // font weights
+$font-weight--light: 300;
 $font-weight--regular: 400;
+$font-weight--bold: 700;
 
 // text
 $base__font-size: 16px;
