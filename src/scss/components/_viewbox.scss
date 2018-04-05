@@ -1,0 +1,24 @@
+.viewbox {
+  @include e(container) {
+    font-family: $font-family--primary;
+    background: $color-viewbox-bg;
+  }
+  @include e(header) {
+    background: $color-viewbox-header-bg;
+    text-align: center;
+    height: em(50px);
+    @include flex(flex, column, center, center);
+  }
+  @include e(list) {
+    @include flex(flex, column, center, center);
+  }
+  @include e(item) {
+    background: $color-secondary;
+    width: 90%;
+    margin-bottom: em(20px);
+    padding: em(8px);
+  }
+  @include e(buttons) {
+    padding: 1%;
+  }
+}

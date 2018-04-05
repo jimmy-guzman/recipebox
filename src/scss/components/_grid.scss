@@ -1,0 +1,12 @@
+.grid {
+  @include e(row) {
+    @include mq(medium) {
+      @include flex(flex, row wrap, space-around);
+    }
+  }
+  @include e(col) {
+    @include mq(medium) {
+      @include g-columns;
+    }
+  }
+}

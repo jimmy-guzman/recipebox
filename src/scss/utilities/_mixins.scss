@@ -32,10 +32,11 @@
 }
 
 // flexbox
-@mixin flex($disp: null, $flow: null, $just: null, $flex: null) {
+@mixin flex($disp: null, $flow: null, $just: null, $items: null, $flex: null) {
   display: $disp;
   flex-flow: $flow;
   justify-content: $just;
+  align-items: $items;
   flex: $flex;
 }
 
@@ -49,6 +50,26 @@
     // Generate column modifier classes
     &--#{$i} {
       width: percentage($target / $context);
+    }
+  }
+}
+
+//button mixins
+@mixin button-setup($type) {
+  @extend %btn;
+  @extend %btn--#{$type};
+
+  &:focus {
+    @extend %btn--#{$type};
+  }
+  &:hover {
+    @extend %btn--#{$type}--hover;
+  }
+
+  &.disabled {
+    // @extend %disabled;
+    &:hover {
+      @extend %btn--#{$type};
     }
   }
 }

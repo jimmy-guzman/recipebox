@@ -1,0 +1,21 @@
+.recipes {
+  @include e(container) {
+    font-family: $font-family--secondary;
+    background: $color-recipes-bg;
+  }
+  @include e(header) {
+    background: $color-recipes-header-bg;
+    text-align: center;
+    height: em(50px);
+    @include flex(flex, column, center, center);
+  }
+  @include e(list) {
+    @include flex(flex, column, center, center);
+  }
+  @include e(item) {
+    background: $color-secondary;
+    width: 90%;
+    margin-bottom: em(20px);
+    padding: em(8px);
+  }
+}

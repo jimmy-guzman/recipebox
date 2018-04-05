@@ -30,21 +30,27 @@ $color-text-base: $medium-red-velvet;
 $color-title-primary: $caribbean-green;
 $color-title-secondary: $starship;
 
-// $color-link-default: $periwinkle;
-// $color-link-visited: $rock-blue;
-// // breakpoints
+$color-recipes-bg: $mariner;
+$color-recipes-header-bg: $starship;
 
-// $brkpoint--sm: 1px;
-// $brkpoint--md: 768px;
-// $brkpoint--lg: 1024px;
+$color-viewbox-bg: $sandy-brown;
+$color-viewbox-header-bg: $caribbean-green;
 
-// // border radius
+// breakpoints
 
-// $br--default: 0.3em;
+$brkpoint--sm: 1px;
+$brkpoint--md: 768px;
+$brkpoint--lg: 1024px;
 
-// //grid
+//grid
 
-// $g-col-width: 65px;
-// $g-gutter-width: 20px;
-// $g-col-count: 12;
-// $g-cont-max-w: 1400px;
+$g-col-width: 65px;
+$g-gutter-width: 20px;
+$g-col-count: 12;
+$g-cont-max-w: 1400px;
+
+// button colors
+$btn--primary--bg: $medium-red-velvet;
+$btn--secondary--bg: $caribbean-green;
+$btn--primary--color: $medium-red-velvet;
+$btn--secondary--color: $medium-red-velvet;

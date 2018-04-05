@@ -1,0 +1,22 @@
+%btn {
+  font-family: $font-family--primary;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+%btn--primary {
+  background: $btn--primary--bg;
+  color: $color-text-light;
+}
+
+%btn--primary--hover {
+  background: $btn--secondary--bg;
+  color: $btn--secondary--color;
+}
+
+%btn--primary--disabled {
+  background: $btn--secondary--bg;
+  color: $btn--secondary--color;
+}
