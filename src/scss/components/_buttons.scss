@@ -1,7 +1,11 @@
-.btn--primary {
+.btn__primary {
   @include button-setup("primary");
   font-size: em(32px);
   &:focus {
     border: none;
+  }
+  @include m(sm) {
+    @include button-setup("primary");
+    font-size: em(16px);
   }
 }

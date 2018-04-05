@@ -17,5 +17,9 @@
     width: 90%;
     margin-bottom: em(20px);
     padding: em(8px);
+    @include flex(flex, row, space-between);
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

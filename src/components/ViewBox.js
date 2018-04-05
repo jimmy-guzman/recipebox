@@ -16,8 +16,8 @@ const ViewBox = () => {
         <li className="recipes__item">ingredient #6</li>
       </ul>
       <div className="grid__row viewbox__buttons">
-        <button className="btn--primary grid__col--6">Create New</button>
-        <button className="btn--primary grid__col--6">Edit</button>
+        <button className="btn__primary grid__col--6">Create New</button>
+        <button className="btn__primary grid__col--6">Edit</button>
       </div>
     </div>
   );
