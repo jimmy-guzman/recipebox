@@ -1,5 +1,7 @@
 .grid {
   @include e(row) {
+    max-width: 1024px;
+    margin: 0 auto;
     @include mq(medium) {
       @include flex(flex, row wrap, space-around);
     }

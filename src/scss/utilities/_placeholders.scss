@@ -1,11 +1,11 @@
 %btn {
-  font-family: $font-family--primary;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in;
 }
 
 %btn--primary {
+  font-family: $font-family--primary;
   background: $btn--primary--bg;
   color: $color-text-light;
 }
@@ -18,4 +18,19 @@
 %btn--primary--disabled {
   background: $btn--secondary--bg;
   color: $btn--secondary--color;
+}
+
+%btn--secondary {
+  font-family: $font-family--secondary;
+  background: transparent;
+  color: $color-text-base;
+}
+
+%btn--secondary--hover {
+  background: transparent;
+  color: $color-text-alt;
+}
+
+%btn--secondary--disabled {
+  color: $color-text-alt;
 }

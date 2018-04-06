@@ -1,5 +1,6 @@
 import React from "react";
 import Recipe from "./Recipe";
+import AddRecipeForm from "./AddRecipeForm";
 
 const RecipesBox = props => {
   return (
@@ -9,9 +10,16 @@ const RecipesBox = props => {
       </header>
 
       <ul className="recipes__list">
-        {Object.keys(props.recipes).map(recipe => (
-          <Recipe details={props.recipes[recipe]} key={recipe} index={recipe} />
+        {Object.keys(props.recipes).map((recipe, index) => (
+          <Recipe
+            details={props.recipes[recipe]}
+            key={recipe}
+            index={index}
+            selectRecipe={props.selectRecipe}
+            removeRecipe={props.removeRecipe}
+          />
         ))}
+        <AddRecipeForm addRecipe={props.addRecipe} />
       </ul>
     </div>
   );

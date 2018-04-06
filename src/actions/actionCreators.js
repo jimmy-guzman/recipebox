@@ -1,19 +1,23 @@
 // remove recipe
-export function removeRecipe(recipeId, i) {
+export function removeRecipe(index) {
   return {
     type: "REMOVE_RECIPE",
-    postId,
-    i
+    index
   };
 }
 
 // add recipe
 
-export function addRecipe(recipeId, name, ingredients) {
+export function addRecipe(name) {
   return {
-    type: "REMOVE_COMMENT",
-    recipeId,
-    name,
-    ingredients
+    type: "ADD_RECIPE",
+    name
+  };
+}
+
+export function selectRecipe(index) {
+  return {
+    type: "SELECT_RECIPE",
+    index
   };
 }

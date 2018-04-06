@@ -6,7 +6,6 @@
   @include e(header) {
     background: $color-recipes-header-bg;
     text-align: center;
-    height: em(50px);
     @include flex(flex, column, center, center);
   }
   @include e(list) {
@@ -17,11 +16,23 @@
     width: 90%;
     margin-bottom: em(20px);
     padding: em(8px);
-    font-weight: $font-weight--regular;
-    letter-spacing: em(1px);
     @include flex(flex, row, space-between);
-    &:hover {
-      cursor: pointer;
+    input {
+      font-weight: $font-weight--regular;
+      letter-spacing: em(1px);
+      font-family: $font-family--secondary;
+      width: 100%;
+      border: none;
+      color: $color-text-base;
+      font-size: em(18px);
+      outline: none;
+      &:hover {
+        color: $color-text-alt;
+        cursor: pointer;
+      }
+      &:focus {
+        cursor: auto;
+      }
     }
   }
 }

@@ -1,12 +1,12 @@
 .viewbox {
   @include e(container) {
-    font-family: $font-family--primary;
+    font-family: $font-family--secondary;
     background: $color-viewbox-bg;
   }
   @include e(header) {
     background: $color-viewbox-header-bg;
     text-align: center;
-    height: em(50px);
+    overflow-wrap: break-word;
     @include flex(flex, column, center, center);
   }
   @include e(list) {
@@ -17,6 +17,24 @@
     width: 90%;
     margin-bottom: em(20px);
     padding: em(8px);
+    @include flex(flex, row, space-between);
+    input {
+      font-weight: $font-weight--regular;
+      letter-spacing: em(1px);
+      font-family: $font-family--secondary;
+      width: 100%;
+      border: none;
+      color: $color-text-base;
+      font-size: em(18px);
+      outline: none;
+      &:hover {
+        color: $color-text-alt;
+        cursor: pointer;
+      }
+      &:focus {
+        cursor: auto;
+      }
+    }
   }
   @include e(buttons) {
     padding: 1%;
