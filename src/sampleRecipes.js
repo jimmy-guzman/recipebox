@@ -70,7 +70,7 @@ const sampleRecipes = {
       ]
     }
   ],
-  selectedRecipeIndex: -1
+  selectedRecipeIndex: 0
 };
 
 export default sampleRecipes;

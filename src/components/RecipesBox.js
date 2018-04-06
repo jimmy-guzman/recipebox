@@ -17,6 +17,7 @@ const RecipesBox = props => {
             index={index}
             selectRecipe={props.selectRecipe}
             removeRecipe={props.removeRecipe}
+            updateRecipe={props.updateRecipe}
           />
         ))}
         <AddRecipeForm addRecipe={props.addRecipe} />

@@ -1,4 +1,5 @@
 import React from "react";
+import AddIngredientForm from "./AddIngredientForm";
 
 const ViewBox = props => {
   return (
@@ -11,11 +12,31 @@ const ViewBox = props => {
         {props.selectedRecipe
           ? props.selectedRecipe.ingredients.map((ingredient, index) => (
               <li className="viewbox__item" key={index}>
-                <input value={ingredient} />
-                <button className="btn__secondary">X</button>
+                <input
+                  value={ingredient}
+                  onChange={e =>
+                    props.updateIngredient(
+                      props.selectedRecipeIndex,
+                      index,
+                      e.target.value
+                    )
+                  }
+                />
+                <button
+                  className="btn__secondary"
+                  onClick={() =>
+                    props.removeIngredient(props.selectedRecipeIndex, index)
+                  }
+                >
+                  X
+                </button>
               </li>
             ))
           : null}
+        <AddIngredientForm
+          addIngredient={props.addIngredient}
+          selectedRecipeIndex={props.selectedRecipeIndex}
+        />
       </ul>
     </div>
   );

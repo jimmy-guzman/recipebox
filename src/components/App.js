@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -16,7 +16,7 @@ const mapStateToProps = state => ({
   selectedRecipeIndex: state.selectedRecipeIndex
 });
 
-class App extends React.Component {
+class App extends Component {
   render() {
     let selectedRecipe;
     if (this.props.selectedRecipeIndex !== -1) {
@@ -31,8 +31,15 @@ class App extends React.Component {
             selectRecipe={this.props.selectRecipe}
             removeRecipe={this.props.removeRecipe}
             addRecipe={this.props.addRecipe}
+            updateRecipe={this.props.updateRecipe}
           />
-          <ViewBox selectedRecipe={selectedRecipe} />
+          <ViewBox
+            selectedRecipe={selectedRecipe}
+            addIngredient={this.props.addIngredient}
+            selectedRecipeIndex={this.props.selectedRecipeIndex}
+            removeIngredient={this.props.removeIngredient}
+            updateIngredient={this.props.updateIngredient}
+          />
         </div>
       </div>
     );
