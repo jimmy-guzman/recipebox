@@ -28,7 +28,8 @@ body {
 
 ul {
   padding: 0;
-  list-style-type: none; }
+  list-style-type: none;
+  margin: 0; }
 
 h1 {
   margin: 0; }
@@ -40,9 +41,14 @@ h1 {
     color: #edf25e;
     font-family: "Caveat", cursive; }
 
+.container {
+  position: relative; }
+
 .grid__row {
   max-width: 1024px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column; }
   @media (min-width: 769px) {
     .grid__row {
       display: flex;
@@ -78,7 +84,8 @@ h1 {
 .header {
   text-align: center;
   background: #bf268a;
-  margin-bottom: 2em; }
+  margin-bottom: 2em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
 
 .btn__primary {
   font-size: 2em; }
@@ -86,8 +93,11 @@ h1 {
     border: none; }
 
 .recipes__container {
+  order: 1;
+  margin-bottom: 1.25em;
   font-family: "Caveat", cursive;
-  background: #2975d9; }
+  background: #2975d9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
 
 .recipes__header {
   background: #edf25e;
@@ -100,8 +110,9 @@ h1 {
 .recipes__list {
   display: flex;
   flex-flow: column;
-  justify-content: space-between;
-  align-items: center; }
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.25em; }
 
 .recipes__item {
   background: #fff;
@@ -126,12 +137,23 @@ h1 {
     .recipes__item input:focus {
       cursor: auto; }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
 .viewbox__container {
   font-family: "Caveat", cursive;
-  background: #f29d52; }
+  background: #2975d9;
+  order: -1;
+  margin-bottom: 1.25em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+  @media (min-width: 769px) {
+    .viewbox__container {
+      order: 1; } }
 
 .viewbox__header {
-  background: #04d9b2;
+  background: #edf25e;
   text-align: center;
   overflow-wrap: break-word;
   display: flex;
@@ -143,7 +165,8 @@ h1 {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  padding-top: 1.25em; }
 
 .viewbox__item {
   background: #fff;
@@ -171,13 +194,41 @@ h1 {
 .viewbox__buttons {
   padding: 1%; }
 
-.slide-leave {
+.slide-left-enter {
+  opacity: 0.01;
+  transform: translateX(-100%); }
+
+.slide-left-enter.slide-left-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: 500ms ease-in; }
+
+.slide-left-exit {
+  opacity: 1;
   transform: translateX(0); }
 
-.slide-leave.slide-leave-active {
+.slide-left-exit.slide-left-exit-active {
+  opacity: 0.01;
+  transform: translateX(-100%);
+  transition: 300ms ease-in; }
+
+.slide-right-enter {
+  opacity: 0.01;
+  transform: translateX(100%); }
+
+.slide-right-enter.slide-right-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: 500ms ease-in; }
+
+.slide-right-exit {
+  opacity: 1;
+  transform: translateX(0); }
+
+.slide-right-exit.slide-right-exit-active {
+  opacity: 0.01;
   transform: translateX(100%);
-  transition: 0.5s ease-out;
-  opacity: 0; }
+  transition: 300ms ease-in; }
 
 * {
   box-sizing: border-box; }
