@@ -41,9 +41,6 @@ h1 {
     color: #edf25e;
     font-family: "Caveat", cursive; }
 
-.container {
-  position: relative; }
-
 .grid__row {
   max-width: 1024px;
   margin: 0 auto;
@@ -229,6 +226,36 @@ h1 {
   opacity: 0.01;
   transform: translateX(100%);
   transition: 300ms ease-in; }
+
+.instructions {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto; }
+  @media (min-width: 769px) {
+    .instructions {
+      width: 60%; } }
+  .instructions ul {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+    background: #04d9b2;
+    color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 0.5em; }
+    .instructions ul li {
+      width: 100%; }
+
+.close {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  color: #fff; }
+  .close:hover {
+    color: #bf268a;
+    cursor: pointer; }
 
 * {
   box-sizing: border-box; }
