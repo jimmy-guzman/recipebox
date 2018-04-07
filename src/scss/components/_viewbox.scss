@@ -1,16 +1,23 @@
 .viewbox {
   @include e(container) {
     font-family: $font-family--secondary;
-    background: $color-viewbox-bg;
+    background: $color-recipes-bg;
+    order: -1;
+    margin-bottom: em(20px);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    @include mq(medium) {
+      order: 1;
+    }
   }
   @include e(header) {
-    background: $color-viewbox-header-bg;
+    background: $color-recipes-header-bg;
     text-align: center;
     overflow-wrap: break-word;
     @include flex(flex, column, center, center);
   }
   @include e(list) {
     @include flex(flex, column, center, center);
+    padding-top: em(20px);
   }
   @include e(item) {
     background: $color-secondary;

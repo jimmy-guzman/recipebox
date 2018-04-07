@@ -7,6 +7,7 @@ import * as actionCreators from "../actions/actionCreators";
 import Header from "./Header";
 import RecipesBox from "./RecipesBox";
 import ViewBox from "./ViewBox";
+import Instructions from "./Instructions";
 
 const mapDispachToProps = dispatch =>
   bindActionCreators(actionCreators, dispatch);
@@ -25,6 +26,7 @@ class App extends Component {
     return (
       <div className="container">
         <Header />
+        <Instructions />
         <div className="grid__row">
           <RecipesBox
             recipes={this.props.recipes}

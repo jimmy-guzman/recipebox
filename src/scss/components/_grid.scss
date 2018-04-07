@@ -2,6 +2,7 @@
   @include e(row) {
     max-width: 1024px;
     margin: 0 auto;
+    @include flex(flex, column);
     @include mq(medium) {
       @include flex(flex, row wrap, space-around);
     }
