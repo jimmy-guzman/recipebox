@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import PropTypes from "proptypes";
 
 export default class AddIngredientForm extends Component {
+  static propTypes = {
+    selectedRecipeIndex: PropTypes.number.isRequired
+  };
+
   state = { name: "" };
 
   onNameChange = e => {
@@ -15,7 +20,7 @@ export default class AddIngredientForm extends Component {
   };
   render() {
     return (
-      <li className="recipes__item">
+      <li className="box__item">
         <form onSubmit={this.addIngredient}>
           <input
             value={this.state.name}

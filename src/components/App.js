@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import PropTypes from "proptypes";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionCreators from "../actions/actionCreators";
@@ -18,17 +18,29 @@ const styles = {
 const mapDispachToProps = dispatch =>
   bindActionCreators(actionCreators, dispatch);
 
-const mapStateToProps = state => ({
-  recipes: state.recipes,
-  selectedRecipeIndex: state.selectedRecipeIndex
+const mapStateToProps = ({ recipes, selectedRecipeIndex }) => ({
+  recipes,
+  selectedRecipeIndex
 });
 
 class App extends Component {
+  static propTypes = {
+    selectedRecipeIndex: PropTypes.number.isRequired,
+    recipes: PropTypes.array.isRequired,
+    selectRecipe: PropTypes.func.isRequired,
+    removeRecipe: PropTypes.func.isRequired,
+    addRecipe: PropTypes.func.isRequired,
+    updateRecipe: PropTypes.func.isRequired,
+    addIngredient: PropTypes.func.isRequired,
+    removeIngredient: PropTypes.func.isRequired,
+    updateIngredient: PropTypes.func.isRequired
+  };
   render() {
     let selectedRecipe;
     if (this.props.selectedRecipeIndex !== -1) {
       selectedRecipe = this.props.recipes[this.props.selectedRecipeIndex];
     }
+
     return (
       <div className="container" style={styles}>
         <Header />

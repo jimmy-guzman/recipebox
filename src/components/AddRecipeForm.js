@@ -15,7 +15,7 @@ export default class AddRecipeForm extends Component {
   };
   render() {
     return (
-      <li className="recipes__item">
+      <li className="box__item">
         <form onSubmit={this.addRecipe}>
           <input
             value={this.state.name}

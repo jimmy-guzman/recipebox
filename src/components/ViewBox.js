@@ -1,6 +1,10 @@
 import React from "react";
+import PropTypes from "proptypes";
+
 import AddIngredientForm from "./AddIngredientForm";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+
+import Ingredient from "./Ingredient";
 
 const ViewBox = props => {
   const transitionOptions = {
@@ -8,38 +12,23 @@ const ViewBox = props => {
     timeout: { enter: 500, exit: 300 }
   };
   return (
-    <div className="viewbox__container grid__col--6">
-      <header className="viewbox__header">
+    <div className="box__container box__container--ingredients grid__col--6">
+      <header className="box__header">
         <h1>{props.selectedRecipe ? props.selectedRecipe.name : null}</h1>
       </header>
 
-      <TransitionGroup component="ul" className="viewbox__list">
+      <TransitionGroup component="ul" className="box__list">
         {props.selectedRecipe
           ? props.selectedRecipe.ingredients.map((ingredient, index) => (
               <CSSTransition {...transitionOptions} key={index}>
-                <li className="viewbox__item" key={index}>
-                  <input
-                    value={ingredient}
-                    onChange={e =>
-                      props.updateIngredient(
-                        props.selectedRecipeIndex,
-                        index,
-                        e.target.value
-                      )
-                    }
-                    readOnly="true"
-                    onDoubleClick={e => (e.target.readOnly = "")}
-                    onBlur={e => (e.currentTarget.readOnly = "true")}
-                  />
-                  <button
-                    className="btn__secondary"
-                    onClick={() =>
-                      props.removeIngredient(props.selectedRecipeIndex, index)
-                    }
-                  >
-                    X
-                  </button>
-                </li>
+                <Ingredient
+                  key={index}
+                  name={ingredient}
+                  index={index}
+                  updateIngredient={props.updateIngredient}
+                  removeIngredient={props.removeIngredient}
+                  selectedRecipeIndex={props.selectedRecipeIndex}
+                />
               </CSSTransition>
             ))
           : null}
@@ -50,5 +39,13 @@ const ViewBox = props => {
       </TransitionGroup>
     </div>
   );
+};
+
+ViewBox.propTypes = {
+  selectedRecipeIndex: PropTypes.number.isRequired,
+  selectedRecipe: PropTypes.object.isRequired,
+  addIngredient: PropTypes.func.isRequired,
+  removeIngredient: PropTypes.func.isRequired,
+  updateIngredient: PropTypes.func.isRequired
 };
 export default ViewBox;

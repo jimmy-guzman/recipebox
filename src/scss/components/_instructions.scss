@@ -10,7 +10,7 @@
 
     @include flex(flex, column, center, center);
     margin-bottom: em(32px);
-    background: $color-viewbox-header-bg;
+    background: $color-banner-bg;
     color: $color-text-light;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: em(8px);

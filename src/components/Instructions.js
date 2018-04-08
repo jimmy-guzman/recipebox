@@ -14,12 +14,15 @@ export default class Instructions extends Component {
       return (
         <div className="instructions">
           <ul>
-            <li>Click on a recipe to view ingredients.</li>
+            <li>Click on a recipe name to view that recipe's ingredients.</li>
             <li>
               Use the new recipe/ingredient bar to create a new
               recipe/ingredient.
             </li>
-            <li>Double click on ingredient or recipe to edit them.</li>
+            <li>
+              Double click on a ingredient/recipe name to edit that
+              recipe/ingredient.
+            </li>
           </ul>
           <span className="close" onClick={this.handleClick}>
             X

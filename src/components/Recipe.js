@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import PropTypes from "proptypes";
 
 const Recipe = props => (
-  <li className="recipes__item">
+  <li className="box__item">
     <input
       value={props.details.name}
       onClick={() => props.selectRecipe(props.index)}
@@ -19,4 +20,10 @@ const Recipe = props => (
   </li>
 );
 
+Recipe.propTypes = {
+  index: PropTypes.number.isRequired,
+  selectRecipe: PropTypes.func.isRequired,
+  removeRecipe: PropTypes.func.isRequired,
+  updateRecipe: PropTypes.func.isRequired
+};
 export default Recipe;

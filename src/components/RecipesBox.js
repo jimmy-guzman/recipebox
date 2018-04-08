@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "proptypes";
 import Recipe from "./Recipe";
 import AddRecipeForm from "./AddRecipeForm";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -9,12 +10,12 @@ const RecipesBox = props => {
     timeout: { enter: 500, exit: 500 }
   };
   return (
-    <div className="recipes__container grid__col--6">
-      <header className="recipes__header">
+    <div className="box__container box__container--recipes grid__col--6">
+      <header className="box__header">
         <h1>Recipes</h1>
       </header>
 
-      <TransitionGroup component="ul" className="recipes__list">
+      <TransitionGroup component="ul" className="box__list">
         {Object.keys(props.recipes).map((recipe, index) => (
           <CSSTransition {...transitionOptions} key={recipe}>
             <Recipe
@@ -32,4 +33,12 @@ const RecipesBox = props => {
     </div>
   );
 };
+
+RecipesBox.propTypes = {
+  recipes: PropTypes.array.isRequired,
+  selectRecipe: PropTypes.func.isRequired,
+  removeRecipe: PropTypes.func.isRequired,
+  addRecipe: PropTypes.func.isRequired
+};
+
 export default RecipesBox;
