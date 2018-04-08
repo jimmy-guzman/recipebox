@@ -78,6 +78,9 @@ h1 {
   .grid__col--12 {
     width: 100%; } }
 
+.container {
+  height: 100vh; }
+
 .header {
   text-align: center;
   background: #bf268a;
