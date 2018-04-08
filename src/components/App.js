@@ -9,6 +9,12 @@ import RecipesBox from "./RecipesBox";
 import ViewBox from "./ViewBox";
 import Instructions from "./Instructions";
 
+import Background from "../img/background.svg";
+
+const styles = {
+  backgroundImage: `url(${Background})`
+};
+
 const mapDispachToProps = dispatch =>
   bindActionCreators(actionCreators, dispatch);
 
@@ -24,7 +30,7 @@ class App extends Component {
       selectedRecipe = this.props.recipes[this.props.selectedRecipeIndex];
     }
     return (
-      <div className="container">
+      <div className="container" style={styles}>
         <Header />
         <Instructions />
         <div className="grid__row">
