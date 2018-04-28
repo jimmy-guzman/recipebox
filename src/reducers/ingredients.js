@@ -5,7 +5,7 @@ const initialState = sampleIngredients;
 function recipeIngredients(state = [], action) {
   switch (action.type) {
     case "ADD_INGREDIENT":
-      return [...state, action.name];
+      return [...state, { name: action.name, id: Date.now() }];
 
     case "REMOVE_INGREDIENT": {
       return [
@@ -16,7 +16,7 @@ function recipeIngredients(state = [], action) {
     case "UPDATE_INGREDIENT": {
       return [
         ...state.slice(0, action.index),
-        action.name,
+        { ...state[action.index], name: action.name },
         ...state.slice(action.index + 1)
       ];
     }

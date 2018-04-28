@@ -28,3 +28,9 @@ h1 {
 a {
   color: $color-text-base;
 }
+
+footer {
+  span {
+    font-size: em(12px);
+  }
+}

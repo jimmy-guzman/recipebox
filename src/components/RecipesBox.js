@@ -10,19 +10,20 @@ const RecipesBox = props => {
     timeout: { enter: 500, exit: 500 }
   };
   return (
-    <div className="box__container box__container--recipes grid__col--6">
+    <div className="box__container  grid__col--6">
       <header className="box__header">
         <h1>Recipes</h1>
       </header>
 
       <TransitionGroup component="ul" className="box__list">
-        {props.recipes.map(recipe => (
+        {props.recipes.map((recipe, index) => (
           <CSSTransition {...transitionOptions} key={recipe.recipeId}>
             <Recipe
               details={recipe}
               key={recipe.recipeId}
               removeRecipe={props.removeRecipe}
               updateRecipe={props.updateRecipe}
+              index={index}
             />
           </CSSTransition>
         ))}

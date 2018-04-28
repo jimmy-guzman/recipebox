@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "proptypes";
 import { Link } from "react-router-dom";
-
+import { Transition } from "react-transition-group";
 import Ingredients from "./Ingredients";
 
 const ViewBox = props => {
@@ -10,7 +10,7 @@ const ViewBox = props => {
   const recipeIngredients = props.ingredients[recipeId] || [];
 
   return (
-    <div className="box__container box__container--ingredients grid__col--6">
+    <div className="box__container  grid__col--6">
       <header className="box__header">
         <h1>{props.recipes[i].name}</h1>
         <Link to="/">

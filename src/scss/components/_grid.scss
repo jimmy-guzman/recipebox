@@ -4,7 +4,7 @@
     margin: 0 auto;
     @include flex(flex, column);
     @include mq(medium) {
-      @include flex(flex, row wrap, space-around);
+      @include flex(flex, row wrap, center, center);
     }
   }
   @include e(col) {
@@ -15,11 +15,11 @@
 }
 
 .wrapper {
-  height: 100%;
-  @include mq(medium) {
-    height: 100vh;
-  }
+  background-repeat: repeat;
+  height: 100vh;
+  @include flex(flex, column, space-between);
 }
 
-.container {
-}
+// .container {
+//   margin-top: em(72px);
+// }
