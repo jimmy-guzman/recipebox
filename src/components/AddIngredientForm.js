@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "proptypes";
 
 export default class AddIngredientForm extends Component {
-  static propTypes = {
-    selectedRecipeIndex: PropTypes.number.isRequired
-  };
+  // static propTypes = {
+  //   selectedRecipeIndex: PropTypes.number.isRequired
+  // };
 
   state = { name: "" };
 
@@ -15,7 +15,7 @@ export default class AddIngredientForm extends Component {
 
   addIngredient = e => {
     e.preventDefault();
-    this.props.addIngredient(this.state.name, this.props.selectedRecipeIndex);
+    this.props.addIngredient(this.props.match.params.recipe, this.state.name);
     this.setState({ name: "" });
   };
   render() {

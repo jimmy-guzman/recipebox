@@ -16,13 +16,11 @@ const RecipesBox = props => {
       </header>
 
       <TransitionGroup component="ul" className="box__list">
-        {Object.keys(props.recipes).map((recipe, index) => (
-          <CSSTransition {...transitionOptions} key={recipe}>
+        {props.recipes.map(recipe => (
+          <CSSTransition {...transitionOptions} key={recipe.recipeId}>
             <Recipe
-              details={props.recipes[recipe]}
-              key={recipe}
-              index={index}
-              selectRecipe={props.selectRecipe}
+              details={recipe}
+              key={recipe.recipeId}
               removeRecipe={props.removeRecipe}
               updateRecipe={props.updateRecipe}
             />
@@ -34,11 +32,11 @@ const RecipesBox = props => {
   );
 };
 
-RecipesBox.propTypes = {
-  recipes: PropTypes.array.isRequired,
-  selectRecipe: PropTypes.func.isRequired,
-  removeRecipe: PropTypes.func.isRequired,
-  addRecipe: PropTypes.func.isRequired
-};
+// RecipesBox.propTypes = {
+//   recipes: PropTypes.object.isRequired,
+//   updateRecipe: PropTypes.func.isRequired,
+//   removeRecipe: PropTypes.func.isRequired,
+//   addRecipe: PropTypes.func.isRequired
+// };
 
 export default RecipesBox;

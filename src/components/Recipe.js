@@ -1,28 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "proptypes";
+import { Link } from "react-router-dom";
 
-const Recipe = props => (
+const Recipe = ({ details }) => (
   <li className="box__item">
-    <input
-      value={props.details.name}
-      onClick={() => props.selectRecipe(props.index)}
-      onChange={e => props.updateRecipe(e.target.value, props.index)}
-      readOnly="true"
-      onDoubleClick={e => (e.target.readOnly = "")}
-      onBlur={e => (e.currentTarget.readOnly = "true")}
-    />
-    <button
-      className="btn__secondary"
-      onClick={() => props.removeRecipe(props.index)}
-    >
-      X
-    </button>
+    <Link to={`/${details.recipeId}`}>{details.name} </Link>
   </li>
 );
 
 Recipe.propTypes = {
-  index: PropTypes.number.isRequired,
-  selectRecipe: PropTypes.func.isRequired,
+  details: PropTypes.object.isRequired,
   removeRecipe: PropTypes.func.isRequired,
   updateRecipe: PropTypes.func.isRequired
 };

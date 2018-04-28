@@ -7,7 +7,7 @@ const Ingredient = props => (
       value={props.name}
       onChange={e =>
         props.updateIngredient(
-          props.selectedRecipeIndex,
+          props.match.params.recipe,
           props.index,
           e.target.value
         )
@@ -19,7 +19,7 @@ const Ingredient = props => (
     <button
       className="btn__secondary"
       onClick={() =>
-        props.removeIngredient(props.selectedRecipeIndex, props.index)
+        props.removeIngredient(props.match.params.recipe, props.index)
       }
     >
       X
@@ -28,7 +28,6 @@ const Ingredient = props => (
 );
 
 Ingredient.propTypes = {
-  selectedRecipeIndex: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,
   removeIngredient: PropTypes.func.isRequired,
   updateIngredient: PropTypes.func.isRequired

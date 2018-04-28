@@ -1,37 +1,24 @@
-import sampleRecipes from "../sampleRecipes";
+import sampleRecipes from "../Data/recipes";
 
 const initialState = sampleRecipes;
 
-function recipes(state = initialState, action) {
+function recipes(state = [], action) {
   switch (action.type) {
     case "ADD_RECIPE": {
-      const addRecipesList = [
-        ...state.recipes,
+      return [
+        ...state,
         {
-          name: action.name,
-          ingredients: [],
-          recipeId: Date.now()
+          recipeId: `recipe${Date.now()}`,
+          name: action.name
         }
       ];
-      return {
-        ...state,
-        recipes: addRecipesList
-      };
     }
     case "REMOVE_RECIPE":
-      const removeRecipesList = [
-        ...state.recipes.slice(0, action.index),
-        ...state.recipes.slice(action.index + 1)
+      return [
+        ...state.slice(0, action.index),
+        ...state.slice(action.index + 1)
       ];
-      return {
-        ...state,
-        recipes: removeRecipesList
-      };
-    case "SELECT_RECIPE":
-      return {
-        ...state,
-        selectedRecipeIndex: action.index
-      };
+
     case "UPDATE_RECIPE": {
       const updateRecipeList = state.recipes.map((recipe, index) => {
         if (index === action.index) {
@@ -45,58 +32,6 @@ function recipes(state = initialState, action) {
       return {
         ...state,
         recipes: updateRecipeList
-      };
-    }
-    case "ADD_INGREDIENT": {
-      const addIngredientList = state.recipes.map((recipe, index) => {
-        if (index === action.index) {
-          return {
-            ...recipe,
-            ingredients: [...recipe.ingredients, action.name]
-          };
-        }
-        return recipe;
-      });
-      return {
-        ...state,
-        recipes: addIngredientList
-      };
-    }
-    case "REMOVE_INGREDIENT": {
-      const removeIngredientList = state.recipes.map((recipe, index) => {
-        if (index === action.recipeIndex) {
-          return {
-            ...recipe,
-            ingredients: [
-              ...recipe.ingredients.slice(0, action.index),
-              ...recipe.ingredients.slice(action.index + 1)
-            ]
-          };
-        }
-        return recipe;
-      });
-      return {
-        ...state,
-        recipes: removeIngredientList
-      };
-    }
-    case "UPDATE_INGREDIENT": {
-      const updateIngredientList = state.recipes.map((recipe, index) => {
-        if (index === action.recipeIndex) {
-          return {
-            ...recipe,
-            ingredients: [
-              ...recipe.ingredients.slice(0, action.index),
-              action.name,
-              ...recipe.ingredients.slice(action.index + 1)
-            ]
-          };
-        }
-        return recipe;
-      });
-      return {
-        ...state,
-        recipes: updateIngredientList
       };
     }
     default:

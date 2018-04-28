@@ -26,24 +26,24 @@ export function updateRecipe(name, index) {
   };
 }
 
-export function addIngredient(name, index) {
+export function addIngredient(recipeId, name) {
   return {
     type: "ADD_INGREDIENT",
-    name,
-    index
+    recipeId,
+    name
   };
 }
-export function removeIngredient(recipeIndex, index) {
+export function removeIngredient(recipeId, index) {
   return {
     type: "REMOVE_INGREDIENT",
-    recipeIndex,
+    recipeId,
     index
   };
 }
-export function updateIngredient(recipeIndex, index, name) {
+export function updateIngredient(recipeId, index, name) {
   return {
     type: "UPDATE_INGREDIENT",
-    recipeIndex,
+    recipeId,
     index,
     name
   };

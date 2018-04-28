@@ -13,12 +13,18 @@ h1 {
 }
 .header {
   @include e(title) {
-    color: $color-title-primary;
     font-size: em(64px);
+    a {
+      color: $color-title-primary;
+    }
 
     @include m(cursive) {
       color: $color-title-secondary;
       font-family: $font-family--secondary;
     }
   }
+}
+
+a {
+  color: $color-text-base;
 }

@@ -21,6 +21,7 @@
     }
   }
   @include e(header) {
+    position: relative;
     background: $color-box-header-bg;
     text-align: center;
     @include flex(flex, column, center, center);
@@ -35,14 +36,22 @@
     margin-bottom: em(20px);
     padding: em(8px);
     @include flex(flex, row, space-between);
+    a {
+      font-size: em(18px);
+      color: $color-text-base;
+      &:hover {
+        color: $color-text-alt;
+        cursor: pointer;
+      }
+    }
     input {
       font-weight: $font-weight--regular;
       letter-spacing: em(1px);
       font-family: $font-family--secondary;
       width: 100%;
       border: none;
-      color: $color-text-base;
       font-size: em(18px);
+      color: $color-text-base;
       outline: none;
       &:hover {
         color: $color-text-alt;

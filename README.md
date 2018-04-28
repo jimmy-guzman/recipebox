@@ -9,12 +9,11 @@
 * ~~The user can edit these recipes~~
 * ~~The user can delete these recipes and ingredients~~
 * ~~All new recipes the user adds are saved in their local storage~~
-* ~~Add transitions~~
-* ~~Add instructions~~
+* Finish transitions
+* Update instructions
 * User is able to login to view their recipeBox
 * User is able to filter recipes
 * Add instructions back panel to recipe card
-* Redesign mobile view
 
 ## Built With:
 
