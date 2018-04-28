@@ -16,24 +16,16 @@ function recipes(state = [], action) {
     case "REMOVE_RECIPE":
       return [
         ...state.slice(0, action.index),
+
         ...state.slice(action.index + 1)
       ];
 
-    case "UPDATE_RECIPE": {
-      const updateRecipeList = state.recipes.map((recipe, index) => {
-        if (index === action.index) {
-          return {
-            ...recipe,
-            name: action.name
-          };
-        }
-        return recipe;
-      });
-      return {
-        ...state,
-        recipes: updateRecipeList
-      };
-    }
+    case "UPDATE_RECIPE":
+      return [
+        ...state.slice(0, action.index),
+        { ...state[action.index], name: action.name },
+        ...state.slice(action.index + 1)
+      ];
     default:
       return state;
   }

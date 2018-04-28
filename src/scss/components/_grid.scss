@@ -1,8 +1,5 @@
 .grid {
   @include e(row) {
-    max-width: 1024px;
-    margin: 0 auto;
-    @include flex(flex, column);
     @include mq(medium) {
       @include flex(flex, row wrap, center, center);
     }
@@ -19,7 +16,3 @@
   height: 100vh;
   @include flex(flex, column, space-between);
 }
-
-// .container {
-//   margin-top: em(72px);
-// }

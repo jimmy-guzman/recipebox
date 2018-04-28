@@ -12,7 +12,14 @@ const ViewBox = props => {
   return (
     <div className="box__container  grid__col--6">
       <header className="box__header">
-        <h1>{props.recipes[i].name}</h1>
+        <input
+          value={props.recipes[i].name}
+          onChange={e => props.updateRecipe(i, e.target.value)}
+          readOnly="true"
+          onDoubleClick={e => (e.target.readOnly = "")}
+          onBlur={e => (e.currentTarget.readOnly = "true")}
+        />
+
         <Link to="/">
           <span className="close">X</span>
         </Link>

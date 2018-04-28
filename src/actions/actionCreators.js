@@ -12,13 +12,7 @@ export function addRecipe(name) {
   };
 }
 
-export function selectRecipe(index) {
-  return {
-    type: "SELECT_RECIPE",
-    index
-  };
-}
-export function updateRecipe(name, index) {
+export function updateRecipe(index, name) {
   return {
     type: "UPDATE_RECIPE",
     index,

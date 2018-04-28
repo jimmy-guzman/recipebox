@@ -31,28 +31,28 @@ class App extends Component {
     return (
       <div className="wrapper" style={styles}>
         <Header />
-        {/* <Instructions /> */}
-        <div className="container">
-          <TransitionGroup className="grid__row">
-            <CSSTransition
-              key={this.props.location.key}
-              classNames="fade"
-              timeout={300}
-            >
-              <Switch>
-                <Route
-                  exact
-                  path="/"
-                  render={props => <RecipesBox {...this.props} />}
-                />
-                <Route
-                  path="/:recipe"
-                  render={props => <ViewBox {...this.props} {...props} />}
-                />
-              </Switch>
-            </CSSTransition>
-          </TransitionGroup>
-        </div>
+        <Instructions />
+
+        <TransitionGroup className="grid__row">
+          <CSSTransition
+            key={this.props.location.key}
+            classNames="fade"
+            timeout={300}
+          >
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={props => <RecipesBox {...this.props} />}
+              />
+              <Route
+                path="/:recipe"
+                render={props => <ViewBox {...this.props} {...props} />}
+              />
+            </Switch>
+          </CSSTransition>
+        </TransitionGroup>
+
         <footer>
           <span> Design & Coded by</span>
           <a href="https://jimmyguzman.com/" target="_blank">

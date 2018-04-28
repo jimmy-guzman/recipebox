@@ -20,8 +20,8 @@ export default class Instructions extends Component {
               recipe/ingredient.
             </li>
             <li>
-              Double click on a ingredient/recipe name to edit that
-              recipe/ingredient.
+              When viewing the recipe, you can double click on a
+              ingredient/recipe name to edit that recipe/ingredient.
             </li>
           </ul>
           <span className="close" onClick={this.handleClick}>

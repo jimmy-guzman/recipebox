@@ -6,7 +6,9 @@
   "scripts": {
     "start": "parcel ./src/index.html",
     "build": "parcel build ./src/index.html",
-    "deploy": "parcel build ./src/index.html --public-url ./ && gh-pages -d dist -b gh-pages"
+    "gh-deploy":
+      "parcel build ./src/index.html --public-url ./ && gh-pages -d dist -b gh-pages",
+    "deploy": "parcel build ./src/index.html && firebase deploy"
   },
   "keywords": [],
   "author": "Jimmy Guzman",
@@ -16,6 +18,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "firebase": "^4.13.1",
     "gh-pages": "^1.1.0",
     "history": "^4.7.2",
     "node-sass": "^4.8.3",
