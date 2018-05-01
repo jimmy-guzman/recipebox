@@ -1,5 +1,6 @@
 .box {
   @include e(container) {
+    z-index: 2;
     font-family: $font-family--secondary;
     background: $color-box-bg;
     box-shadow: $primary-box-shadow;
@@ -20,7 +21,14 @@
     }
   }
   @include e(list) {
-    height: 450px;
+    @media (max-height: 700px) {
+      max-height: 300px;
+    }
+    @media (max-height: 550px) {
+      max-height: 200px;
+    }
+    max-height: 450px;
+    height: 100%;
     overflow-y: auto;
   }
   @include e(item) {
@@ -28,6 +36,9 @@
     width: 90%;
     margin: em(20px) auto;
     @include flex(flex, row, space-between);
+    button {
+      margin-right: em(8px);
+    }
     a {
       padding: em(8px);
       font-size: em(18px);

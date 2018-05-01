@@ -19,9 +19,10 @@
 }
 
 .close {
+  font-family: $font-family--primary;
   position: absolute;
-  top: em(8px);
-  right: em(8px);
+  top: em(9.5px);
+  right: em(12px);
   color: $color-text-light;
   &:hover {
     color: $color-text-base;
