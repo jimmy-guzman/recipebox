@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "proptypes";
 import { Link } from "react-router-dom";
-import { Transition } from "react-transition-group";
+
+import BackIcon from "./SVGs/BackIcon";
 import Ingredients from "./Ingredients";
 
 const ViewBox = props => {
@@ -21,7 +22,7 @@ const ViewBox = props => {
         />
 
         <Link to="/">
-          <span className="close">X</span>
+          <BackIcon height={24} width={24} />
         </Link>
       </header>
 

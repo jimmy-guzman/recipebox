@@ -10,8 +10,6 @@ import Header from "./Header";
 import RecipesBox from "./RecipesBox";
 import ViewBox from "./ViewBox";
 import Instructions from "./Instructions";
-import Main from "./Main";
-
 import Background from "../img/background.svg";
 
 const styles = {
@@ -32,7 +30,6 @@ class App extends Component {
       <div className="wrapper" style={styles}>
         <Header />
         <Instructions />
-
         <TransitionGroup className="grid__row">
           <CSSTransition
             key={this.props.location.key}
@@ -64,4 +61,9 @@ class App extends Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispachToProps)(App));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispachToProps
+  )(App)
+);

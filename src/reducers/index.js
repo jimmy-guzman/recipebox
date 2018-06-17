@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { routerReducer, push } from "react-router-redux";
+import { routerReducer } from "react-router-redux";
 
 import recipes from "./recipes";
 import ingredients from "./ingredients";

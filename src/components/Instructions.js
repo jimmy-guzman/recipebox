@@ -16,12 +16,12 @@ export default class Instructions extends Component {
           <ul>
             <li>Click on a recipe name to view that recipe's ingredients.</li>
             <li>
-              Use the new recipe/ingredient bar to create a new
-              recipe/ingredient.
+              Use the new recipe or ingredient bar to create a new recipe or
+              ingredient.
             </li>
             <li>
-              When viewing the recipe, you can double click on a
-              ingredient/recipe name to edit that recipe/ingredient.
+              When viewing the recipe, you can double click on a ingredient or
+              recipe name to edit that recipe or ingredient.
             </li>
           </ul>
           <span className="close" onClick={this.handleClick}>

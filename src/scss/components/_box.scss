@@ -9,7 +9,7 @@
     position: relative;
     background: $color-box-header-bg;
     text-align: center;
-    @include flex(flex, column, center, center);
+    @include flex(flex, row, center, center);
     input {
       background: inherit;
       width: 100%;
@@ -18,6 +18,21 @@
       color: $color-text-base;
       font-size: em(32px);
       text-align: center;
+      &:focus {
+        cursor: auto;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    a {
+      position: absolute;
+      top: em(7px);
+      right: em(7px);
+      fill: $color-primary;
+      &:hover {
+        fill: $color-tertiary;
+      }
     }
   }
   @include e(list) {
@@ -44,6 +59,7 @@
       font-size: em(18px);
     }
     input {
+      background: inherit;
       padding: em(8px);
       font-weight: $font-weight--regular;
       letter-spacing: em(1px);
@@ -53,7 +69,6 @@
       outline: none;
       color: $color-text-base;
       font-size: em(18px);
-
       &:hover {
         color: $color-text-alt;
         cursor: pointer;
