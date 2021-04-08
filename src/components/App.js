@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import PropTypes from 'proptypes'
+import { shape, string } from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as actionCreators from '../actions/actionCreators'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
+import * as actionCreators from '../actions/actionCreators'
 import Header from './Header'
 import RecipesBox from './RecipesBox'
 import ViewBox from './ViewBox'
@@ -16,7 +16,7 @@ const styles = {
   backgroundImage: `url(${Background})`,
 }
 
-const mapDispachToProps = (dispatch) =>
+const mapDispatchToProps = (dispatch) =>
   bindActionCreators(actionCreators, dispatch)
 
 const mapStateToProps = ({ recipes, ingredients }) => ({
@@ -40,7 +40,7 @@ class App extends Component {
               <Route
                 exact
                 path='/'
-                render={(props) => <RecipesBox {...this.props} />}
+                render={() => <RecipesBox {...this.props} />}
               />
               <Route
                 path='/:recipe'
@@ -52,7 +52,7 @@ class App extends Component {
 
         <footer>
           <span> Design & Coded by</span>
-          <a href='https://jimmyguzman.com/' target='_blank'>
+          <a href='https://jimmyguzman.com/' target='_blank' rel='noreferrer'>
             Jimmy Guzman
           </a>
         </footer>
@@ -61,4 +61,8 @@ class App extends Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispachToProps)(App))
+App.propTypes = {
+  location: shape({ key: string }),
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))

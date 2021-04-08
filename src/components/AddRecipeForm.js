@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import { func } from 'prop-types'
 
 export default class AddRecipeForm extends Component {
+  static propTypes = {
+    addRecipe: func.isRequired,
+  }
   state = { name: '' }
 
   onNameChange = (e) => {
     const name = e.target.value
+
     this.setState({ name })
   }
 

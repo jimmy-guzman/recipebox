@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
 export default class Instructions extends Component {
   state = {
@@ -14,7 +14,7 @@ export default class Instructions extends Component {
       return (
         <div className='instructions'>
           <ul>
-            <li>Click on a recipe name to view that recipe's ingredients.</li>
+            <li>{`Click on a recipe name to view that recipe's ingredients.`}</li>
             <li>
               Use the new recipe or ingredient bar to create a new recipe or
               ingredient.
@@ -24,13 +24,18 @@ export default class Instructions extends Component {
               recipe name to edit that recipe or ingredient.
             </li>
           </ul>
-          <span className='close' onClick={this.handleClick}>
+          <span
+            role='button'
+            tabIndex='0'
+            className='close'
+            onKeyDown={this.handleClick}
+            onClick={this.handleClick}
+          >
             X
           </span>
         </div>
       )
-    } else {
-      return null
     }
+    return null
   }
 }

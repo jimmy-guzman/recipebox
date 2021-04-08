@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'proptypes'
+import { func, arrayOf, string, shape } from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import BackIcon from './SVGs/BackIcon'
@@ -32,8 +32,9 @@ const ViewBox = (props) => {
 }
 
 ViewBox.propTypes = {
-  addIngredient: PropTypes.func.isRequired,
-  removeIngredient: PropTypes.func.isRequired,
-  updateIngredient: PropTypes.func.isRequired,
+  ingredients: shape({ name: string, id: string }),
+  match: shape({ params: shape({ recipe: string }) }),
+  recipes: arrayOf(shape({ name: string })),
+  updateRecipe: func.isRequired,
 }
 export default ViewBox

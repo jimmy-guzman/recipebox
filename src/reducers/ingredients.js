@@ -1,7 +1,4 @@
-import sampleIngredients from '../Data/ingredients'
-
-const initialState = sampleIngredients
-
+/* eslint-disable default-param-last */
 function recipeIngredients(state = [], action) {
   switch (action.type) {
     case 'ADD_INGREDIENT':
@@ -20,9 +17,7 @@ function recipeIngredients(state = [], action) {
     default:
       return state
   }
-  return state
 }
-
 function ingredients(state = [], action) {
   if (typeof action.recipeId !== 'undefined') {
     return {

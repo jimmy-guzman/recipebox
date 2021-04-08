@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
-import PropTypes from 'proptypes'
+import { func, shape, string } from 'prop-types'
 
 export default class AddIngredientForm extends Component {
-  // static propTypes = {
-  //   selectedRecipeIndex: PropTypes.number.isRequired
-  // };
+  static propTypes = {
+    addIngredient: func.isRequired,
+    match: shape({ params: shape({ recipe: string }) }),
+  }
 
   state = { name: '' }
 
   onNameChange = (e) => {
     const name = e.target.value
+
     this.setState({ name })
   }
 

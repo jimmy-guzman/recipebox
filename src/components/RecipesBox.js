@@ -1,14 +1,16 @@
 import React from 'react'
-import PropTypes from 'proptypes'
+import { func, arrayOf, string, shape } from 'prop-types'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
+
 import Recipe from './Recipe'
 import AddRecipeForm from './AddRecipeForm'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 const RecipesBox = (props) => {
   const transitionOptions = {
     classNames: 'slide-left',
     timeout: { enter: 500, exit: 500 },
   }
+
   return (
     <div className='box__container  grid__col--6'>
       <header className='box__header'>
@@ -33,11 +35,11 @@ const RecipesBox = (props) => {
   )
 }
 
-// RecipesBox.propTypes = {
-//   recipes: PropTypes.object.isRequired,
-//   updateRecipe: PropTypes.func.isRequired,
-//   removeRecipe: PropTypes.func.isRequired,
-//   addRecipe: PropTypes.func.isRequired
-// };
+RecipesBox.propTypes = {
+  recipes: arrayOf(shape({ recipeId: string })),
+  updateRecipe: func.isRequired,
+  removeRecipe: func.isRequired,
+  addRecipe: func.isRequired,
+}
 
 export default RecipesBox

@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import PropTypes from 'proptypes'
+import React from 'react'
+import { func, shape, string, number } from 'prop-types'
 
 const Ingredient = (props) => (
   <li className='box__item'>
@@ -17,6 +17,7 @@ const Ingredient = (props) => (
       onBlur={(e) => (e.currentTarget.readOnly = 'true')}
     />
     <button
+      type='button'
       className='btn__secondary'
       onClick={() =>
         props.removeIngredient(props.match.params.recipe, props.index)
@@ -28,9 +29,11 @@ const Ingredient = (props) => (
 )
 
 Ingredient.propTypes = {
-  index: PropTypes.number.isRequired,
-  removeIngredient: PropTypes.func.isRequired,
-  updateIngredient: PropTypes.func.isRequired,
+  index: number.isRequired,
+  match: shape({ params: shape({ recipe: string }) }),
+  name: string,
+  removeIngredient: func.isRequired,
+  updateIngredient: func.isRequired,
 }
 
 export default Ingredient

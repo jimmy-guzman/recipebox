@@ -1,7 +1,4 @@
-import sampleRecipes from '../Data/recipes'
-
-const initialState = sampleRecipes
-
+// eslint-disable-next-line default-param-last
 function recipes(state = [], action) {
   switch (action.type) {
     case 'ADD_RECIPE': {

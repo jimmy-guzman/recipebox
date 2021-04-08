@@ -1,10 +1,12 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
-  output: {
-    publicPath: '/',
+  devServer: {
+    historyApiFallback: true,
   },
+  devtool: 'eval-cheap-source-map',
   module: {
     rules: [
       {
@@ -48,11 +50,12 @@ module.exports = {
       },
     ],
   },
-  devServer: {
-    historyApiFallback: true,
+  output: {
+    publicPath: '/',
   },
-  devtool: 'eval-cheap-source-map',
+
   plugins: [
+    new ESLintPlugin({}),
     new HtmlWebPackPlugin({
       template: 'src/index.html',
       filename: './index.html',
