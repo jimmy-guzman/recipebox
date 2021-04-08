@@ -18,6 +18,7 @@ const Ingredient = (props) => (
     />
     <button
       type='button'
+      aria-label={`delete ${props.name}`}
       className='btn__secondary'
       onClick={() =>
         props.removeIngredient(props.match.params.recipe, props.index)

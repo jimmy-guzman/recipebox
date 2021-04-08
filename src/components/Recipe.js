@@ -7,6 +7,7 @@ const Recipe = ({ details, index, removeRecipe }) => (
     <Link to={`/${details.recipeId}`}>{details.name} </Link>
     <button
       type='button'
+      aria-label={`delete ${details.name}`}
       className='btn__secondary'
       onClick={() => removeRecipe(index)}
     >

@@ -26,6 +26,7 @@ export default class Instructions extends Component {
           </ul>
           <span
             role='button'
+            aria-label='close instructions'
             tabIndex='0'
             className='close'
             onKeyDown={this.handleClick}

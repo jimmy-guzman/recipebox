@@ -21,7 +21,7 @@ const ViewBox = (props) => {
           onBlur={(e) => (e.currentTarget.readOnly = 'true')}
         />
 
-        <Link to='/'>
+        <Link to='/' role='link' aria-label='back'>
           <BackIcon height={24} width={24} />
         </Link>
       </header>

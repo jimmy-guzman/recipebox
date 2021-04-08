@@ -5,6 +5,8 @@
     "noreferrer",
     "persistor",
     "proptypes",
-    "recipebox"
+    "recipebox",
+    "selectall",
+    "testid"
   ]
 }
