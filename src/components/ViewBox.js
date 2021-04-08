@@ -16,7 +16,7 @@ const ViewBox = (props) => {
         <input
           value={props.recipes[i].name}
           onChange={(e) => props.updateRecipe(i, e.target.value)}
-          readOnly='true'
+          readOnly
           onDoubleClick={(e) => (e.target.readOnly = '')}
           onBlur={(e) => (e.currentTarget.readOnly = 'true')}
         />

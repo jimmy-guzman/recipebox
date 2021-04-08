@@ -12,7 +12,7 @@ const Ingredient = (props) => (
           e.target.value
         )
       }
-      readOnly='true'
+      readOnly
       onDoubleClick={(e) => (e.target.readOnly = '')}
       onBlur={(e) => (e.currentTarget.readOnly = 'true')}
     />

@@ -1,14 +1,14 @@
 import { createStore, applyMiddleware } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import createHistory from 'history/createBrowserHistory'
-import { routerMiddleware } from 'react-router-redux'
+import { createBrowserHistory } from 'history'
+import { routerMiddleware } from 'connected-react-router'
 
 import ingredients from '../Data/ingredients'
 import recipes from '../Data/recipes'
-import rootReducer from '../reducers/index'
+import rootReducer from '../reducers'
 
-export const history = createHistory()
+export const history = createBrowserHistory()
 const middleware = routerMiddleware(history)
 
 const defaultState = {
@@ -21,7 +21,7 @@ const persistConfig = {
   storage,
 }
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer(history))
 
 export const store = createStore(
   persistedReducer,
