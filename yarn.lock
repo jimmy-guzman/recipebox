@@ -883,6 +883,11 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@comparto/prettier-config@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@comparto/prettier-config/-/prettier-config-1.2.0.tgz#888ec7a181301c36e444109116906a856f5fbb98"
+  integrity sha512-zepOINy2KrVX/6HmlFVGRyWszh78nUROYUuuFzWh00F05N/7Jq4qEwsljFDBug/UQGRvRfobCCH+Ep4C6Z2z9Q==
+
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.2.tgz#8f03a22a04de437254e8ce8cc84ba39689288752"
@@ -4928,6 +4933,11 @@ prepend-http@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
   integrity sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
+
+prettier@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
+  integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
 
 pretty-error@^2.1.1:
   version "2.1.2"

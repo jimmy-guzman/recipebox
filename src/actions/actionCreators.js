@@ -1,44 +1,44 @@
 export function removeRecipe(index) {
   return {
-    type: "REMOVE_RECIPE",
-    index
-  };
+    type: 'REMOVE_RECIPE',
+    index,
+  }
 }
 
 export function addRecipe(name) {
   return {
-    type: "ADD_RECIPE",
-    name
-  };
+    type: 'ADD_RECIPE',
+    name,
+  }
 }
 
 export function updateRecipe(index, name) {
   return {
-    type: "UPDATE_RECIPE",
+    type: 'UPDATE_RECIPE',
     index,
-    name
-  };
+    name,
+  }
 }
 
 export function addIngredient(recipeId, name) {
   return {
-    type: "ADD_INGREDIENT",
+    type: 'ADD_INGREDIENT',
     recipeId,
-    name
-  };
+    name,
+  }
 }
 export function removeIngredient(recipeId, index) {
   return {
-    type: "REMOVE_INGREDIENT",
+    type: 'REMOVE_INGREDIENT',
     recipeId,
-    index
-  };
+    index,
+  }
 }
 export function updateIngredient(recipeId, index, name) {
   return {
-    type: "UPDATE_INGREDIENT",
+    type: 'UPDATE_INGREDIENT',
     recipeId,
     index,
-    name
-  };
+    name,
+  }
 }

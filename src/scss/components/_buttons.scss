@@ -1,12 +1,12 @@
 .btn {
   @include e(primary) {
-    @include button-setup("primary");
+    @include button-setup('primary');
     font-size: em(32px);
     &:focus {
       border: none;
     }
   }
   @include e(secondary) {
-    @include button-setup("secondary");
+    @include button-setup('secondary');
   }
 }

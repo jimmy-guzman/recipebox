@@ -6,8 +6,11 @@
   "scripts": {
     "start": "webpack serve --mode development --open",
     "build": "webpack --mode production",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
     "gh-deploy": "npm run build && gh-pages -d dist -b gh-pages"
   },
+  "prettier": "@comparto/prettier-config",
   "keywords": [],
   "author": "Jimmy Guzman",
   "license": "ISC",
@@ -17,6 +20,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
     "@babel/preset-env": "^7.13.12",
     "@babel/preset-react": "^7.13.13",
+    "@comparto/prettier-config": "^1.2.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^0.28.11",
     "file-loader": "^6.2.0",
@@ -29,6 +33,7 @@
     "mini-css-extract-plugin": "^1.4.1",
     "node-sass": "^4.9.3",
     "postcss-loader": "^2.1.6",
+    "prettier": "^2.2.1",
     "proptypes": "^1.1.0",
     "redux": "^3.7.2",
     "redux-persist": "^5.10.0",

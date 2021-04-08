@@ -1,39 +1,36 @@
-import sampleIngredients from "../Data/ingredients";
+import sampleIngredients from '../Data/ingredients'
 
-const initialState = sampleIngredients;
+const initialState = sampleIngredients
 
 function recipeIngredients(state = [], action) {
   switch (action.type) {
-    case "ADD_INGREDIENT":
-      return [...state, { name: action.name, id: Date.now() }];
+    case 'ADD_INGREDIENT':
+      return [...state, { name: action.name, id: Date.now() }]
 
-    case "REMOVE_INGREDIENT": {
-      return [
-        ...state.slice(0, action.index),
-        ...state.slice(action.index + 1)
-      ];
+    case 'REMOVE_INGREDIENT': {
+      return [...state.slice(0, action.index), ...state.slice(action.index + 1)]
     }
-    case "UPDATE_INGREDIENT": {
+    case 'UPDATE_INGREDIENT': {
       return [
         ...state.slice(0, action.index),
         { ...state[action.index], name: action.name },
-        ...state.slice(action.index + 1)
-      ];
+        ...state.slice(action.index + 1),
+      ]
     }
     default:
-      return state;
+      return state
   }
-  return state;
+  return state
 }
 
 function ingredients(state = [], action) {
-  if (typeof action.recipeId !== "undefined") {
+  if (typeof action.recipeId !== 'undefined') {
     return {
       ...state,
-      [action.recipeId]: recipeIngredients(state[action.recipeId], action)
-    };
+      [action.recipeId]: recipeIngredients(state[action.recipeId], action),
+    }
   }
-  return state;
+  return state
 }
 
-export default ingredients;
+export default ingredients
