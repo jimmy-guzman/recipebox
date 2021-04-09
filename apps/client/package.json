@@ -1,0 +1,29 @@
+{
+  "name": "client",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": "true",
+  "scripts": {
+    "start": "webpack serve --mode development --open --color",
+    "build": "webpack --mode production --color",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "lint": "eslint . --ext .js --color",
+    "lint:fix": "eslint . --ext .js --fix --color"
+  },
+  "prettier": "@comparto/prettier-config",
+  "dependencies": {
+    "connected-react-router": "^6.9.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-redux": "^7.2.3",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-transition-group": "^2.5.0",
+    "redux": "^4.0.5",
+    "prop-types": "^15.7.2",
+    "redux-persist": "^5.10.0",
+    "history": "^4.7.2"
+  }
+}

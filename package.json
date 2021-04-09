@@ -1,15 +1,15 @@
 {
   "name": "recipebox",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --mode development --open",
-    "build": "webpack --mode production",
-    "format": "prettier --check .",
-    "format:fix": "prettier --write .",
-    "lint": "eslint . --ext .js",
-    "lint:fix": "eslint . --ext .js --fix",
+    "start": "lerna run --stream --parallel start",
+    "build": "lerna run --stream build",
+    "format": "lerna run --stream format",
+    "format:fix": "lerna run --stream format:fix",
+    "lint": "lerna run --stream lint",
+    "lint:fix": "lerna run --stream lint:fix",
     "e2e": "cypress run",
     "e2e:open": "cypress open",
     "gh-deploy": "npm run build && gh-pages -d dist -b gh-pages"
@@ -37,18 +37,16 @@
     "eslint-webpack-plugin": "^2.5.3",
     "file-loader": "^6.2.0",
     "gh-pages": "^1.2.0",
-    "history": "^4.7.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^5.3.1",
     "imagemin": "^5.3.1",
     "img-loader": "^3.0.0",
+    "lerna": "^4.0.0",
     "mini-css-extract-plugin": "^1.4.1",
     "node-sass": "^4.9.3",
     "postcss": "^8.2.9",
     "postcss-loader": "^5.2.0",
     "prettier": "^2.0.5",
-    "prop-types": "^15.7.2",
-    "redux-persist": "^5.10.0",
     "sass-loader": "^11.0.1",
     "typescript": "^4.0.0",
     "url-loader": "^4.1.1",
@@ -56,18 +54,12 @@
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
   },
-  "dependencies": {
-    "connected-react-router": "^6.9.1",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-redux": "^7.2.3",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-transition-group": "^2.5.0",
-    "redux": "^4.0.5"
-  },
   "volta": {
     "node": "14.16.1",
     "yarn": "1.22.10"
-  }
+  },
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ]
 }

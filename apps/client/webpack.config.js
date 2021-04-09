@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
@@ -7,6 +8,7 @@ module.exports = {
     historyApiFallback: true,
   },
   devtool: 'eval-cheap-source-map',
+  entry: './src/index.js',
   module: {
     rules: [
       {
@@ -53,7 +55,6 @@ module.exports = {
   output: {
     publicPath: '/',
   },
-
   plugins: [
     new ESLintPlugin({}),
     new HtmlWebPackPlugin({
