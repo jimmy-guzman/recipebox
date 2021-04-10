@@ -1,6 +1,6 @@
 import { IngredientsModel } from '../../models'
 
-const sampleIngredients: IngredientsModel = {
+export const ingredients: IngredientsModel = {
   recipe1: [
     { name: '6 eggs', id: '893894' },
     { name: '1/4 cup mayonnaise', id: '790944' },
@@ -47,5 +47,3 @@ const sampleIngredients: IngredientsModel = {
     { name: '2 tbsps melted butter', id: '36' },
   ],
 }
-
-export default sampleIngredients

@@ -34,8 +34,8 @@ const recipeIngredients = produce(
   []
 )
 
-const ingredients = produce(
-  (draft: IngredientsModel, action: IngredientActions): IngredientsModel => {
+export const ingredientsReducer = produce(
+  (draft: IngredientsModel, action): IngredientsModel => {
     if (typeof action.recipeId !== 'undefined') {
       return {
         ...draft,
@@ -46,5 +46,3 @@ const ingredients = produce(
   },
   {}
 )
-
-export default ingredients

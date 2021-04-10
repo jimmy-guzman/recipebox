@@ -1,6 +1,6 @@
 import { RecipeModel } from '../../models'
 
-const sampleRecipes: RecipeModel[] = [
+export const recipes: RecipeModel[] = [
   {
     id: 'recipe1',
     name: 'Classic Deviled Eggs',
@@ -26,5 +26,3 @@ const sampleRecipes: RecipeModel[] = [
     name: 'Cranberry & Apple Stuffed Acorn Squash',
   },
 ]
-
-export default sampleRecipes
