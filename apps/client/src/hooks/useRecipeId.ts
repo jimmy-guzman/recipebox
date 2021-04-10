@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 
 export const useRecipeId = (): string => {
-  const { recipe: recipeId } = useParams<{ recipe: string }>()
+  const { id: recipeId } = useParams<{ id: string }>()
 
   return recipeId
 }

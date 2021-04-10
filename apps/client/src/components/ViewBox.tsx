@@ -12,7 +12,7 @@ export const ViewBox = (): JSX.Element => {
   const recipes = useRecipes()
   const dispatch = useDispatch()
 
-  const i = recipes.findIndex((recipe) => recipe.recipeId === recipeId)
+  const i = recipes.findIndex((recipe) => recipe.id === recipeId)
 
   return (
     <div className='box__container  grid__col--6'>

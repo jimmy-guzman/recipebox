@@ -22,8 +22,8 @@ export const RecipesBox = (): JSX.Element => {
         <TransitionGroup component={null}>
           {recipes.map((recipe, index) => {
             return (
-              <CSSTransition {...transitionOptions} key={recipe.recipeId}>
-                <Recipe details={recipe} key={recipe.recipeId} index={index} />
+              <CSSTransition {...transitionOptions} key={recipe.id}>
+                <Recipe details={recipe} key={recipe.id} index={index} />
               </CSSTransition>
             )
           })}

@@ -22,7 +22,7 @@ export const App = (): JSX.Element => {
             <Route exact path='/'>
               <RecipesBox />
             </Route>
-            <Route path='/:recipe'>
+            <Route path='/recipe/:id'>
               <ViewBox />
             </Route>
           </Switch>

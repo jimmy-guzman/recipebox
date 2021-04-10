@@ -1,11 +1,11 @@
 export interface IngredientModel {
-  id: number
+  id: string
   name: string
 }
 
 export interface RecipeModel {
+  id: string
   name: string
-  recipeId: string
 }
 
 export type IngredientsModel = Record<string, IngredientModel[] | undefined>

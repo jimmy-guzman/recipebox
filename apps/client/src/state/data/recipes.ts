@@ -2,27 +2,27 @@ import { RecipeModel } from '../../models'
 
 const sampleRecipes: RecipeModel[] = [
   {
-    recipeId: 'recipe1',
+    id: 'recipe1',
     name: 'Classic Deviled Eggs',
   },
   {
-    recipeId: 'recipe2',
+    id: 'recipe2',
     name: 'Crock Pot Roast',
   },
   {
-    recipeId: 'recipe3',
+    id: 'recipe3',
     name: 'Roasted Asparagus',
   },
   {
-    recipeId: 'recipe4',
+    id: 'recipe4',
     name: 'Curried Lentils and Rice',
   },
   {
-    recipeId: 'recipe5',
+    id: 'recipe5',
     name: 'Big Night Pizza',
   },
   {
-    recipeId: 'recipe6',
+    id: 'recipe6',
     name: 'Cranberry & Apple Stuffed Acorn Squash',
   },
 ]

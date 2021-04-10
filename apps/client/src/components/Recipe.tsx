@@ -15,7 +15,7 @@ const Recipe = ({ details, index }: RecipeProps): JSX.Element => {
 
   return (
     <li className='box__item'>
-      <Link to={`/${details.recipeId}`}>{details.name} </Link>
+      <Link to={`/recipe/${details.id}`}>{details.name} </Link>
       <button
         type='button'
         aria-label={`delete ${details.name}`}

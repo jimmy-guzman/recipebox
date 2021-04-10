@@ -11,10 +11,13 @@
     "format:fix": "prettier --write .",
     "lint": "eslint . --ext .js --color",
     "lint:fix": "eslint . --ext .js --fix --color",
-    "ts:check": "tsc --pretty"
+    "ts:check": "tsc --pretty",
+    "ts:watch": "tsc --pretty --watch"
   },
   "prettier": "@comparto/prettier-config",
   "dependencies": {
+    "immer": "^9.0.1",
+    "nanoid": "^3.1.22",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^16.5.2",
