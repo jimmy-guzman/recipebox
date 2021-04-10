@@ -1,29 +1,23 @@
-import { nanoid } from 'nanoid'
 import produce from 'immer'
 
 import { IngredientModel, IngredientsModel } from '../../models'
 
-export interface IngredientActions {
-  index: number
-  name: string
-  recipeId: string
-  type: 'ADD_INGREDIENT' | 'REMOVE_INGREDIENT' | 'UPDATE_INGREDIENT'
-}
-
 const recipeIngredients = produce(
-  (draft: IngredientModel[], action: IngredientActions): IngredientModel[] => {
+  (draft: IngredientModel[], action): IngredientModel[] => {
     switch (action.type) {
-      case 'ADD_INGREDIENT':
-        draft.push({ name: action.name, id: nanoid(10) })
+      case 'ingredients/add':
+        draft.push(action.payload)
 
         return draft
-      case 'REMOVE_INGREDIENT': {
-        draft.splice(action.index, 1)
+      case 'ingredients/remove': {
+        draft.splice(action.payload.index, 1)
 
         return draft
       }
-      case 'UPDATE_INGREDIENT': {
-        draft[action.index] = { ...draft[action.index], name: action.name }
+      case 'ingredients/update': {
+        const { payload } = action
+
+        draft[payload.index] = { ...draft[payload.index], name: payload.name }
 
         return draft
       }
@@ -36,12 +30,18 @@ const recipeIngredients = produce(
 
 export const ingredientsReducer = produce(
   (draft: IngredientsModel, action): IngredientsModel => {
-    if (typeof action.recipeId !== 'undefined') {
+    if (action.payload) {
+      const {
+        payload: { recipeId, ...payload },
+        type,
+      } = action
+
       return {
         ...draft,
-        [action.recipeId]: recipeIngredients(draft[action.recipeId], action),
+        [recipeId]: recipeIngredients(draft[recipeId], { payload, type }),
       }
     }
+
     return draft
   },
   {}

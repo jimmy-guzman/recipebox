@@ -9,8 +9,3 @@ export interface RecipeModel {
 }
 
 export type IngredientsModel = Record<string, IngredientModel[] | undefined>
-
-export interface AppState {
-  ingredients: IngredientsModel
-  recipes: RecipeModel[]
-}

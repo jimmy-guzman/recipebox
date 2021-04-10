@@ -1,50 +1,50 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-export function removeRecipe(index: number) {
-  return {
-    type: 'REMOVE_RECIPE',
-    index,
-  }
-}
+import { createAction, nanoid } from '@reduxjs/toolkit'
 
-export function addRecipe(name: string) {
-  return {
-    type: 'ADD_RECIPE',
-    name,
-  }
-}
+export const removeRecipe = createAction('recipes/remove', (index: number) => {
+  return { payload: index }
+})
 
-export function updateRecipe(index: number, name: string) {
+export const addRecipe = createAction('recipes/add', (name: string) => {
   return {
-    type: 'UPDATE_RECIPE',
-    index,
-    name,
+    payload: {
+      name,
+      id: nanoid(),
+      createdAt: new Date().toISOString(),
+    },
   }
-}
+})
 
-export function addIngredient(recipeId: string, name: string) {
-  return {
-    type: 'ADD_INGREDIENT',
-    recipeId,
-    name,
+export const updateRecipe = createAction(
+  'recipes/update',
+  (index: number, name: string) => {
+    return { payload: { index, name } }
   }
-}
-export function removeIngredient(recipeId: string, index: number) {
-  return {
-    type: 'REMOVE_INGREDIENT',
-    recipeId,
-    index,
+)
+
+export const addIngredient = createAction(
+  'ingredients/add',
+  (recipeId: string, name: string) => {
+    return {
+      payload: {
+        name,
+        recipeId,
+        id: nanoid(),
+        createdAt: new Date().toISOString(),
+      },
+    }
   }
-}
-export function updateIngredient(
-  recipeId: string,
-  index: number,
-  name: string
-) {
-  return {
-    type: 'UPDATE_INGREDIENT',
-    recipeId,
-    index,
-    name,
+)
+
+export const removeIngredient = createAction(
+  'ingredients/remove',
+  (recipeId: string, index: number) => {
+    return { payload: { recipeId, index } }
   }
-}
+)
+
+export const updateIngredient = createAction(
+  'ingredients/update',
+  (recipeId: string, index: number, name: string) => {
+    return { payload: { recipeId, index, name } }
+  }
+)

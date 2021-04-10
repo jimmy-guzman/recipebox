@@ -1,11 +1,6 @@
-import { useSelector } from 'react-redux'
-
-import { AppState, IngredientsModel } from '../models'
+import { IngredientsModel } from '../models'
+import { useAppSelector } from './useAppSelector'
 
 export const useIngredients = (): IngredientsModel => {
-  const ingredients = useSelector<AppState, IngredientsModel>(
-    (state) => state.ingredients
-  )
-
-  return ingredients
+  return useAppSelector((state) => state.ingredients)
 }
