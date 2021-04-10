@@ -1,5 +1,13 @@
-// eslint-disable-next-line default-param-last
-function recipes(state = [], action) {
+import { RecipeModel } from '../types'
+
+interface Action {
+  index: number
+  name: string
+  type: 'ADD_RECIPE' | 'REMOVE_RECIPE' | 'UPDATE_RECIPE'
+}
+
+// eslint-disable-next-line @typescript-eslint/default-param-last
+function recipes(state: RecipeModel[] = [], action: Action): RecipeModel[] {
   switch (action.type) {
     case 'ADD_RECIPE': {
       return [

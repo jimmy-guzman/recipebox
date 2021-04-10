@@ -3,6 +3,7 @@
   "compilerOptions": {
     "sourceMap": true,
     "strict": true,
+    "noEmit": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,

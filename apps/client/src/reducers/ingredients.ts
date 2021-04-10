@@ -1,5 +1,17 @@
-/* eslint-disable default-param-last */
-function recipeIngredients(state = [], action) {
+import { IngredientModel, IngredientsModel } from '../types'
+
+interface Action {
+  index: number
+  name: string
+  recipeId: string
+  type: 'ADD_INGREDIENT' | 'REMOVE_INGREDIENT' | 'UPDATE_INGREDIENT'
+}
+
+function recipeIngredients(
+  // eslint-disable-next-line @typescript-eslint/default-param-last
+  state: IngredientModel[] = [],
+  action: Action
+): IngredientModel[] {
   switch (action.type) {
     case 'ADD_INGREDIENT':
       return [...state, { name: action.name, id: Date.now() }]
@@ -18,7 +30,12 @@ function recipeIngredients(state = [], action) {
       return state
   }
 }
-function ingredients(state = [], action) {
+
+function ingredients(
+  // eslint-disable-next-line @typescript-eslint/default-param-last
+  state: IngredientsModel = {},
+  action: Action
+): IngredientsModel {
   if (typeof action.recipeId !== 'undefined') {
     return {
       ...state,

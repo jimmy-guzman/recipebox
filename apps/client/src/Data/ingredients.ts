@@ -1,4 +1,6 @@
-const sampleIngredients = {
+import { IngredientsModel } from '../types'
+
+const sampleIngredients: IngredientsModel = {
   recipe1: [
     { name: '6 eggs', id: 893894 },
     { name: '1/4 cup mayonnaise', id: 790944 },
@@ -7,7 +9,6 @@ const sampleIngredients = {
     { name: 'freshly ground black pepper', id: 848484 },
     { name: 'smoked spanish paprika', id: 843333 },
   ],
-
   recipe2: [
     { name: '1 beef roast', id: 7 },
     { name: '1 package brown gravy mix', id: 8 },

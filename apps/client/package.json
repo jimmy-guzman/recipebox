@@ -10,24 +10,28 @@
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint": "eslint . --ext .js --color",
-    "lint:fix": "eslint . --ext .js --fix --color"
+    "lint:fix": "eslint . --ext .js --fix --color",
+    "ts:check": "tsc --pretty"
   },
   "prettier": "@comparto/prettier-config",
   "dependencies": {
     "connected-react-router": "^6.9.1",
     "history": "^4.7.2",
     "prop-types": "^15.7.2",
-    "react": "^16.5.2",
+    "react": "^17.0.2",
     "react-dom": "^16.5.2",
     "react-redux": "^7.2.3",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-transition-group": "^2.5.0",
+    "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
     "redux-persist": "^5.10.0"
   },
   "devDependencies": {
     "@types/history": "^4.7.8",
-    "@types/react-dom": "^17.0.3"
+    "@types/react-dom": "^17.0.3",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/react-transition-group": "^4.4.1",
+    "redux-devtools-extension": "^2.13.9"
   }
 }

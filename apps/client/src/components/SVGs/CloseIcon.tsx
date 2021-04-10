@@ -1,7 +1,12 @@
 import React from 'react'
 import { number } from 'prop-types'
 
-const CloseIcon = ({ height, width }) => (
+interface CloseIconProps {
+  height: number
+  width: number
+}
+
+const CloseIcon = ({ height, width }: CloseIconProps): JSX.Element => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     viewBox='0 0 352 512'

@@ -1,4 +1,6 @@
-const sampleRecipes = [
+import { RecipeModel } from '../types'
+
+const sampleRecipes: RecipeModel[] = [
   {
     recipeId: 'recipe1',
     name: 'Classic Deviled Eggs',
