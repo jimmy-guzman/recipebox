@@ -4,8 +4,8 @@ import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { ConnectedRouter } from 'connected-react-router'
 
-import App from './components/App'
-import { store, persistor, history } from './store'
+import { App } from './app'
+import { store, persistor, history } from './state/store'
 
 import './scss/index.scss'
 

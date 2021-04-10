@@ -1,4 +1,4 @@
-import { IngredientsModel } from '../types'
+import { IngredientsModel } from '../../models'
 
 const sampleIngredients: IngredientsModel = {
   recipe1: [

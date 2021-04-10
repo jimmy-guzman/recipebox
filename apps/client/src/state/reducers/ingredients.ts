@@ -1,4 +1,4 @@
-import { IngredientModel, IngredientsModel } from '../types'
+import { IngredientModel, IngredientsModel } from '../../models'
 
 interface Action {
   index: number

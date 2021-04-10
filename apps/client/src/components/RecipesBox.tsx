@@ -10,7 +10,7 @@ const transitionOptions = {
   timeout: { enter: 500, exit: 500 },
 }
 
-const RecipesBox = (): JSX.Element => {
+export const RecipesBox = (): JSX.Element => {
   const recipes = useRecipes()
 
   return (
@@ -33,5 +33,3 @@ const RecipesBox = (): JSX.Element => {
     </div>
   )
 }
-
-export default RecipesBox

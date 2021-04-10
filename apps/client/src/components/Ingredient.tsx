@@ -2,7 +2,10 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { removeIngredient, updateIngredient } from '../actions/actionCreators'
+import {
+  removeIngredient,
+  updateIngredient,
+} from '../state/actions/actionCreators'
 
 interface IngredientProps {
   index: number

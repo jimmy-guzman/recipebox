@@ -4,10 +4,10 @@ import { useDispatch } from 'react-redux'
 
 import BackIcon from './SVGs/BackIcon'
 import Ingredients from './Ingredients'
-import { updateRecipe } from '../actions/actionCreators'
+import { updateRecipe } from '../state/actions/actionCreators'
 import { useRecipes } from '../hooks'
 
-const ViewBox = (): JSX.Element => {
+export const ViewBox = (): JSX.Element => {
   const { recipe: recipeId } = useParams<{ recipe: string }>()
   const recipes = useRecipes()
   const dispatch = useDispatch()
@@ -38,5 +38,3 @@ const ViewBox = (): JSX.Element => {
     </div>
   )
 }
-
-export default ViewBox

@@ -2,7 +2,7 @@ import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { addIngredient } from '../actions/actionCreators'
+import { addIngredient } from '../state/actions/actionCreators'
 
 const AddIngredientForm = (): JSX.Element => {
   const dispatch = useDispatch()

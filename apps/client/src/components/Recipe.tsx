@@ -2,8 +2,8 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { RecipeModel } from '../types'
-import { removeRecipe } from '../actions/actionCreators'
+import { RecipeModel } from '../models'
+import { removeRecipe } from '../state/actions/actionCreators'
 
 interface RecipeProps {
   details: RecipeModel

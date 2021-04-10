@@ -2,17 +2,14 @@ import * as React from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
-import Header from './Header'
-import RecipesBox from './RecipesBox'
-import ViewBox from './ViewBox'
-import Instructions from './Instructions'
+import { Header, Instructions, RecipesBox, ViewBox } from '../components'
 import Background from '../img/background.svg'
 
 const styles = {
   backgroundImage: `url(${Background})`,
 }
 
-const App = (): JSX.Element => {
+export const App = (): JSX.Element => {
   const location = useLocation()
 
   return (
@@ -40,5 +37,3 @@ const App = (): JSX.Element => {
     </div>
   )
 }
-
-export default App

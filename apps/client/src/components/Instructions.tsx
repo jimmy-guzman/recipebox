@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Instructions = (): JSX.Element | null => {
+export const Instructions = (): JSX.Element | null => {
   const [isOpened, setIsOpened] = useState(true)
 
   const handleClick = (): void => {
@@ -37,5 +37,3 @@ const Instructions = (): JSX.Element | null => {
 
   return null
 }
-
-export default Instructions

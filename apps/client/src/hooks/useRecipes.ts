@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 
-import { AppState, RecipeModel } from '../types'
+import { AppState, RecipeModel } from '../models'
 
 export const useRecipes = (): RecipeModel[] => {
   const recipes = useSelector<AppState, RecipeModel[]>((state) => state.recipes)

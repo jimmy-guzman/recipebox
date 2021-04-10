@@ -1,4 +1,4 @@
-import { RecipeModel } from '../types'
+import { RecipeModel } from '../../models'
 
 interface Action {
   index: number
