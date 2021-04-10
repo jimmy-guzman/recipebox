@@ -1,6 +1,6 @@
 import { IngredientModel, IngredientsModel } from '../../models'
 
-interface Action {
+export interface IngredientActions {
   index: number
   name: string
   recipeId: string
@@ -10,7 +10,7 @@ interface Action {
 function recipeIngredients(
   // eslint-disable-next-line @typescript-eslint/default-param-last
   state: IngredientModel[] = [],
-  action: Action
+  action: IngredientActions
 ): IngredientModel[] {
   switch (action.type) {
     case 'ADD_INGREDIENT':
@@ -34,7 +34,7 @@ function recipeIngredients(
 function ingredients(
   // eslint-disable-next-line @typescript-eslint/default-param-last
   state: IngredientsModel = {},
-  action: Action
+  action: IngredientActions
 ): IngredientsModel {
   if (typeof action.recipeId !== 'undefined') {
     return {

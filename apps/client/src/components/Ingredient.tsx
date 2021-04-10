@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
 
+import { useRecipeId } from '../hooks'
 import {
   removeIngredient,
   updateIngredient,
@@ -13,7 +13,7 @@ interface IngredientProps {
 }
 
 const Ingredient = (props: IngredientProps): JSX.Element => {
-  const { recipe } = useParams<{ recipe: string }>()
+  const recipeId = useRecipeId()
   const dispatch = useDispatch()
 
   return (
@@ -21,7 +21,7 @@ const Ingredient = (props: IngredientProps): JSX.Element => {
       <input
         value={props.name}
         onChange={(e): void => {
-          dispatch(updateIngredient(recipe, props.index, e.target.value))
+          dispatch(updateIngredient(recipeId, props.index, e.target.value))
         }}
         readOnly
         onDoubleClick={(e): void => {
@@ -36,7 +36,7 @@ const Ingredient = (props: IngredientProps): JSX.Element => {
         aria-label={`delete ${props.name}`}
         className='btn__secondary'
         onClick={(): void => {
-          dispatch(removeIngredient(recipe, props.index))
+          dispatch(removeIngredient(recipeId, props.index))
         }}
       >
         X

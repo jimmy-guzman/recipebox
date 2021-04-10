@@ -1,12 +1,12 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
 
+import { useRecipeId } from '../hooks'
 import { addIngredient } from '../state/actions/actionCreators'
 
 const AddIngredientForm = (): JSX.Element => {
   const dispatch = useDispatch()
-  const { recipe } = useParams<{ recipe: string }>()
+  const recipeId = useRecipeId()
   const [name, setName] = useState('')
 
   const onNameChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -15,7 +15,7 @@ const AddIngredientForm = (): JSX.Element => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
-    dispatch(addIngredient(recipe, name))
+    dispatch(addIngredient(recipeId, name))
     setName('')
   }
 

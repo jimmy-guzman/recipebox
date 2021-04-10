@@ -1,14 +1,14 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
 import BackIcon from './SVGs/BackIcon'
 import Ingredients from './Ingredients'
 import { updateRecipe } from '../state/actions/actionCreators'
-import { useRecipes } from '../hooks'
+import { useRecipeId, useRecipes } from '../hooks'
 
 export const ViewBox = (): JSX.Element => {
-  const { recipe: recipeId } = useParams<{ recipe: string }>()
+  const recipeId = useRecipeId()
   const recipes = useRecipes()
   const dispatch = useDispatch()
 

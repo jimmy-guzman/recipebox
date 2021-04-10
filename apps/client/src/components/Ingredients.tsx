@@ -1,11 +1,10 @@
 import React from 'react'
 import { arrayOf, shape, string, number } from 'prop-types'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
-import { useParams } from 'react-router-dom'
 
 import AddIngredientForm from './AddIngredientForm'
 import Ingredient from './Ingredient'
-import { useIngredients } from '../hooks'
+import { useIngredients, useRecipeId } from '../hooks'
 
 const transitionOptions = {
   classNames: 'slide-left',
@@ -13,9 +12,9 @@ const transitionOptions = {
 }
 
 const Ingredients = (): JSX.Element => {
-  const { recipe } = useParams<{ recipe: string }>()
+  const recipeId = useRecipeId()
   const ingredients = useIngredients()
-  const recipeIngredients = ingredients[recipe] ?? []
+  const recipeIngredients = ingredients[recipeId] ?? []
 
   return (
     <ul className='box__list'>

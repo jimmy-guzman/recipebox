@@ -1,13 +1,16 @@
 import { RecipeModel } from '../../models'
 
-interface Action {
+export interface RecipesActions {
   index: number
   name: string
   type: 'ADD_RECIPE' | 'REMOVE_RECIPE' | 'UPDATE_RECIPE'
 }
 
-// eslint-disable-next-line @typescript-eslint/default-param-last
-function recipes(state: RecipeModel[] = [], action: Action): RecipeModel[] {
+function recipes(
+  // eslint-disable-next-line @typescript-eslint/default-param-last
+  state: RecipeModel[] = [],
+  action: RecipesActions
+): RecipeModel[] {
   switch (action.type) {
     case 'ADD_RECIPE': {
       return [
