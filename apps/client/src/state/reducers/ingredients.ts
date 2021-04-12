@@ -1,48 +1,27 @@
-import produce from 'immer'
+import { createReducer } from '@reduxjs/toolkit'
 
-import { IngredientModel, IngredientsModel } from '../../models'
+import { IngredientsModel } from '../../models'
+import { addIngredient, removeIngredient, updateIngredient } from '../actions'
 
-const recipeIngredients = produce(
-  (draft: IngredientModel[], action): IngredientModel[] => {
-    switch (action.type) {
-      case 'ingredients/add':
-        draft.push(action.payload)
+export const ingredientsReducer = createReducer<IngredientsModel>(
+  {},
+  (builder) => {
+    builder
+      .addCase(addIngredient, (draft, { payload }) => {
+        draft[payload.recipeId]?.push(payload)
+      })
+      .addCase(removeIngredient, (draft, { payload }) => {
+        draft[payload.recipeId]?.splice(payload.index, 1)
+      })
+      .addCase(updateIngredient, (draft, { payload }) => {
+        const recipe = draft[payload.recipeId]
 
-        return draft
-      case 'ingredients/remove': {
-        draft.splice(action.payload.index, 1)
-
-        return draft
-      }
-      case 'ingredients/update': {
-        const { payload } = action
-
-        draft[payload.index] = { ...draft[payload.index], name: payload.name }
-
-        return draft
-      }
-      default:
-        return draft
-    }
-  },
-  []
-)
-
-export const ingredientsReducer = produce(
-  (draft: IngredientsModel, action): IngredientsModel => {
-    if (action.payload) {
-      const {
-        payload: { recipeId, ...payload },
-        type,
-      } = action
-
-      return {
-        ...draft,
-        [recipeId]: recipeIngredients(draft[recipeId], { payload, type }),
-      }
-    }
-
-    return draft
-  },
-  {}
+        if (recipe?.length) {
+          recipe[payload.index] = {
+            ...recipe[payload.index],
+            name: payload.name,
+          }
+        }
+      })
+  }
 )

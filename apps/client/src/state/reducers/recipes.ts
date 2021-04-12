@@ -1,32 +1,17 @@
-import produce from 'immer'
+import { createReducer } from '@reduxjs/toolkit'
 
 import { RecipeModel } from '../../models'
+import { addRecipe, removeRecipe, updateRecipe } from '../actions'
 
-export const recipesReducer = produce(
-  (draft: RecipeModel[], action): RecipeModel[] => {
-    switch (action.type) {
-      case 'recipes/add': {
-        draft.push(action.payload)
-
-        return draft
-      }
-      case 'recipes/remove':
-        draft.splice(action.payload, 1)
-
-        return draft
-      case 'recipes/update': {
-        const { payload } = action
-
-        draft[payload.index] = {
-          ...draft[payload.index],
-          name: payload.name,
-        }
-
-        return draft
-      }
-      default:
-        return draft
-    }
-  },
-  []
-)
+export const recipesReducer = createReducer<RecipeModel[]>([], (builder) => {
+  builder
+    .addCase(addRecipe, (draft, { payload }) => {
+      draft.push(payload)
+    })
+    .addCase(removeRecipe, (draft, { payload }) => {
+      draft.splice(payload, 1)
+    })
+    .addCase(updateRecipe, (draft, { payload }) => {
+      draft[payload.index] = { ...draft[payload.index], name: payload.name }
+    })
+})
