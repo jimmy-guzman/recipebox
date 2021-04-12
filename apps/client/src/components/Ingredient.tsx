@@ -1,11 +1,7 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 
-import { useRecipeId } from '../hooks'
-import {
-  removeIngredient,
-  updateIngredient,
-} from '../state/actions/actionCreators'
+import { useAppDispatch, useRecipeId } from '../hooks'
+import { removeIngredient, updateIngredient } from '../state/actions'
 
 interface IngredientProps {
   index: number
@@ -14,7 +10,7 @@ interface IngredientProps {
 
 const Ingredient = (props: IngredientProps): JSX.Element => {
   const recipeId = useRecipeId()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   return (
     <li className='box__item'>

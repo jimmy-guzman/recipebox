@@ -11,7 +11,7 @@ export const Instructions = (): JSX.Element | null => {
     return (
       <div className='instructions'>
         <ul>
-          <li>{`Click on a recipe name to view that recipe's ingredients.`}</li>
+          <li>Click on a recipe name to view that recipe's ingredients.</li>
           <li>
             Use the new recipe or ingredient bar to create a new recipe or
             ingredient.

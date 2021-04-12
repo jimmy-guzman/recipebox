@@ -1,11 +1,10 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
-import { useDispatch } from 'react-redux'
 
-import { useRecipeId } from '../hooks'
-import { addIngredient } from '../state/actions/actionCreators'
+import { useRecipeId, useAppDispatch } from '../hooks'
+import { addIngredient } from '../state/actions'
 
 const AddIngredientForm = (): JSX.Element => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const recipeId = useRecipeId()
   const [name, setName] = useState('')
 

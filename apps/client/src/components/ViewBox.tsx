@@ -1,16 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
 
 import BackIcon from './SVGs/BackIcon'
 import Ingredients from './Ingredients'
-import { updateRecipe } from '../state/actions/actionCreators'
-import { useRecipeId, useRecipes } from '../hooks'
+import { updateRecipe } from '../state/actions'
+import { useAppDispatch, useRecipeId, useRecipes } from '../hooks'
 
 export const ViewBox = (): JSX.Element => {
   const recipeId = useRecipeId()
   const recipes = useRecipes()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const i = recipes.findIndex((recipe) => recipe.id === recipeId)
 

@@ -1,9 +1,9 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import { useAppDispatch } from '../hooks'
 import { RecipeModel } from '../models'
-import { removeRecipe } from '../state/actions/actionCreators'
+import { removeRecipe } from '../state/actions'
 
 interface RecipeProps {
   details: RecipeModel
@@ -11,7 +11,7 @@ interface RecipeProps {
 }
 
 const Recipe = ({ details, index }: RecipeProps): JSX.Element => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   return (
     <li className='box__item'>

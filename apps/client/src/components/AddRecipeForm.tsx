@@ -1,10 +1,10 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
-import { useDispatch } from 'react-redux'
 
-import { addRecipe } from '../state/actions/actionCreators'
+import { useAppDispatch } from '../hooks'
+import { addRecipe } from '../state/actions'
 
 const AddRecipeForm = (): JSX.Element => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const [name, setName] = useState('')
 
   const onNameChange = (e: ChangeEvent<HTMLInputElement>): void => {
