@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { useAppDispatch, useRecipeId } from '../hooks'
 import { removeIngredient, updateIngredient } from '../state/actions'
@@ -8,31 +8,33 @@ interface IngredientProps {
   name: string
 }
 
-const Ingredient = (props: IngredientProps): JSX.Element => {
+const Ingredient = ({ name, index }: IngredientProps): JSX.Element => {
+  const [isReadyOnly, setIsReadyOnly] = useState(true)
   const recipeId = useRecipeId()
   const dispatch = useAppDispatch()
 
   return (
     <li className='box__item'>
       <input
-        value={props.name}
+        value={name}
         onChange={(e): void => {
-          dispatch(updateIngredient(recipeId, props.index, e.target.value))
+          dispatch(updateIngredient(recipeId, index, e.target.value))
         }}
-        readOnly
-        onDoubleClick={(e): void => {
-          e.currentTarget.readOnly = false
+        readOnly={isReadyOnly}
+        onDoubleClick={(): void => {
+          setIsReadyOnly(false)
         }}
-        onBlur={(e): void => {
-          e.currentTarget.readOnly = true
+        onBlur={(): void => {
+          dispatch(updateIngredient(recipeId, index, name))
+          setIsReadyOnly(true)
         }}
       />
       <button
         type='button'
-        aria-label={`delete ${props.name}`}
+        aria-label={`delete ${name}`}
         className='btn__secondary'
         onClick={(): void => {
-          dispatch(removeIngredient(recipeId, props.index))
+          dispatch(removeIngredient(recipeId, index))
         }}
       >
         X

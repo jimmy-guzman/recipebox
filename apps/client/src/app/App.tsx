@@ -10,14 +10,14 @@ const styles = {
 }
 
 export const App = (): JSX.Element => {
-  const location = useLocation()
+  const { key } = useLocation()
 
   return (
     <div className='wrapper' style={styles}>
       <Header />
       <Instructions />
       <TransitionGroup className='grid__row'>
-        <CSSTransition key={location.key} classNames='fade' timeout={300}>
+        <CSSTransition key={key} classNames='fade' timeout={300}>
           <Switch>
             <Route exact path='/'>
               <RecipesBox />
@@ -29,7 +29,7 @@ export const App = (): JSX.Element => {
         </CSSTransition>
       </TransitionGroup>
       <footer>
-        <span> Design & Coded by</span>
+        <span> Designed & Coded by </span>
         <a href='https://jimmyguzman.com/' target='_blank' rel='noreferrer'>
           Jimmy Guzman
         </a>

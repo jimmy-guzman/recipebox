@@ -8,7 +8,7 @@ const AddIngredientForm = (): JSX.Element => {
   const recipeId = useRecipeId()
   const [name, setName] = useState('')
 
-  const onNameChange = (e: ChangeEvent<HTMLInputElement>): void => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setName(e.target.value)
   }
 
@@ -25,7 +25,7 @@ const AddIngredientForm = (): JSX.Element => {
           value={name}
           type='text'
           placeholder='new ingredient'
-          onChange={onNameChange}
+          onChange={handleChange}
         />
       </form>
     </li>

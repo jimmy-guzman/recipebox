@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import BackIcon from './SVGs/BackIcon'
@@ -10,6 +10,7 @@ export const ViewBox = (): JSX.Element => {
   const recipeId = useRecipeId()
   const recipes = useRecipes()
   const dispatch = useAppDispatch()
+  const [isReadyOnly, setIsReadyOnly] = useState(true)
 
   const i = recipes.findIndex((recipe) => recipe.id === recipeId)
 
@@ -21,12 +22,12 @@ export const ViewBox = (): JSX.Element => {
           onChange={(e): void => {
             dispatch(updateRecipe(i, e.target.value))
           }}
-          readOnly
-          onDoubleClick={(e): void => {
-            e.currentTarget.readOnly = false
+          readOnly={isReadyOnly}
+          onDoubleClick={(): void => {
+            setIsReadyOnly(false)
           }}
-          onBlur={(e): void => {
-            e.currentTarget.readOnly = true
+          onBlur={(): void => {
+            setIsReadyOnly(true)
           }}
         />
         <Link to='/' role='link' aria-label='back'>

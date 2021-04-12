@@ -8,6 +8,7 @@ export const ingredientsReducer = createReducer<IngredientsModel>(
   (builder) => {
     builder
       .addCase(addIngredient, (draft, { payload }) => {
+        draft[payload.recipeId] = draft[payload.recipeId] ?? []
         draft[payload.recipeId]?.push(payload)
       })
       .addCase(removeIngredient, (draft, { payload }) => {

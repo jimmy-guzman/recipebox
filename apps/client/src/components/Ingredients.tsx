@@ -1,5 +1,4 @@
 import React from 'react'
-import { arrayOf, shape, string, number } from 'prop-types'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 import AddIngredientForm from './AddIngredientForm'
@@ -28,10 +27,6 @@ const Ingredients = (): JSX.Element => {
       <AddIngredientForm />
     </ul>
   )
-}
-
-Ingredients.propTypes = {
-  recipeIngredients: arrayOf(shape({ name: string, id: number })),
 }
 
 export default Ingredients
