@@ -6,8 +6,7 @@ import {
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
-import { ingredients, recipes } from '../data'
-import { ingredientsReducer, recipesReducer } from '../reducers'
+import { recipesReducer, ingredientsReducer } from '../features'
 
 const persistConfig = { key: 'recipeBox', storage }
 
@@ -22,7 +21,6 @@ const persistedReducer = persistReducer(
 export const store = configureStore({
   reducer: persistedReducer,
   devTools: process.env.NODE_ENV !== 'production',
-  preloadedState: { ingredients, recipes },
   middleware: getDefaultMiddleware({
     serializableCheck: { ignoredActions: ['persist/PERSIST'] },
   }),

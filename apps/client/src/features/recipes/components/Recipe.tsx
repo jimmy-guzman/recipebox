@@ -1,16 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { useAppDispatch } from '../hooks'
-import { RecipeModel } from '../models'
-import { removeRecipe } from '../state/actions'
+import { useAppDispatch } from '../../../common/hooks'
+import { RecipeModel } from '../../../common/models'
+import { removeRecipe } from '../actions'
 
 interface RecipeProps {
   details: RecipeModel
   index: number
 }
 
-const Recipe = ({ details, index }: RecipeProps): JSX.Element => {
+export const Recipe = ({ details, index }: RecipeProps): JSX.Element => {
   const dispatch = useAppDispatch()
 
   return (
@@ -29,5 +29,3 @@ const Recipe = ({ details, index }: RecipeProps): JSX.Element => {
     </li>
   )
 }
-
-export default Recipe

@@ -1,16 +1,15 @@
 import React from 'react'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
-import Recipe from './Recipe'
-import AddRecipeForm from './AddRecipeForm'
-import { useRecipes } from '../hooks'
+import { Recipe, AddRecipeForm } from './components'
+import { useRecipes } from '../../common/hooks'
 
 const transitionOptions = {
   classNames: 'slide-left',
   timeout: { enter: 500, exit: 500 },
 }
 
-export const RecipesBox = (): JSX.Element => {
+export const Recipes = (): JSX.Element => {
   const recipes = useRecipes()
 
   return (

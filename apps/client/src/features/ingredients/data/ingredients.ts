@@ -1,4 +1,4 @@
-import { IngredientsModel } from '../../models'
+import { IngredientsModel } from '../../../common/models'
 
 export const ingredients: IngredientsModel = {
   recipe1: [

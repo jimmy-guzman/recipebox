@@ -2,8 +2,9 @@ import * as React from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
-import { Header, Instructions, RecipesBox, ViewBox } from '../components'
-import Background from '../img/background.svg'
+import { Header, Instructions } from '../common/components'
+import { Recipes, Ingredients } from '../features'
+import Background from '../common/img/background.svg'
 
 const styles = {
   backgroundImage: `url(${Background})`,
@@ -20,10 +21,10 @@ export const App = (): JSX.Element => {
         <CSSTransition key={key} classNames='fade' timeout={300}>
           <Switch>
             <Route exact path='/'>
-              <RecipesBox />
+              <Recipes />
             </Route>
             <Route path='/recipe/:id'>
-              <ViewBox />
+              <Ingredients />
             </Route>
           </Switch>
         </CSSTransition>

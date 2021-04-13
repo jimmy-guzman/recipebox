@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 
-import { useAppDispatch, useRecipeId } from '../hooks'
-import { removeIngredient, updateIngredient } from '../state/actions'
+import { removeIngredient, updateIngredient } from '../actions'
+import { useAppDispatch, useRecipeId } from '../../../common/hooks'
 
 interface IngredientProps {
   index: number
   name: string
 }
 
-const Ingredient = ({ name, index }: IngredientProps): JSX.Element => {
+export const Ingredient = ({ name, index }: IngredientProps): JSX.Element => {
   const [isReadyOnly, setIsReadyOnly] = useState(true)
   const recipeId = useRecipeId()
   const dispatch = useAppDispatch()
@@ -42,5 +42,3 @@ const Ingredient = ({ name, index }: IngredientProps): JSX.Element => {
     </li>
   )
 }
-
-export default Ingredient

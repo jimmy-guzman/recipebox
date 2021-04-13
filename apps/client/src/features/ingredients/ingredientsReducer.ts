@@ -1,10 +1,11 @@
 import { createReducer } from '@reduxjs/toolkit'
 
-import { IngredientsModel } from '../../models'
-import { addIngredient, removeIngredient, updateIngredient } from '../actions'
+import { IngredientsModel } from '../../common/models'
+import { addIngredient, removeIngredient, updateIngredient } from './actions'
+import { ingredients } from './data/ingredients'
 
 export const ingredientsReducer = createReducer<IngredientsModel>(
-  {},
+  ingredients,
   (builder) => {
     builder
       .addCase(addIngredient, (draft, { payload }) => {

@@ -1,4 +1,4 @@
-import { RecipeModel } from '../../models'
+import { RecipeModel } from '../../../common/models'
 
 export const recipes: RecipeModel[] = [
   {

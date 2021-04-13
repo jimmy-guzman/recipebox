@@ -1,19 +1,20 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 
-import { useAppDispatch } from '../hooks'
-import { addRecipe } from '../state/actions'
+import { useRecipeId, useAppDispatch } from '../../../common/hooks'
+import { addIngredient } from '../actions'
 
-const AddRecipeForm = (): JSX.Element => {
+export const AddIngredientForm = (): JSX.Element => {
   const dispatch = useAppDispatch()
+  const recipeId = useRecipeId()
   const [name, setName] = useState('')
 
-  const onNameChange = (e: ChangeEvent<HTMLInputElement>): void => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setName(e.target.value)
   }
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
-    dispatch(addRecipe(name))
+    dispatch(addIngredient(recipeId, name))
     setName('')
   }
 
@@ -23,12 +24,10 @@ const AddRecipeForm = (): JSX.Element => {
         <input
           value={name}
           type='text'
-          placeholder='new recipe'
-          onChange={onNameChange}
+          placeholder='new ingredient'
+          onChange={handleChange}
         />
       </form>
     </li>
   )
 }
-
-export default AddRecipeForm
