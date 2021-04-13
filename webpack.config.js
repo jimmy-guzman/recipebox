@@ -1,10 +1,12 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
+const CircularDependencyPlugin = require('circular-dependency-plugin')
 
 module.exports = {
   devServer: {
     historyApiFallback: true,
+    stats: 'minimal',
   },
   devtool: 'eval-cheap-source-map',
   entry: './src/index.tsx',
@@ -59,6 +61,11 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
+    }),
+    new CircularDependencyPlugin({
+      failOnError: false,
+      cwd: process.cwd(),
+      exclude: /node_modules/,
     }),
   ],
   resolve: {
