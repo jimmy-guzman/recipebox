@@ -1,7 +1,8 @@
 import { createReducer } from '@reduxjs/toolkit'
 
 import { IngredientsModel } from '../../common/models'
-import { addIngredient, removeIngredient, updateIngredient } from './actions'
+import { addIngredient } from '../recipes/actions'
+import { removeIngredient, updateIngredient } from './actions'
 import { ingredients } from './data/ingredients'
 
 export const ingredientsReducer = createReducer<IngredientsModel>(
@@ -9,21 +10,14 @@ export const ingredientsReducer = createReducer<IngredientsModel>(
   (builder) => {
     builder
       .addCase(addIngredient, (draft, { payload }) => {
-        draft[payload.recipeId] = draft[payload.recipeId] ?? []
-        draft[payload.recipeId]?.push(payload)
+        draft[payload.id] = payload
       })
       .addCase(removeIngredient, (draft, { payload }) => {
-        draft[payload.recipeId]?.splice(payload.index, 1)
+        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+        delete draft[payload.id]
       })
       .addCase(updateIngredient, (draft, { payload }) => {
-        const recipe = draft[payload.recipeId]
-
-        if (recipe?.length) {
-          recipe[payload.index] = {
-            ...recipe[payload.index],
-            name: payload.name,
-          }
-        }
+        draft[payload.id].name = payload.name
       })
   }
 )

@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
 
+import { IngredientModel } from '../../../common/models'
 import { removeIngredient, updateIngredient } from '../actions'
-import { useAppDispatch, useRecipeId } from '../../../common/hooks'
+import { useAppDispatch } from '../../../common/hooks'
 
-interface IngredientProps {
-  index: number
-  name: string
-}
+type IngredientProps = IngredientModel
 
-export const Ingredient = ({ name, index }: IngredientProps): JSX.Element => {
+export const Ingredient = ({ name, id }: IngredientProps): JSX.Element => {
   const [isReadyOnly, setIsReadyOnly] = useState(true)
-  const recipeId = useRecipeId()
   const dispatch = useAppDispatch()
 
   return (
@@ -18,14 +15,13 @@ export const Ingredient = ({ name, index }: IngredientProps): JSX.Element => {
       <input
         value={name}
         onChange={(e): void => {
-          dispatch(updateIngredient(recipeId, index, e.target.value))
+          dispatch(updateIngredient(id, e.target.value))
         }}
         readOnly={isReadyOnly}
         onDoubleClick={(): void => {
           setIsReadyOnly(false)
         }}
         onBlur={(): void => {
-          dispatch(updateIngredient(recipeId, index, name))
           setIsReadyOnly(true)
         }}
       />
@@ -34,7 +30,7 @@ export const Ingredient = ({ name, index }: IngredientProps): JSX.Element => {
         aria-label={`delete ${name}`}
         className='btn__secondary'
         onClick={(): void => {
-          dispatch(removeIngredient(recipeId, index))
+          dispatch(removeIngredient(id))
         }}
       >
         X

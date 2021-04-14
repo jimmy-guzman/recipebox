@@ -16,14 +16,14 @@ export const addIngredient = createAction(
 
 export const removeIngredient = createAction(
   'ingredients/remove',
-  (recipeId: string, index: number) => {
-    return { payload: { recipeId, index } }
+  (id: string) => {
+    return { payload: { id } }
   }
 )
 
 export const updateIngredient = createAction(
   'ingredients/update',
-  (recipeId: string, index: number, name: string) => {
-    return { payload: { recipeId, index, name } }
+  (id: string, name: string) => {
+    return { payload: { id, name } }
   }
 )

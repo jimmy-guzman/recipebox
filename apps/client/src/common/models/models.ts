@@ -5,7 +5,8 @@ export interface IngredientModel {
 
 export interface RecipeModel {
   id: string
+  ingredients: string[]
   name: string
 }
 
-export type IngredientsModel = Record<string, IngredientModel[] | undefined>
+export type IngredientsModel = Record<string, IngredientModel>

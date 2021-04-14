@@ -7,7 +7,7 @@ import {
   useRecipeId,
   useRecipes,
   useAppDispatch,
-  useIngredients,
+  useRecipeIngredients,
 } from '../../common/hooks'
 import { BackIcon } from '../../common/components'
 import { updateRecipe } from '../recipes/actions'
@@ -20,20 +20,17 @@ const transitionOptions = {
 export const Ingredients = (): JSX.Element => {
   const recipeId = useRecipeId()
   const recipes = useRecipes()
-  const ingredients = useIngredients()
+  const recipeIngredients = useRecipeIngredients(recipeId)
   const dispatch = useAppDispatch()
   const [isReadyOnly, setIsReadyOnly] = useState(true)
 
-  const i = recipes.findIndex((recipe) => recipe.id === recipeId)
-  const recipeIngredients = ingredients[recipeId] ?? []
-
   return (
-    <div className='box__container  grid__col--6'>
+    <div className='box__container grid__col--6'>
       <header className='box__header'>
         <input
-          value={recipes[i].name}
+          value={recipes[recipeId].name}
           onChange={(e): void => {
-            dispatch(updateRecipe(i, e.target.value))
+            dispatch(updateRecipe(recipeId, e.target.value))
           }}
           readOnly={isReadyOnly}
           onDoubleClick={(): void => {
@@ -49,9 +46,9 @@ export const Ingredients = (): JSX.Element => {
       </header>
       <ul className='box__list'>
         <TransitionGroup component={null}>
-          {recipeIngredients.map((ingredient, index) => (
+          {recipeIngredients.map((ingredient) => (
             <CSSTransition {...transitionOptions} key={ingredient.id}>
-              <Ingredient name={ingredient.name} index={index} />
+              <Ingredient {...ingredient} />
             </CSSTransition>
           ))}
         </TransitionGroup>

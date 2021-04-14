@@ -5,23 +5,20 @@ import { useAppDispatch } from '../../../common/hooks'
 import { RecipeModel } from '../../../common/models'
 import { removeRecipe } from '../actions'
 
-interface RecipeProps {
-  details: RecipeModel
-  index: number
-}
+type RecipeProps = RecipeModel
 
-export const Recipe = ({ details, index }: RecipeProps): JSX.Element => {
+export const Recipe = ({ id, name }: RecipeProps): JSX.Element => {
   const dispatch = useAppDispatch()
 
   return (
     <li className='box__item'>
-      <Link to={`/recipe/${details.id}`}>{details.name} </Link>
+      <Link to={`/recipe/${id}`}>{name} </Link>
       <button
         type='button'
-        aria-label={`delete ${details.name}`}
+        aria-label={`delete ${name}`}
         className='btn__secondary'
         onClick={(): void => {
-          dispatch(removeRecipe(index))
+          dispatch(removeRecipe(id))
         }}
       >
         X

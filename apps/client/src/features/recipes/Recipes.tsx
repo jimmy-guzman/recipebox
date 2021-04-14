@@ -19,10 +19,10 @@ export const Recipes = (): JSX.Element => {
       </header>
       <ul className='box__list'>
         <TransitionGroup component={null}>
-          {recipes.map((recipe, index) => {
+          {Object.values(recipes).map((recipe) => {
             return (
               <CSSTransition {...transitionOptions} key={recipe.id}>
-                <Recipe details={recipe} key={recipe.id} index={index} />
+                <Recipe {...recipe} key={recipe.id} />
               </CSSTransition>
             )
           })}

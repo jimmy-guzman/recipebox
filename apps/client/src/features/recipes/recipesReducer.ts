@@ -1,21 +1,25 @@
 import { createReducer } from '@reduxjs/toolkit'
 
 import { RecipeModel } from '../../common/models'
-import { addRecipe, removeRecipe, updateRecipe } from './actions'
+import { addIngredient, addRecipe, removeRecipe, updateRecipe } from './actions'
 import { recipes } from './data/recipes'
 
-export const recipesReducer = createReducer<RecipeModel[]>(
+export const recipesReducer = createReducer<Record<string, RecipeModel>>(
   recipes,
   (builder) => {
     builder
       .addCase(addRecipe, (draft, { payload }) => {
-        draft.push(payload)
+        draft[payload.id] = payload
       })
       .addCase(removeRecipe, (draft, { payload }) => {
-        draft.splice(payload, 1)
+        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+        delete draft[payload.id]
       })
       .addCase(updateRecipe, (draft, { payload }) => {
-        draft[payload.index] = { ...draft[payload.index], name: payload.name }
+        draft[payload.id].name = payload.name
+      })
+      .addCase(addIngredient, (draft, { payload }) => {
+        draft[payload.recipeId].ingredients.push(payload.id)
       })
   }
 )
