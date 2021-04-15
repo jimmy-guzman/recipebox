@@ -2,6 +2,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const CircularDependencyPlugin = require('circular-dependency-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 module.exports = {
   devServer: {
@@ -67,8 +68,10 @@ module.exports = {
       cwd: process.cwd(),
       exclude: /node_modules/,
     }),
+    new ForkTsCheckerWebpackPlugin(),
   ],
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.scss'],
   },
+  stats: 'errors-warnings',
 }

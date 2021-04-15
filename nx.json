@@ -1,0 +1,38 @@
+{
+  "npmScope": "recipebox",
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "test",
+          "lint",
+          "package",
+          "prepare"
+        ],
+        "strictlyOrderedTargets": [
+          "build",
+          "package",
+          "prepare"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "client": {
+      "implicitDependencies": []
+    }
+  },
+  "affected": {
+    "defaultBase": "master"
+  }
+}
