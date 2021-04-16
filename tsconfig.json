@@ -20,7 +20,8 @@
     "skipDefaultLibCheck": true,
     "noImplicitAny": true,
     "baseUrl": ".",
-    "jsx": "react"
+    "jsx": "preserve",
+    "jsxImportSource": "@emotion/react"
   },
   "exclude": ["node_modules", "dist"]
 }

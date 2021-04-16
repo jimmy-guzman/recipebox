@@ -12,12 +12,18 @@
     "lint:fix": "nx run-many --target=lint:fix --all --parallel",
     "e2e": "cypress run",
     "e2e:open": "cypress open",
-    "gh-deploy": "npm run build && gh-pages -d dist -b gh-pages"
+    "gh-deploy": "npm run build && gh-pages -d dist -b gh-pages",
+    "storybook": "start-storybook -p 6006",
+    "storybook:build": "build-storybook"
   },
   "prettier": "@comparto/prettier-config",
   "keywords": [],
   "author": "Jimmy Guzman",
   "license": "ISC",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.13.14",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
@@ -29,9 +35,14 @@
     "@babel/preset-typescript": "^7.13.0",
     "@comparto/eslint-config": "6.1.0",
     "@comparto/prettier-config": "^1.2.0",
+    "@emotion/babel-plugin": "^11.3.0",
     "@nrwl/cli": "^12.0.6",
     "@nrwl/tao": "^12.0.6",
     "@nrwl/workspace": "^12.0.6",
+    "@storybook/addon-actions": "^6.2.8",
+    "@storybook/addon-essentials": "^6.2.8",
+    "@storybook/addon-links": "^6.2.8",
+    "@storybook/react": "^6.2.8",
     "@testing-library/cypress": "^7.0.5",
     "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",
