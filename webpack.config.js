@@ -7,10 +7,10 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 module.exports = {
   devServer: {
     historyApiFallback: true,
+    hot: true,
     stats: 'minimal',
   },
   devtool: 'eval-cheap-source-map',
-  entry: './src/index.tsx',
   module: {
     rules: [
       {
@@ -18,6 +18,9 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+          options: {
+            rootMode: 'upward',
+          },
         },
       },
       {

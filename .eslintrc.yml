@@ -1,5 +1,0 @@
-extends:
-  - '@comparto/eslint-config'
-  - plugin:cypress/recommended
-plugins:
-  - 'cypress'

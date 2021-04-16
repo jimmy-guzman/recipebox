@@ -10,7 +10,6 @@
     "format:fix": "nx run-many --target=format:fix --all --parallel",
     "lint": "nx run-many --target=lint --all --parallel",
     "lint:fix": "nx run-many --target=lint:fix --all --parallel",
-    "ts:check": "lerna run --stream ts:check",
     "e2e": "cypress run",
     "e2e:open": "cypress open",
     "gh-deploy": "npm run build && gh-pages -d dist -b gh-pages"
@@ -61,7 +60,8 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.31.0",
     "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
   },
   "volta": {
     "node": "14.16.1",
