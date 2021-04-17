@@ -1,7 +1,12 @@
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
-import { Header, Instructions, Footer } from '../common/components'
+import {
+  Header,
+  Instructions,
+  Footer,
+  GlobalStyles,
+} from '../common/components'
 import { Recipes, Ingredients } from '../features'
 import Background from '../common/img/background.svg'
 
@@ -14,6 +19,7 @@ export const App = (): JSX.Element => {
 
   return (
     <div className='wrapper' style={styles}>
+      <GlobalStyles />
       <Header />
       <Instructions />
       <TransitionGroup className='grid__row'>
