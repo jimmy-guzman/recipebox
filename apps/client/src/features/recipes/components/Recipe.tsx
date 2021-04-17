@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+import { linkCss } from '../../../common/components'
 import { useAppDispatch } from '../../../common/hooks'
 import { RecipeModel } from '../../../common/models'
 import { removeRecipe } from '../actions'
@@ -11,7 +12,9 @@ export const Recipe = ({ id, name }: RecipeProps): JSX.Element => {
 
   return (
     <li className='box__item'>
-      <Link to={`/recipe/${id}`}>{name} </Link>
+      <Link to={`/recipe/${id}`} css={linkCss}>
+        {name}
+      </Link>
       <button
         type='button'
         aria-label={`delete ${name}`}

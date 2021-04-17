@@ -10,7 +10,7 @@ import {
   useAppDispatch,
   useRecipeIngredients,
 } from '../../common/hooks'
-import { BackIcon, Input } from '../../common/components'
+import { BackIcon, Input, linkCss } from '../../common/components'
 import { updateRecipe } from '../recipes/actions'
 
 const transitionOptions = {
@@ -48,7 +48,7 @@ export const Ingredients = (): JSX.Element => {
             setIsReadyOnly(true)
           }}
         />
-        <Link to='/' role='link' aria-label='back'>
+        <Link to='/' role='link' aria-label='back' css={linkCss}>
           <BackIcon height={24} width={24} />
         </Link>
       </header>
