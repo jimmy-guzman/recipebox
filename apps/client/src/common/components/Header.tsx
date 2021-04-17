@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 
 import { Typography } from './Typography'
 import { COLOR_HIGHLIGHT, COLOR_PRIMARY, COLOR_SECONDARY } from './constants'
+import { linkCss } from './Link'
 
 export const Header = (): JSX.Element => (
   <header
@@ -12,17 +13,12 @@ export const Header = (): JSX.Element => (
     }}
   >
     <Typography variant='h1' align='center'>
-      <Link to='/' css={{ color: COLOR_SECONDARY }}>
-        <span
-          css={{
-            color: COLOR_HIGHLIGHT,
-            fontFamily: "'Caveat', cursive",
-          }}
-        >
+      <RouterLink to='/' css={[linkCss, { color: COLOR_SECONDARY }]}>
+        <Typography font='secondary' color={COLOR_HIGHLIGHT}>
           Recipe
-        </span>
+        </Typography>
         BOX
-      </Link>
+      </RouterLink>
     </Typography>
   </header>
 )

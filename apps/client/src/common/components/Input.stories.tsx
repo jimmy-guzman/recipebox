@@ -8,6 +8,8 @@ export default {
   component: Input,
 } as Meta
 
-const Template: Story<InputProps> = (args) => <Input {...args} />
+const Template: Story<InputProps> = (args) => (
+  <Input value='I am an Input!' {...args} />
+)
 
 export const Primary = Template.bind({})

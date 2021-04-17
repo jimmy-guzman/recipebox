@@ -1,19 +1,25 @@
 import React from 'react'
 
 import { em } from '../utils'
+import { FONT_PRIMARY, FONT_SECONDARY } from './constants'
 
-interface TypographyProps {
+export interface TypographyProps {
   align?: 'inherit' | 'left' | 'center' | 'right' | 'justify'
   children: React.ReactNode
+  color?: string
+  font?: 'primary' | 'secondary'
   variant?: 'h1' | 'h2' | 'p' | 'span'
 }
 
 export const Typography = ({
-  align: textAlign = 'inherit',
+  align = 'inherit',
   children,
-  variant,
+  color,
+  font = 'primary',
+  variant = 'span',
 }: TypographyProps): JSX.Element => {
-  const base = { textAlign, label: variant }
+  const fontFamily = font === 'primary' ? FONT_PRIMARY : FONT_SECONDARY
+  const base = { textAlign: align, label: variant, fontFamily, color }
   const headerBase = { ...base, margin: 0 }
 
   if (variant === 'h1') {
@@ -28,5 +34,5 @@ export const Typography = ({
     )
   }
 
-  return <span>{children}</span>
+  return <span css={base}>{children}</span>
 }

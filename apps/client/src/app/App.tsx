@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
-import { Header, Instructions } from '../common/components'
+import { Header, Instructions, Link } from '../common/components'
 import { Recipes, Ingredients } from '../features'
 import Background from '../common/img/background.svg'
 
@@ -31,9 +31,9 @@ export const App = (): JSX.Element => {
       </TransitionGroup>
       <footer>
         <span> Designed & Coded by </span>
-        <a href='https://jimmyguzman.com/' target='_blank' rel='noreferrer'>
+        <Link to='https://jimmyguzman.com/' target='_blank'>
           Jimmy Guzman
-        </a>
+        </Link>
       </footer>
     </div>
   )
