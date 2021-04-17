@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import { css } from '@emotion/react'
 
 import { Ingredient, AddIngredientForm } from './components'
 import {
@@ -9,7 +10,7 @@ import {
   useAppDispatch,
   useRecipeIngredients,
 } from '../../common/hooks'
-import { BackIcon } from '../../common/components'
+import { BackIcon, Input } from '../../common/components'
 import { updateRecipe } from '../recipes/actions'
 
 const transitionOptions = {
@@ -26,13 +27,20 @@ export const Ingredients = (): JSX.Element => {
 
   return (
     <div className='box__container grid__col--6'>
-      <header className='box__header'>
-        <input
+      <header
+        className='box__header'
+        css={css`
+          font-family: 'Raleway', cursive;
+        `}
+      >
+        <Input
+          size='big'
+          isFullWidth
           value={recipes[recipeId].name}
           onChange={(e): void => {
             dispatch(updateRecipe(recipeId, e.target.value))
           }}
-          readOnly={isReadyOnly}
+          isReadOnly={isReadyOnly}
           onDoubleClick={(): void => {
             setIsReadyOnly(false)
           }}

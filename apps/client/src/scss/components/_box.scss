@@ -10,21 +10,21 @@
     background: $color-box-header-bg;
     text-align: center;
     @include flex(flex, row, center, center);
-    input {
-      background: inherit;
-      width: 100%;
-      border: none;
-      outline: none;
-      color: $color-text-base;
-      font-size: em(32px);
-      text-align: center;
-      &:focus {
-        cursor: auto;
-      }
-      &:hover {
-        cursor: pointer;
-      }
-    }
+    // input {
+    //   background: inherit;
+    //   width: 100%;
+    //   border: none;
+    //   outline: none;
+    //   color: $color-text-base;
+    //   font-size: em(32px);
+    //   text-align: center;
+    //   &:focus {
+    //     cursor: auto;
+    //   }
+    //   &:hover {
+    //     cursor: pointer;
+    //   }
+    // }
     a {
       position: absolute;
       top: em(7px);
@@ -58,24 +58,24 @@
       padding: em(8px);
       font-size: em(18px);
     }
-    input {
-      background: inherit;
-      padding: em(8px);
-      font-weight: $font-weight--regular;
-      letter-spacing: em(1px);
-      font-family: $font-family--secondary;
-      width: 100%;
-      border: none;
-      outline: none;
-      color: $color-text-base;
-      font-size: em(18px);
-      &:hover {
-        color: $color-text-alt;
-        cursor: pointer;
-      }
-      &:focus {
-        cursor: auto;
-      }
-    }
+    // input {
+    //   background: inherit;
+    //   padding: em(8px);
+    //   font-weight: $font-weight--regular;
+    //   letter-spacing: em(1px);
+    //   font-family: $font-family--secondary;
+    //   width: 100%;
+    //   border: none;
+    //   outline: none;
+    //   color: $color-text-base;
+    //   font-size: em(18px);
+    //   &:hover {
+    //     color: $color-text-alt;
+    //     cursor: pointer;
+    //   }
+    //   &:focus {
+    //     cursor: auto;
+    //   }
+    // }
   }
 }

@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { IngredientModel } from '../../../common/models'
 import { removeIngredient, updateIngredient } from '../actions'
 import { useAppDispatch } from '../../../common/hooks'
+import { Input } from '../../../common/components'
 
 type IngredientProps = IngredientModel
 
@@ -12,12 +13,13 @@ export const Ingredient = ({ name, id }: IngredientProps): JSX.Element => {
 
   return (
     <li className='box__item'>
-      <input
+      <Input
+        isFullWidth
         value={name}
         onChange={(e): void => {
           dispatch(updateIngredient(id, e.target.value))
         }}
-        readOnly={isReadyOnly}
+        isReadOnly={isReadyOnly}
         onDoubleClick={(): void => {
           setIsReadyOnly(false)
         }}
