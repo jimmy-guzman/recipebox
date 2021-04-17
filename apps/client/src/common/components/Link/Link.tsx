@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { css } from '@emotion/react'
 
-import { COLOR_TEXT_BASE, COLOR_TEXT_ALT } from './constants'
+import { COLOR_TEXT_BASE, COLOR_TEXT_ALT } from '../constants'
 
 export interface LinkProps {
   children: React.ReactNode

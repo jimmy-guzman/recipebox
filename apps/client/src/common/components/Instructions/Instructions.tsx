@@ -1,5 +1,8 @@
 import { useState } from 'react'
 
+import { List } from '../List'
+import { wrapper, list, close } from './Instructions.styles'
+
 export const Instructions = (): JSX.Element | null => {
   const [isOpened, setIsOpened] = useState(true)
 
@@ -9,8 +12,8 @@ export const Instructions = (): JSX.Element | null => {
 
   if (isOpened) {
     return (
-      <div className='instructions'>
-        <ul>
+      <div css={wrapper}>
+        <List customCss={list}>
           <li>{`Click on a recipe name to view that recipe's ingredients.`}</li>
           <li>
             Use the new recipe or ingredient bar to create a new recipe or
@@ -20,7 +23,7 @@ export const Instructions = (): JSX.Element | null => {
             When viewing the recipe, you can double click on a ingredient or
             recipe name to edit that recipe or ingredient.
           </li>
-        </ul>
+        </List>
         <span
           role='button'
           aria-label='close instructions'
@@ -28,6 +31,7 @@ export const Instructions = (): JSX.Element | null => {
           className='close'
           onKeyDown={handleClick}
           onClick={handleClick}
+          css={close}
         >
           X
         </span>

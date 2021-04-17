@@ -2,7 +2,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 import { Recipe, AddRecipeForm } from './components'
 import { useRecipes } from '../../common/hooks'
-import { Typography } from '../../common/components'
+import { Typography, List } from '../../common/components'
 
 const transitionOptions = {
   classNames: 'slide-left',
@@ -17,7 +17,7 @@ export const Recipes = (): JSX.Element => {
       <header className='box__header'>
         <Typography variant='h2'>Recipes</Typography>
       </header>
-      <ul className='box__list'>
+      <List className='box__list'>
         <TransitionGroup component={null}>
           {Object.values(recipes).map((recipe) => {
             return (
@@ -28,7 +28,7 @@ export const Recipes = (): JSX.Element => {
           })}
         </TransitionGroup>
         <AddRecipeForm />
-      </ul>
+      </List>
     </div>
   )
 }

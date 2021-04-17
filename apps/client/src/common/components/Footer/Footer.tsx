@@ -1,5 +1,5 @@
-import { em } from '../utils'
-import { Link } from './Link'
+import { em } from '../../utils'
+import { Link } from '../Link'
 
 export const Footer = (): JSX.Element => {
   return (

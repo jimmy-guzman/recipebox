@@ -1,8 +1,8 @@
 import { Link as RouterLink } from 'react-router-dom'
 
-import { Typography } from './Typography'
-import { COLOR_HIGHLIGHT, COLOR_PRIMARY, COLOR_SECONDARY } from './constants'
-import { linkCss } from './Link'
+import { Typography } from '../Typography'
+import { COLOR_HIGHLIGHT, COLOR_PRIMARY, COLOR_SECONDARY } from '../constants'
+import { linkCss } from '../Link'
 
 export const Header = (): JSX.Element => (
   <header

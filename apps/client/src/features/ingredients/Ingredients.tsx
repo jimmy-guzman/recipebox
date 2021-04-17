@@ -10,7 +10,7 @@ import {
   useAppDispatch,
   useRecipeIngredients,
 } from '../../common/hooks'
-import { BackIcon, Input, linkCss } from '../../common/components'
+import { BackIcon, Input, linkCss, List } from '../../common/components'
 import { updateRecipe } from '../recipes/actions'
 
 const transitionOptions = {
@@ -52,7 +52,7 @@ export const Ingredients = (): JSX.Element => {
           <BackIcon height={24} width={24} />
         </Link>
       </header>
-      <ul className='box__list'>
+      <List className='box__list'>
         <TransitionGroup component={null}>
           {recipeIngredients.map((ingredient) => (
             <CSSTransition {...transitionOptions} key={ingredient.id}>
@@ -61,7 +61,7 @@ export const Ingredients = (): JSX.Element => {
           ))}
         </TransitionGroup>
         <AddIngredientForm />
-      </ul>
+      </List>
     </div>
   )
 }

@@ -1,12 +1,12 @@
 import { ChangeEvent, MouseEventHandler } from 'react'
 import { css } from '@emotion/react'
 
-import { em } from '../utils/style-utils'
+import { em } from '../../utils'
 import {
   COLOR_PRIMARY,
   COLOR_SECONDARY,
   FONT_WEIGHT_REGULAR,
-} from './constants'
+} from '../constants'
 
 export interface InputProps {
   isFullWidth?: boolean

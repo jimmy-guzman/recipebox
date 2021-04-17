@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import { em } from '../utils'
-import { FONT_PRIMARY, FONT_SECONDARY } from './constants'
+import { em } from '../../utils'
+import { FONT_PRIMARY, FONT_SECONDARY } from '../constants'
 
 export interface TypographyProps {
   align?: 'inherit' | 'left' | 'center' | 'right' | 'justify'
