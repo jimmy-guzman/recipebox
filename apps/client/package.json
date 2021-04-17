@@ -9,8 +9,8 @@
     "build": "webpack --mode production --color",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
-    "lint": "eslint . --ext .js --color",
-    "lint:fix": "eslint . --ext .js --fix --color",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix --color",
     "ts:check": "tsc --pretty",
     "ts:watch": "tsc --pretty --watch"
   },

@@ -57,7 +57,7 @@ module.exports = {
     publicPath: '/',
   },
   plugins: [
-    new ESLintPlugin({}),
+    new ESLintPlugin({ extensions: ['.js', '.ts', '.jsx', '.tsx'] }),
     new HtmlWebPackPlugin({
       template: 'src/index.html',
       filename: './index.html',
