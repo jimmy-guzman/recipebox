@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { IngredientModel } from '../../../common/models'
 import { removeIngredient, updateIngredient } from '../actions'

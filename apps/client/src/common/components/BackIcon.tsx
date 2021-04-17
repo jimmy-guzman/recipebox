@@ -1,5 +1,3 @@
-import React from 'react'
-
 interface BackIconProps {
   height?: number | string
   width?: number | string

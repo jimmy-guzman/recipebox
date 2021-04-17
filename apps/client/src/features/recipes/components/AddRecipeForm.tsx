@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 
 import { Input } from '../../../common/components'
 import { useAppDispatch } from '../../../common/hooks'

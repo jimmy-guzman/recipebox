@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { css } from '@emotion/react'
 
 import { COLOR_TEXT_BASE, COLOR_TEXT_ALT } from './constants'

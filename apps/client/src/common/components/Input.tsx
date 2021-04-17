@@ -1,4 +1,4 @@
-import React, { ChangeEvent, MouseEventHandler } from 'react'
+import { ChangeEvent, MouseEventHandler } from 'react'
 import { css } from '@emotion/react'
 
 import { em } from '../utils/style-utils'

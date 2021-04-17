@@ -3,3 +3,4 @@ dist
 .cache
 .reports
 yarn-error.log
+storybook-static

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 export const Instructions = (): JSX.Element | null => {
   const [isOpened, setIsOpened] = useState(true)

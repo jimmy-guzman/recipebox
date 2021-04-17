@@ -34,9 +34,13 @@ module.exports = {
     '@comparto/eslint-config/src/rules/typescript',
     '@comparto/eslint-config/src/rules/react',
   ],
-  plugins: ['cypress'],
+  overrides: [...noExtraneousOverrides],
   parserOptions: {
     project: ['./tsconfig.json', './apps/*/tsconfig.json'],
   },
-  overrides: [...noExtraneousOverrides],
+  plugins: ['cypress'],
+  rules: {
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+  },
 }
