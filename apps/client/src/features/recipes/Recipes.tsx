@@ -3,6 +3,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 import { Recipe, AddRecipeForm } from './components'
 import { useRecipes } from '../../common/hooks'
+import { Typography } from '../../common/components'
 
 const transitionOptions = {
   classNames: 'slide-left',
@@ -15,7 +16,7 @@ export const Recipes = (): JSX.Element => {
   return (
     <div className='box__container  grid__col--6'>
       <header className='box__header'>
-        <h1>Recipes</h1>
+        <Typography variant='h2'>Recipes</Typography>
       </header>
       <ul className='box__list'>
         <TransitionGroup component={null}>

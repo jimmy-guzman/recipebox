@@ -2,6 +2,11 @@ import React, { ChangeEvent, MouseEventHandler } from 'react'
 import { css } from '@emotion/react'
 
 import { em } from '../utils/style-utils'
+import {
+  COLOR_PRIMARY,
+  COLOR_SECONDARY,
+  FONT_WEIGHT_REGULAR,
+} from './constants'
 
 export interface InputProps {
   isFullWidth?: boolean
@@ -30,19 +35,19 @@ export const Input = ({
         background: inherit;
         padding: ${size === 'big' ? em('1px') : em('8px')};
         letter-spacing: ${em('1px')};
-        color: #bf268a;
+        color: ${COLOR_PRIMARY};
         width: ${isFullWidth ? '100%' : 'initial'};
         border: none;
         outline: none;
         font-size: ${size === 'default' ? em('18px') : em('32px')};
-        font-weight: 400;
+        font-weight: ${FONT_WEIGHT_REGULAR};
         font-family: inherit;
         text-align: inherit;
         &:focus {
           cursor: auto;
         }
         &:hover {
-          color: #04d9b2;
+          color: ${COLOR_SECONDARY};
           cursor: pointer;
         }
       `}

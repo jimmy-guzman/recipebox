@@ -1,13 +1,15 @@
 import React from 'react'
 
 interface BackIconProps {
-  height: number
-  width: number
+  height?: number | string
+  width?: number | string
 }
 
 export const BackIcon = ({ height, width }: BackIconProps): JSX.Element => (
   <svg
+    css={{ verticalAlign: 'middle' }}
     xmlns='http://www.w3.org/2000/svg'
+    fill='currentColor'
     viewBox='0 0 448 512'
     height={height}
     width={width}

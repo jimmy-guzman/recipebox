@@ -1,13 +1,15 @@
 import React from 'react'
 
 interface CloseIconProps {
-  height: number
-  width: number
+  height?: number | string
+  width?: number | string
 }
 
 export const CloseIcon = ({ height, width }: CloseIconProps): JSX.Element => (
   <svg
+    css={{ verticalAlign: 'middle' }}
     xmlns='http://www.w3.org/2000/svg'
+    fill='currentColor'
     viewBox='0 0 352 512'
     height={height}
     width={width}
