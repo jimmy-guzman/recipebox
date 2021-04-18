@@ -44,12 +44,7 @@ module.exports = {
       },
       {
         test: /\.s?css$/i,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
     ],
   },
@@ -74,7 +69,7 @@ module.exports = {
     new ForkTsCheckerWebpackPlugin(),
   ],
   resolve: {
-    extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.scss'],
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],
   },
   stats: 'errors-warnings',
 }

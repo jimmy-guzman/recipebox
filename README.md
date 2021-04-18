@@ -19,4 +19,4 @@
 - Redux
 - Webpack
 - JavaScript
-- Sass
+- emotion
