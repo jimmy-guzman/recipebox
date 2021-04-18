@@ -39,7 +39,7 @@ export const Ingredients = (): JSX.Element => {
   const [isReadyOnly, setIsReadyOnly] = useState(true)
 
   return (
-    <Box className='grid__col--6'>
+    <Box>
       <BoxHeader>
         <Input
           size='big'

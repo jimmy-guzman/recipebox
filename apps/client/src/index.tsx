@@ -6,8 +6,6 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { App } from './app'
 import { store, persistor } from './app/store'
 
-import './scss/index.scss'
-
 render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>

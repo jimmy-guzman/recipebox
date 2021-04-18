@@ -13,7 +13,7 @@ export const Instructions = (): JSX.Element | null => {
   if (isOpened) {
     return (
       <div css={wrapper}>
-        <List customCss={list}>
+        <List css={list}>
           <li>{`Click on a recipe name to view that recipe's ingredients.`}</li>
           <li>
             Use the new recipe or ingredient bar to create a new recipe or

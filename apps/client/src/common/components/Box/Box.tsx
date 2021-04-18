@@ -1,22 +1,24 @@
+import { css } from '@emotion/react'
+
 import { COLOR_BOX_BG, FONT_SECONDARY, PRIMARY_BOX_SHADOW } from '../constants'
+import { GridCol } from '../Grid'
 
 interface BoxProps {
   children: React.ReactNode
-  className?: string
 }
 
-export const Box = ({ children, className }: BoxProps): JSX.Element => {
+export const Box = ({ children }: BoxProps): JSX.Element => {
   return (
-    <div
-      className={className}
-      css={{
-        zIndex: 2,
-        fontFamily: FONT_SECONDARY,
-        background: COLOR_BOX_BG,
-        boxShadow: PRIMARY_BOX_SHADOW,
-      }}
+    <GridCol
+      size={6}
+      css={css`
+        z-index: 2;
+        font-family: ${FONT_SECONDARY};
+        background: ${COLOR_BOX_BG};
+        box-shadow: ${PRIMARY_BOX_SHADOW};
+      `}
     >
       {children}
-    </div>
+    </GridCol>
   )
 }

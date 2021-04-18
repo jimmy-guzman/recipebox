@@ -13,7 +13,7 @@ export const Recipes = (): JSX.Element => {
   const recipes = useRecipes()
 
   return (
-    <Box className='grid__col--6'>
+    <Box>
       <BoxHeader>
         <Typography variant='h2'>Recipes</Typography>
       </BoxHeader>
