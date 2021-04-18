@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { IngredientModel } from '../../../common/models'
 import { removeIngredient, updateIngredient } from '../actions'
 import { useAppDispatch } from '../../../common/hooks'
-import { Input } from '../../../common/components'
+import { BoxItem, Button, Input } from '../../../common/components'
 
 type IngredientProps = IngredientModel
 
@@ -12,7 +12,7 @@ export const Ingredient = ({ name, id }: IngredientProps): JSX.Element => {
   const dispatch = useAppDispatch()
 
   return (
-    <li className='box__item'>
+    <BoxItem>
       <Input
         isFullWidth
         value={name}
@@ -27,16 +27,15 @@ export const Ingredient = ({ name, id }: IngredientProps): JSX.Element => {
           setIsReadyOnly(true)
         }}
       />
-      <button
-        type='button'
-        aria-label={`delete ${name}`}
-        className='btn__secondary'
+      <Button
+        variant='secondary'
+        ariaLabel={`delete ${name}`}
         onClick={(): void => {
           dispatch(removeIngredient(id))
         }}
       >
         X
-      </button>
-    </li>
+      </Button>
+    </BoxItem>
   )
 }

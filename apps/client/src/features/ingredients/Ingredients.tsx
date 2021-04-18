@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { css } from '@emotion/react'
 
 import { Ingredient, AddIngredientForm } from './components'
@@ -10,13 +10,26 @@ import {
   useAppDispatch,
   useRecipeIngredients,
 } from '../../common/hooks'
-import { BackIcon, Input, linkCss, List } from '../../common/components'
+import {
+  BackIcon,
+  Box,
+  BoxContent,
+  BoxHeader,
+  Input,
+  linkCss,
+} from '../../common/components'
 import { updateRecipe } from '../recipes/actions'
+import { em } from '../../common/utils'
 
 const transitionOptions = {
   classNames: 'slide-left',
   timeout: { enter: 500, exit: 300 },
 }
+
+const iconLinkCss = css`
+  position: absolute;
+  right: ${em('7px')};
+`
 
 export const Ingredients = (): JSX.Element => {
   const recipeId = useRecipeId()
@@ -26,13 +39,8 @@ export const Ingredients = (): JSX.Element => {
   const [isReadyOnly, setIsReadyOnly] = useState(true)
 
   return (
-    <div className='box__container grid__col--6'>
-      <header
-        className='box__header'
-        css={css`
-          font-family: 'Raleway', cursive;
-        `}
-      >
+    <Box className='grid__col--6'>
+      <BoxHeader>
         <Input
           size='big'
           isFullWidth
@@ -48,11 +56,16 @@ export const Ingredients = (): JSX.Element => {
             setIsReadyOnly(true)
           }}
         />
-        <Link to='/' role='link' aria-label='back' css={linkCss}>
+        <Link
+          to='/'
+          role='link'
+          aria-label='back'
+          css={css([iconLinkCss, linkCss])}
+        >
           <BackIcon height={24} width={24} />
         </Link>
-      </header>
-      <List className='box__list'>
+      </BoxHeader>
+      <BoxContent>
         <TransitionGroup component={null}>
           {recipeIngredients.map((ingredient) => (
             <CSSTransition {...transitionOptions} key={ingredient.id}>
@@ -61,7 +74,7 @@ export const Ingredients = (): JSX.Element => {
           ))}
         </TransitionGroup>
         <AddIngredientForm />
-      </List>
-    </div>
+      </BoxContent>
+    </Box>
   )
 }

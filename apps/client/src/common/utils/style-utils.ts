@@ -14,7 +14,7 @@ export const em = (target: string, context = '16px'): string => {
 }
 
 const breakpoints = [
-  ['sm', 1],
+  ['sm', 375],
   ['md', 768],
   ['lg', 1024],
 ]

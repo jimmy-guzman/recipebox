@@ -53,23 +53,3 @@
     }
   }
 }
-
-//button mixins
-@mixin button-setup($type) {
-  @extend %btn;
-  @extend %btn--#{$type};
-
-  &:focus {
-    @extend %btn--#{$type};
-  }
-  &:hover {
-    @extend %btn--#{$type}--hover;
-  }
-
-  &.disabled {
-    // @extend %disabled;
-    &:hover {
-      @extend %btn--#{$type};
-    }
-  }
-}

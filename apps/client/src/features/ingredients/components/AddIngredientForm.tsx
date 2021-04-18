@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 
-import { Input } from '../../../common/components'
+import { BoxItem, Input } from '../../../common/components'
 import { useRecipeId, useAppDispatch } from '../../../common/hooks'
 import { addIngredient } from '../actions'
 
@@ -20,7 +20,7 @@ export const AddIngredientForm = (): JSX.Element => {
   }
 
   return (
-    <li className='box__item'>
+    <BoxItem>
       <form onSubmit={handleSubmit}>
         <Input
           isFullWidth
@@ -29,6 +29,6 @@ export const AddIngredientForm = (): JSX.Element => {
           onChange={handleChange}
         />
       </form>
-    </li>
+    </BoxItem>
   )
 }
