@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
-import { darken } from 'polished'
+// ! Using full path since tree shaking does work for darken, https://github.com/styled-components/polished/issues/478
+import darken from 'polished/lib/color/darken'
 
 import { em } from '../../utils'
 import {
