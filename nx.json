@@ -1,5 +1,5 @@
 {
-  "npmScope": "recipebox",
+  "npmScope": "recipe-box",
   "implicitDependencies": {
     "workspace.json": "*",
     "package.json": {
@@ -12,23 +12,22 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "test",
-          "lint",
-          "package",
-          "prepare"
-        ],
-        "strictlyOrderedTargets": [
-          "build",
-          "package",
-          "prepare"
-        ]
+        "cacheableOperations": ["build", "test", "lint", "package", "prepare"],
+        "strictlyOrderedTargets": ["build", "package", "prepare"]
       }
     }
   },
   "projects": {
     "client": {
+      "implicitDependencies": []
+    },
+    "components": {
+      "implicitDependencies": []
+    },
+    "utils": {
+      "implicitDependencies": []
+    },
+    "state": {
       "implicitDependencies": []
     }
   },

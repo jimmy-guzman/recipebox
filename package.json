@@ -1,28 +1,35 @@
 {
-  "name": "recipebox",
+  "name": "recipe-box",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nx run-many --target=start --all --parallel",
+    "client:start": "nx run client:start",
     "build": "nx run-many --target=build --all --parallel",
     "format": "nx run-many --target=format --all --parallel",
     "format:fix": "nx run-many --target=format:fix --all --parallel",
     "lint": "nx run-many --target=lint --all --parallel",
     "lint:fix": "nx run-many --target=lint:fix --all --parallel",
-    "e2e": "cypress run",
+    "e2e": "cypress run --headless",
     "e2e:open": "cypress open",
     "gh-deploy": "npm run build && gh-pages -d dist -b gh-pages",
-    "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook"
+    "sb": "start-storybook -p 6006",
+    "sb:build": "build-storybook",
+    "dep-graph": "nx dep-graph"
   },
   "prettier": "@comparto/prettier-config",
   "keywords": [],
   "author": "Jimmy Guzman",
   "license": "ISC",
   "dependencies": {
+    "@emotion/react": "^11.1.5",
+    "@reduxjs/toolkit": "^1.5.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.3",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",
@@ -78,6 +85,7 @@
   },
   "private": true,
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "libs/*"
   ]
 }

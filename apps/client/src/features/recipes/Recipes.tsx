@@ -1,8 +1,8 @@
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { Typography, Box, BoxHeader, BoxContent } from '@recipe-box/components'
+import { useRecipes } from '@recipe-box/state'
 
 import { Recipe, AddRecipeForm } from './components'
-import { useRecipes } from '../../common/hooks'
-import { Typography, Box, BoxHeader, BoxContent } from '../../common/components'
 
 const transitionOptions = {
   classNames: 'slide-left',

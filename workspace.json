@@ -3,7 +3,20 @@
   "projects": {
     "client": {
       "root": "apps/client",
-      "type": "library"
+      "projectType": "application"
+    },
+    "components": {
+      "root": "libs/components",
+      "projectType": "library"
+    },
+    "utils": {
+      "root": "libs/utils",
+      "projectType": "library"
+    },
+    "state": {
+      "root": "libs/state",
+      "projectType": "library"
     }
-  }
+  },
+  "defaultProject": "client"
 }

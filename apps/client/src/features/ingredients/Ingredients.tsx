@@ -2,24 +2,24 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { css } from '@emotion/react'
-
-import { Ingredient, AddIngredientForm } from './components'
+import {
+  Input,
+  BackIcon,
+  Box,
+  BoxContent,
+  BoxHeader,
+  linkCss,
+} from '@recipe-box/components'
 import {
   useRecipeId,
   useRecipes,
   useAppDispatch,
   useRecipeIngredients,
-} from '../../common/hooks'
-import {
-  BackIcon,
-  Box,
-  BoxContent,
-  BoxHeader,
-  Input,
-  linkCss,
-} from '../../common/components'
-import { updateRecipe } from '../recipes/actions'
-import { em } from '../../common/utils'
+  updateRecipe,
+} from '@recipe-box/state'
+import { em } from '@recipe-box/utils'
+
+import { Ingredient, AddIngredientForm } from './components'
 
 const transitionOptions = {
   classNames: 'slide-left',

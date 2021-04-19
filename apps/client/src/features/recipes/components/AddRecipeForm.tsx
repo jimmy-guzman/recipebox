@@ -1,8 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
-
-import { BoxItem, Input } from '../../../common/components'
-import { useAppDispatch } from '../../../common/hooks'
-import { addRecipe } from '../actions'
+import { BoxItem, Input } from '@recipe-box/components'
+import { useAppDispatch, addRecipe } from '@recipe-box/state'
 
 export const AddRecipeForm = (): JSX.Element => {
   const dispatch = useAppDispatch()

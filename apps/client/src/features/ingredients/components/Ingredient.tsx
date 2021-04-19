@@ -1,9 +1,11 @@
 import { useState } from 'react'
-
-import { IngredientModel } from '../../../common/models'
-import { removeIngredient, updateIngredient } from '../actions'
-import { useAppDispatch } from '../../../common/hooks'
-import { BoxItem, Button, Input } from '../../../common/components'
+import { BoxItem, Button, Input } from '@recipe-box/components'
+import {
+  IngredientModel,
+  removeIngredient,
+  updateIngredient,
+  useAppDispatch,
+} from '@recipe-box/state'
 
 type IngredientProps = IngredientModel
 

@@ -1,21 +1,21 @@
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
-
 import {
   Header,
   Instructions,
   Footer,
   GlobalStyles,
-  Wrapper,
+  PageWrapper,
   GridRow,
-} from '../common/components'
+} from '@recipe-box/components'
+
 import { Recipes, Ingredients } from '../features'
 
 export const App = (): JSX.Element => {
   const { key } = useLocation()
 
   return (
-    <Wrapper>
+    <PageWrapper>
       <GlobalStyles />
       <Header />
       <Instructions />
@@ -34,6 +34,6 @@ export const App = (): JSX.Element => {
         </TransitionGroup>
       </GridRow>
       <Footer />
-    </Wrapper>
+    </PageWrapper>
   )
 }

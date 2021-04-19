@@ -1,31 +1,34 @@
 const { resolve } = require('path')
 const { readdirSync, lstatSync } = require('fs')
 
-const PACKAGE_DIR = 'apps/'
-
-const noExtraneousOverrides = readdirSync(resolve(__dirname, PACKAGE_DIR))
-  // filter for non-hidden dirs to get a list of packages
-  .filter((entry) => {
-    return (
-      entry.substr(0, 1) !== '.' &&
-      lstatSync(resolve(__dirname, PACKAGE_DIR, entry)).isDirectory()
-    )
-  })
-  // map to override rules pointing to local and root package.json for rule
-  .map((entry) => ({
-    files: [`${PACKAGE_DIR}${entry}/**/*`],
-    rules: {
-      'import/no-extraneous-dependencies': [
-        'error',
-        {
-          devDependencies: true,
-          optionalDependencies: false,
-          peerDependencies: false,
-          packageDir: [__dirname, resolve(__dirname, PACKAGE_DIR, entry)],
-        },
-      ],
-    },
-  }))
+const noExtraneousOverrides = (pkgDir) => {
+  return (
+    readdirSync(resolve(__dirname, pkgDir))
+      // filter for non-hidden dirs to get a list of packages
+      .filter((entry) => {
+        return (
+          entry.substr(0, 1) !== '.' &&
+          lstatSync(resolve(__dirname, pkgDir, entry)).isDirectory()
+        )
+      })
+      .map((entry) => {
+        return {
+          files: [`${pkgDir}${entry}/**/*`],
+          rules: {
+            'import/no-extraneous-dependencies': [
+              'error',
+              {
+                devDependencies: true,
+                optionalDependencies: false,
+                peerDependencies: false,
+                packageDir: [__dirname, resolve(__dirname, pkgDir, entry)],
+              },
+            ],
+          },
+        }
+      })
+  )
+}
 
 module.exports = {
   extends: [
@@ -34,7 +37,10 @@ module.exports = {
     '@comparto/eslint-config/src/rules/typescript',
     '@comparto/eslint-config/src/rules/react',
   ],
-  overrides: [...noExtraneousOverrides],
+  overrides: [
+    ...noExtraneousOverrides('apps/'),
+    ...noExtraneousOverrides('libs/'),
+  ],
   parserOptions: {
     project: ['./tsconfig.json', './apps/*/tsconfig.json'],
   },

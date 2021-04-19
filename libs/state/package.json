@@ -1,0 +1,11 @@
+{
+  "name": "@recipe-box/state",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix --color"
+  }
+}

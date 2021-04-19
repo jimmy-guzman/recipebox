@@ -1,9 +1,6 @@
 import { Link } from 'react-router-dom'
-
-import { linkCss, Button, BoxItem } from '../../../common/components'
-import { useAppDispatch } from '../../../common/hooks'
-import { RecipeModel } from '../../../common/models'
-import { removeRecipe } from '../actions'
+import { linkCss, Button, BoxItem } from '@recipe-box/components'
+import { useAppDispatch, RecipeModel, removeRecipe } from '@recipe-box/state'
 
 type RecipeProps = RecipeModel
 
