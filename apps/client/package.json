@@ -10,9 +10,7 @@
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix --color",
-    "ts:check": "tsc --pretty",
-    "ts:watch": "tsc --pretty --watch"
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix --color"
   },
   "prettier": "@comparto/prettier-config",
   "dependencies": {
