@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { css } from '@emotion/react'
@@ -9,6 +8,7 @@ import {
   BoxContent,
   BoxHeader,
   linkCss,
+  AddItemForm,
 } from '@recipe-box/components'
 import {
   useRecipeId,
@@ -16,10 +16,11 @@ import {
   useAppDispatch,
   useRecipeIngredients,
   updateRecipe,
+  addIngredient,
 } from '@recipe-box/state'
 import { em } from '@recipe-box/utils'
 
-import { Ingredient, AddIngredientForm } from './components'
+import { Ingredient } from './Ingredient'
 
 const transitionOptions = {
   classNames: 'slide-left',
@@ -36,7 +37,10 @@ export const Ingredients = (): JSX.Element => {
   const recipes = useRecipes()
   const recipeIngredients = useRecipeIngredients(recipeId)
   const dispatch = useAppDispatch()
-  const [isReadyOnly, setIsReadyOnly] = useState(true)
+
+  const addItem = (name: string): void => {
+    dispatch(addIngredient(recipeId, name))
+  }
 
   return (
     <Box>
@@ -48,13 +52,8 @@ export const Ingredients = (): JSX.Element => {
           onChange={(e): void => {
             dispatch(updateRecipe(recipeId, e.target.value))
           }}
-          isReadOnly={isReadyOnly}
-          onDoubleClick={(): void => {
-            setIsReadyOnly(false)
-          }}
-          onBlur={(): void => {
-            setIsReadyOnly(true)
-          }}
+          isReadOnly
+          canEdit
         />
         <Link
           to='/'
@@ -73,7 +72,7 @@ export const Ingredients = (): JSX.Element => {
             </CSSTransition>
           ))}
         </TransitionGroup>
-        <AddIngredientForm />
+        <AddItemForm itemName='ingredient' addItem={addItem} />
       </BoxContent>
     </Box>
   )

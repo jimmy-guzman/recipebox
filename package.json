@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client:start": "nx run client:start",
+    "start": "nx run client:start",
     "build": "nx run-many --target=build --all --parallel",
     "format": "nx run-many --target=format --all --parallel",
     "format:fix": "nx run-many --target=format:fix --all --parallel",

@@ -1,8 +1,14 @@
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import { Typography, Box, BoxHeader, BoxContent } from '@recipe-box/components'
-import { useRecipes } from '@recipe-box/state'
+import {
+  Typography,
+  Box,
+  BoxHeader,
+  BoxContent,
+  AddItemForm,
+} from '@recipe-box/components'
+import { useAppDispatch, useRecipes, addRecipe } from '@recipe-box/state'
 
-import { Recipe, AddRecipeForm } from './components'
+import { Recipe } from './Recipe'
 
 const transitionOptions = {
   classNames: 'slide-left',
@@ -11,6 +17,7 @@ const transitionOptions = {
 
 export const Recipes = (): JSX.Element => {
   const recipes = useRecipes()
+  const dispatch = useAppDispatch()
 
   return (
     <Box>
@@ -25,7 +32,12 @@ export const Recipes = (): JSX.Element => {
             </CSSTransition>
           ))}
         </TransitionGroup>
-        <AddRecipeForm />
+        <AddItemForm
+          addItem={(name: string): void => {
+            dispatch(addRecipe(name))
+          }}
+          itemName='recipe'
+        />
       </BoxContent>
     </Box>
   )

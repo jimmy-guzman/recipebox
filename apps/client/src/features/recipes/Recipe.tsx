@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
 import { linkCss, Button, BoxItem } from '@recipe-box/components'
-import { useAppDispatch, RecipeModel, removeRecipe } from '@recipe-box/state'
+import { useAppDispatch, removeRecipe } from '@recipe-box/state'
 
-type RecipeProps = RecipeModel
+interface RecipeProps {
+  id: string
+  name: string
+}
 
 export const Recipe = ({ id, name }: RecipeProps): JSX.Element => {
   const dispatch = useAppDispatch()

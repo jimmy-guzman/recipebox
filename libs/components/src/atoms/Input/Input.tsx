@@ -1,25 +1,10 @@
-import { ChangeEvent, MouseEventHandler } from 'react'
-import { css } from '@emotion/react'
-import { em } from '@recipe-box/utils'
+import { useState } from 'react'
 
-import {
-  COLOR_PRIMARY,
-  COLOR_SECONDARY,
-  FONT_WEIGHT_REGULAR,
-} from '../../constants'
-
-export interface InputProps {
-  isFullWidth?: boolean
-  isReadOnly?: boolean
-  onBlur?: (e: ChangeEvent<HTMLInputElement>) => void
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
-  onDoubleClick?: MouseEventHandler<HTMLInputElement>
-  placeholder?: string
-  size?: 'default' | 'big'
-  value?: string
-}
+import { styles } from './Input.styles'
+import { InputProps } from './Input.types'
 
 export const Input = ({
+  canEdit,
   isFullWidth,
   onBlur,
   onChange,
@@ -29,35 +14,34 @@ export const Input = ({
   size = 'default',
   value,
 }: InputProps): JSX.Element => {
+  const [willReadyOnly, setWillReadyOnly] = useState(() => isReadOnly ?? false)
+
   return (
     <input
-      css={css`
-        background: inherit;
-        padding: ${size === 'big' ? em('1px') : em('8px')};
-        letter-spacing: ${em('1px')};
-        color: ${COLOR_PRIMARY};
-        width: ${isFullWidth ? '100%' : 'initial'};
-        border: none;
-        outline: none;
-        font-size: ${size === 'default' ? em('18px') : em('32px')};
-        font-weight: ${FONT_WEIGHT_REGULAR};
-        font-family: inherit;
-        text-align: inherit;
-        &:focus {
-          cursor: auto;
-        }
-        &:hover {
-          color: ${COLOR_SECONDARY};
-          cursor: pointer;
-        }
-      `}
+      css={styles({ isFullWidth, size })}
       value={value}
       type='text'
       placeholder={placeholder}
       onChange={onChange}
-      onBlur={onBlur}
-      onDoubleClick={onDoubleClick}
-      readOnly={isReadOnly}
+      onDoubleClick={(e): void => {
+        if (onDoubleClick) {
+          onDoubleClick(e)
+        }
+
+        if (canEdit && isReadOnly) {
+          setWillReadyOnly(false)
+        }
+      }}
+      onBlur={(e): void => {
+        if (onBlur) {
+          onBlur(e)
+        }
+
+        if (canEdit && isReadOnly) {
+          setWillReadyOnly(true)
+        }
+      }}
+      readOnly={isReadOnly && willReadyOnly}
     />
   )
 }
