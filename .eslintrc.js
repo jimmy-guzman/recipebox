@@ -36,6 +36,7 @@ module.exports = {
     'plugin:cypress/recommended',
     '@comparto/eslint-config/src/rules/typescript',
     '@comparto/eslint-config/src/rules/react',
+    '@comparto/eslint-config/src/rules/jest',
   ],
   overrides: [
     ...noExtraneousOverrides('apps/'),

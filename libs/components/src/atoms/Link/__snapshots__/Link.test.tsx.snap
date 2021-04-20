@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Link /> should render 1`] = `
+.emotion-0 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #bf268a;
+}
+
+.emotion-0:hover {
+  color: #04d9b2;
+  cursor: pointer;
+}
+
+<a
+  class="emotion-0"
+  href="#"
+  rel="noreferrer"
+>
+  I am a link!
+</a>
+`;
