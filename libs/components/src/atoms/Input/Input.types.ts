@@ -6,6 +6,7 @@ export interface InputProps {
    * - only applicable when `isReadOnly` is `true`
    */
   canEdit?: boolean
+  defaultValue?: string
   isFullWidth?: boolean
   isReadOnly?: boolean
   onBlur?: (e: ChangeEvent<HTMLInputElement>) => void
