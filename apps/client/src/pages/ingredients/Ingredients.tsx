@@ -13,12 +13,10 @@ import {
 import {
   useRecipeId,
   useRecipes,
-  useAppDispatch,
   useRecipeIngredients,
-  updateRecipe,
-  addIngredient,
+  useUpdateRecipe,
+  useAddIngredient,
 } from '@recipe-box/state'
-import { em } from '@recipe-box/utils'
 
 import { Ingredient } from './Ingredient'
 
@@ -27,20 +25,12 @@ const transitionOptions = {
   timeout: { enter: 500, exit: 300 },
 }
 
-const iconLinkCss = css`
-  position: absolute;
-  right: ${em('7px')};
-`
-
 export const Ingredients = (): JSX.Element => {
   const recipeId = useRecipeId()
   const recipes = useRecipes()
   const recipeIngredients = useRecipeIngredients(recipeId)
-  const dispatch = useAppDispatch()
-
-  const addItem = (name: string): void => {
-    dispatch(addIngredient(recipeId, name))
-  }
+  const addItem = useAddIngredient(recipeId)
+  const updateRecipe = useUpdateRecipe(recipeId)
 
   return (
     <Box>
@@ -50,17 +40,12 @@ export const Ingredients = (): JSX.Element => {
           isFullWidth
           value={recipes[recipeId].name}
           onChange={(e): void => {
-            dispatch(updateRecipe(recipeId, e.target.value))
+            updateRecipe(e.target.value)
           }}
           isReadOnly
           canEdit
         />
-        <Link
-          to='/'
-          role='link'
-          aria-label='back'
-          css={css([iconLinkCss, linkCss])}
-        >
+        <Link to='/' role='link' aria-label='back' css={css(linkCss)}>
           <BackIcon height={24} width={24} />
         </Link>
       </BoxHeader>

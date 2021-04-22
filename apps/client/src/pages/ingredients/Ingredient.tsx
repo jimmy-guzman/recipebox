@@ -1,9 +1,5 @@
 import { BoxItem, Button, Input } from '@recipe-box/components'
-import {
-  removeIngredient,
-  updateIngredient,
-  useAppDispatch,
-} from '@recipe-box/state'
+import { useUpdateIngredient, useRemoveIngredient } from '@recipe-box/state'
 
 interface IngredientProps {
   id: string
@@ -11,7 +7,8 @@ interface IngredientProps {
 }
 
 export const Ingredient = ({ name, id }: IngredientProps): JSX.Element => {
-  const dispatch = useAppDispatch()
+  const removeIngredient = useRemoveIngredient(id)
+  const updateIngredient = useUpdateIngredient(id)
 
   return (
     <BoxItem>
@@ -19,7 +16,7 @@ export const Ingredient = ({ name, id }: IngredientProps): JSX.Element => {
         isFullWidth
         value={name}
         onChange={(e): void => {
-          dispatch(updateIngredient(id, e.target.value))
+          updateIngredient(e.target.value)
         }}
         isReadOnly
         canEdit
@@ -27,9 +24,7 @@ export const Ingredient = ({ name, id }: IngredientProps): JSX.Element => {
       <Button
         variant='secondary'
         ariaLabel={`delete ${name}`}
-        onClick={(): void => {
-          dispatch(removeIngredient(id))
-        }}
+        onClick={removeIngredient}
       >
         X
       </Button>

@@ -1,3 +1,5 @@
+import { em } from '@recipe-box/utils'
+
 import { COLOR_BOX_HEADER_BG } from '../../constants'
 
 interface BoxHeaderProps {
@@ -18,6 +20,7 @@ export const BoxHeader = ({
         display: 'flex',
         flexFlow: 'row',
         justifyContent: 'center',
+        padding: `0 ${em('7px')}`,
         position: 'relative',
         textAlign: 'center',
       }}

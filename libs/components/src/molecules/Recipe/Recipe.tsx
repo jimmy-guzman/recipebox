@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
-import { linkCss, Button, BoxItem } from '@recipe-box/components'
-import { useAppDispatch, removeRecipe } from '@recipe-box/state'
+import { useRemoveRecipe } from '@recipe-box/state'
+
+import { linkCss, Button } from '../../atoms'
+import { BoxItem } from '../BoxItem'
 
 interface RecipeProps {
   id: string
@@ -8,7 +10,7 @@ interface RecipeProps {
 }
 
 export const Recipe = ({ id, name }: RecipeProps): JSX.Element => {
-  const dispatch = useAppDispatch()
+  const removeRecipe = useRemoveRecipe(id)
 
   return (
     <BoxItem>
@@ -18,9 +20,7 @@ export const Recipe = ({ id, name }: RecipeProps): JSX.Element => {
       <Button
         variant='secondary'
         ariaLabel={`delete ${name}`}
-        onClick={(): void => {
-          dispatch(removeRecipe(id))
-        }}
+        onClick={removeRecipe}
       >
         X
       </Button>

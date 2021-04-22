@@ -9,7 +9,7 @@ import {
   GridRow,
 } from '@recipe-box/components'
 
-import { Recipes, Ingredients } from '../features'
+import { Home, Ingredients } from '../pages'
 
 export const App = (): JSX.Element => {
   const { key } = useLocation()
@@ -24,7 +24,7 @@ export const App = (): JSX.Element => {
           <CSSTransition key={key} classNames='fade' timeout={300}>
             <Switch>
               <Route exact path='/'>
-                <Recipes />
+                <Home />
               </Route>
               <Route path='/recipe/:id'>
                 <Ingredients />

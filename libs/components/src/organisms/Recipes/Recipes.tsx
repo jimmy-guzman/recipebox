@@ -1,24 +1,26 @@
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import {
-  Typography,
-  Box,
-  BoxHeader,
-  BoxContent,
-  AddItemForm,
-} from '@recipe-box/components'
-import { useAppDispatch, useRecipes, addRecipe } from '@recipe-box/state'
+import { RecipeModel } from '@recipe-box/state'
 
-import { Recipe } from './Recipe'
+import { Typography } from '../../atoms'
+import {
+  AddItemForm,
+  Box,
+  BoxContent,
+  BoxHeader,
+  Recipe,
+} from '../../molecules'
 
 const transitionOptions = {
   classNames: 'slide-left',
   timeout: { enter: 500, exit: 500 },
 }
 
-export const Recipes = (): JSX.Element => {
-  const recipes = useRecipes()
-  const dispatch = useAppDispatch()
+interface RecipesProps {
+  addRecipe: (name: string) => void
+  recipes: Record<string, RecipeModel>
+}
 
+export const Recipes = ({ addRecipe, recipes }: RecipesProps): JSX.Element => {
   return (
     <Box>
       <BoxHeader>
@@ -32,12 +34,7 @@ export const Recipes = (): JSX.Element => {
             </CSSTransition>
           ))}
         </TransitionGroup>
-        <AddItemForm
-          addItem={(name: string): void => {
-            dispatch(addRecipe(name))
-          }}
-          itemName='recipe'
-        />
+        <AddItemForm addItem={addRecipe} itemName='recipe' />
       </BoxContent>
     </Box>
   )
