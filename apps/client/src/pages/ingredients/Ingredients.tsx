@@ -25,7 +25,7 @@ const transitionOptions = {
   timeout: { enter: 500, exit: 300 },
 }
 
-export const Ingredients = (): JSX.Element => {
+const Ingredients = (): JSX.Element => {
   const recipeId = useRecipeId()
   const recipes = useRecipes()
   const recipeIngredients = useRecipeIngredients(recipeId)
@@ -62,3 +62,5 @@ export const Ingredients = (): JSX.Element => {
     </Box>
   )
 }
+
+export default Ingredients

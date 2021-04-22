@@ -1,2 +1,2 @@
-export * from './home'
-export * from './ingredients'
+export { Home } from './home'
+export { Ingredients } from './ingredients'

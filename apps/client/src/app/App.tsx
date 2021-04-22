@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import {
@@ -8,8 +9,10 @@ import {
   PageWrapper,
   GridRow,
 } from '@recipe-box/components'
+import { namedLazy } from '@recipe-box/utils'
 
-import { Home, Ingredients } from '../pages'
+const { Home } = namedLazy(() => import('../pages/home'))
+const { Ingredients } = namedLazy(() => import('../pages/ingredients'))
 
 export const App = (): JSX.Element => {
   const { key } = useLocation()
@@ -20,18 +23,20 @@ export const App = (): JSX.Element => {
       <Header />
       <Instructions />
       <GridRow>
-        <TransitionGroup component={null}>
-          <CSSTransition key={key} classNames='fade' timeout={300}>
-            <Switch>
-              <Route exact path='/'>
-                <Home />
-              </Route>
-              <Route path='/recipe/:id'>
-                <Ingredients />
-              </Route>
-            </Switch>
-          </CSSTransition>
-        </TransitionGroup>
+        <Suspense fallback={<div>Loading...</div>}>
+          <TransitionGroup component={null}>
+            <CSSTransition key={key} classNames='fade' timeout={300}>
+              <Switch>
+                <Route exact path='/'>
+                  <Home />
+                </Route>
+                <Route path='/recipe/:id'>
+                  <Ingredients />
+                </Route>
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+        </Suspense>
       </GridRow>
       <Footer />
     </PageWrapper>

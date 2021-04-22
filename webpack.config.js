@@ -49,6 +49,9 @@ module.exports = {
     ],
   },
   optimization: {
+    runtimeChunk: {
+      name: (entrypoint) => `runtime-${entrypoint.name}`,
+    },
     splitChunks: { chunks: 'all', name: false },
   },
   output: {
