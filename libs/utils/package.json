@@ -9,5 +9,9 @@
     "format:fix": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix --color"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "yarn": "1.18.0"
   }
 }

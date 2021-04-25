@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nx run client:start",
+    "start:client": "nx run client:start",
+    "start:server": "nx run server:start",
     "build": "nx run-many --target=build --all --parallel",
     "format": "nx run-many --target=format --all --parallel",
     "format:fix": "nx run-many --target=format:fix --all --parallel",
@@ -92,7 +93,7 @@
   },
   "volta": {
     "node": "14.16.1",
-    "yarn": "1.22.10"
+    "yarn": "1.18.0"
   },
   "private": true,
   "workspaces": [

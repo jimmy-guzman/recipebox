@@ -16,6 +16,10 @@
     "state": {
       "root": "libs/state",
       "projectType": "library"
+    },
+    "server": {
+      "root": "apps/server",
+      "projectType": "application"
     }
   },
   "defaultProject": "client"
