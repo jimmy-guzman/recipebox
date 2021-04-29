@@ -33,3 +33,14 @@ export const queryResolvers = schemaFiles
     (file) => require(absolutePath(`${QUERIES_DIR}/${file}`)).default
   )
   .reduce((acc, curr) => ({ ...acc, ...curr.Query }), {})
+
+/**
+ * Grabs mutation resolvers based on the custom schemaFiles
+ */
+export const mutationResolvers = schemaFiles
+  .map((file) => file.replace(SCHEMA_EXT, ''))
+  .map(
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    (file) => require(absolutePath(`${QUERIES_DIR}/${file}`)).default
+  )
+  .reduce((acc, curr) => ({ ...acc, ...curr.Mutation }), {})

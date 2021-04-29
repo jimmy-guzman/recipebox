@@ -1,0 +1,21 @@
+type Recipes {
+  id: String!
+  title: String!
+  recipes(title: String): [Recipe]
+}
+
+type Recipe {
+  id: String!
+  title: String!
+  description: String!
+}
+
+extend type Query {
+  recipes: [Recipe]
+}
+
+extend type Mutation {
+  createRecipe(title: String!, description: String!): Recipe!
+  updateRecipe(id: String!, title: String, description: String): Recipe!
+  deleteRecipe(id: String!): String!
+}

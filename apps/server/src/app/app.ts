@@ -2,7 +2,12 @@ import Koa from 'koa'
 import KoaRouter from 'koa-router'
 import { ApolloServer, gql } from 'apollo-server-koa'
 
-import { queryResolvers, schema, errorHandler } from '../utils'
+import {
+  queryResolvers,
+  mutationResolvers,
+  schema,
+  errorHandler,
+} from '../utils'
 
 export const createApp = (): Koa => {
   const app = new Koa()
@@ -10,9 +15,11 @@ export const createApp = (): Koa => {
   const server = new ApolloServer({
     typeDefs: gql(`
     type Query
+    type Mutation
 
     schema {
       query: Query
+      mutation: Mutation
     }
 
     ${schema}
@@ -20,8 +27,8 @@ export const createApp = (): Koa => {
     context: ({ ctx }): unknown => ctx,
     formatError: errorHandler,
     resolvers: {
-      // eslint-disable-next-line @typescript-eslint/naming-convention
       Query: queryResolvers,
+      Mutation: mutationResolvers,
     },
   })
 

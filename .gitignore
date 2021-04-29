@@ -4,3 +4,4 @@ dist
 .reports
 yarn-error.log
 storybook-static
+postgres-data
