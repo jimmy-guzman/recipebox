@@ -3,5 +3,8 @@ schema: 'src/schema/schema.graphql'
 documents: []
 generates:
   src/generated/graphql.ts:
+    config:
+      scalars:
+        Date: 'Date'
     plugins:
       - 'typescript'

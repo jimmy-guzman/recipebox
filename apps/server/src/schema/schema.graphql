@@ -1,21 +1,41 @@
+scalar Date
+
+type Recipe {
+  id: String!
+  title: String!
+  createdAt: Date!
+  updatedAt: Date
+  ingredients: [String]!
+}
+
 type Recipes {
   id: String!
   title: String!
   recipes(title: String): [Recipe]
 }
 
-type Recipe {
+type Ingredient {
   id: String!
   title: String!
-  description: String!
+  createdAt: Date!
+  updatedAt: Date
+}
+
+type Ingredients {
+  id: String!
+  title: String!
+  ingredients(title: String): [Ingredient]
 }
 
 extend type Query {
   recipes: [Recipe]
+  recipe(id: String!): Recipe!
+  ingredients: [Ingredient]
 }
 
 extend type Mutation {
-  createRecipe(title: String!, description: String!): Recipe!
-  updateRecipe(id: String!, title: String, description: String): Recipe!
+  createRecipe(title: String!): Recipe!
+  updateRecipe(id: String!, title: String): Recipe!
   deleteRecipe(id: String!): String!
+  createIngredient(title: String!, recipeId: String!): Ingredient!
 }
