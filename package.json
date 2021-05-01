@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "ws": "yarn workspace",
     "start:client": "nx run client:start",
     "start:server": "nx run server:start",
     "build": "nx run-many --target=build --all --parallel",
