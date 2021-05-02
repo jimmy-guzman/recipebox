@@ -2,12 +2,8 @@ import Koa from 'koa'
 import KoaRouter from 'koa-router'
 import { ApolloServer, gql } from 'apollo-server-koa'
 
-import {
-  queryResolvers,
-  mutationResolvers,
-  schema,
-  errorHandler,
-} from '../utils'
+import { schema, formatError } from '../utils'
+import { resolvers } from '../resolvers'
 
 export const createApp = (): Koa => {
   const app = new Koa()
@@ -25,11 +21,8 @@ export const createApp = (): Koa => {
     ${schema}
   `),
     context: ({ ctx }): unknown => ctx,
-    formatError: errorHandler,
-    resolvers: {
-      Query: queryResolvers,
-      Mutation: mutationResolvers,
-    },
+    formatError,
+    resolvers,
   })
 
   router.get('/healthz', (ctx) => {

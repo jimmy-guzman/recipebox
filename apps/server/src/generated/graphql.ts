@@ -16,7 +16,7 @@ export type Scalars = {
 export type Ingredient = {
   __typename?: 'Ingredient';
   id: Scalars['String'];
-  title: Scalars['String'];
+  name: Scalars['String'];
   createdAt: Scalars['Date'];
   updatedAt?: Maybe<Scalars['Date']>;
 };
@@ -24,32 +24,35 @@ export type Ingredient = {
 export type Ingredients = {
   __typename?: 'Ingredients';
   id: Scalars['String'];
-  title: Scalars['String'];
+  name: Scalars['String'];
   ingredients?: Maybe<Array<Maybe<Ingredient>>>;
 };
 
 
 export type IngredientsIngredientsArgs = {
-  title?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
 };
 
 export type Mutation = {
   __typename?: 'Mutation';
   createRecipe: Recipe;
   updateRecipe: Recipe;
-  deleteRecipe: Scalars['String'];
+  deleteRecipe: Recipe;
   createIngredient: Ingredient;
+  updateIngredient: Ingredient;
+  deleteIngredient: Ingredient;
 };
 
 
 export type MutationCreateRecipeArgs = {
-  title: Scalars['String'];
+  name: Scalars['String'];
+  userId: Scalars['String'];
 };
 
 
 export type MutationUpdateRecipeArgs = {
   id: Scalars['String'];
-  title?: Maybe<Scalars['String']>;
+  name: Scalars['String'];
 };
 
 
@@ -59,14 +62,26 @@ export type MutationDeleteRecipeArgs = {
 
 
 export type MutationCreateIngredientArgs = {
-  title: Scalars['String'];
+  name: Scalars['String'];
   recipeId: Scalars['String'];
+};
+
+
+export type MutationUpdateIngredientArgs = {
+  id: Scalars['String'];
+  name: Scalars['String'];
+};
+
+
+export type MutationDeleteIngredientArgs = {
+  id: Scalars['String'];
 };
 
 export type Query = {
   __typename?: 'Query';
   recipes?: Maybe<Array<Maybe<Recipe>>>;
   recipe: Recipe;
+  ingredient: Ingredient;
   ingredients?: Maybe<Array<Maybe<Ingredient>>>;
 };
 
@@ -75,23 +90,29 @@ export type QueryRecipeArgs = {
   id: Scalars['String'];
 };
 
+
+export type QueryIngredientArgs = {
+  id: Scalars['String'];
+};
+
 export type Recipe = {
   __typename?: 'Recipe';
   id: Scalars['String'];
-  title: Scalars['String'];
+  name: Scalars['String'];
   createdAt: Scalars['Date'];
   updatedAt?: Maybe<Scalars['Date']>;
-  ingredients: Array<Maybe<Scalars['String']>>;
+  ingredients?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type Recipes = {
   __typename?: 'Recipes';
   id: Scalars['String'];
-  title: Scalars['String'];
+  name: Scalars['String'];
+  userId?: Maybe<Scalars['Int']>;
   recipes?: Maybe<Array<Maybe<Recipe>>>;
 };
 
 
 export type RecipesRecipesArgs = {
-  title?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
 };
