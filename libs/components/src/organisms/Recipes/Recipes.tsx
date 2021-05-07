@@ -1,5 +1,5 @@
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import { RecipeModel } from '@recipe-box/state'
+import { Recipe as IRecipe } from '@recipe-box/types'
 
 import { Typography } from '../../atoms'
 import {
@@ -17,10 +17,13 @@ const transitionOptions = {
 
 interface RecipesProps {
   addRecipe: (name: string) => void
-  recipes: Record<string, RecipeModel>
+  recipes?: IRecipe[]
 }
 
-export const Recipes = ({ addRecipe, recipes }: RecipesProps): JSX.Element => {
+export const Recipes = ({
+  addRecipe,
+  recipes = [],
+}: RecipesProps): JSX.Element => {
   return (
     <Box>
       <BoxHeader>
@@ -28,7 +31,7 @@ export const Recipes = ({ addRecipe, recipes }: RecipesProps): JSX.Element => {
       </BoxHeader>
       <BoxContent>
         <TransitionGroup component={null}>
-          {Object.values(recipes).map((recipe) => (
+          {recipes.map((recipe) => (
             <CSSTransition {...transitionOptions} key={recipe.id}>
               <Recipe {...recipe} />
             </CSSTransition>

@@ -1,5 +1,5 @@
 {
-  "name": "@recipe-box/components",
+  "name": "@recipe-box/types",
   "version": "0.0.0",
   "main": "src/index.ts",
   "license": "MIT",
@@ -9,17 +9,12 @@
     "format:fix": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
     "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix --color",
-    "test": "jest"
+    "g:types": "graphql-codegen --config codegen.yml"
   },
-  "dependencies": {
-    "polished": "^4.1.1",
-    "@recipe-box/bridge": "*",
-    "@recipe-box/state": "*",
-    "@recipe-box/utils": "*",
-    "react-transition-group": "^4.4.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@recipe-box/types": "*"
+    "@graphql-codegen/cli": "1.21.4",
+    "@graphql-codegen/typescript": "1.22.0"
   },
   "volta": {
     "node": "14.16.1",

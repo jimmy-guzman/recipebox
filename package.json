@@ -13,7 +13,7 @@
     "lint": "nx run-many --target=lint --all --parallel",
     "lint:fix": "nx run-many --target=lint:fix --all --parallel",
     "test": "nx run-many --target=test --all --parallel",
-    "e2e": "cypress run --headless",
+    "e2e": "yarn ws @recipe-box/server db:seed && cypress run --headless",
     "e2e:open": "cypress open",
     "gh-deploy": "npm run build && gh-pages -d dist -b gh-pages",
     "sb": "start-storybook -p 6006",

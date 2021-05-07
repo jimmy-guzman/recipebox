@@ -17,9 +17,15 @@
     "@recipe-box/components": "*",
     "@recipe-box/state": "*",
     "@recipe-box/utils": "*",
+    "@recipe-box/bridge": "*",
     "react-transition-group": "^4.4.1"
   },
   "devDependencies": {
+    "@recipe-box/types": "*",
     "@types/react-transition-group": "^4.4.1"
+  },
+  "volta": {
+    "node": "14.16.1",
+    "yarn": "1.18.0"
   }
 }

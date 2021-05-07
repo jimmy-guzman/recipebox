@@ -3,23 +3,23 @@ scalar Date
 type Recipe {
   id: String!
   name: String!
-  createdAt: Date!
-  updatedAt: Date
-  ingredients: [String]
+  createdAt: String!
+  updatedAt: String!
+  ingredients: [Ingredient!]
 }
 
 type Recipes {
   id: String!
   name: String!
-  userId: Int
+  userId: Int!
   recipes(name: String): [Recipe]
 }
 
 type Ingredient {
   id: String!
   name: String!
-  createdAt: Date!
-  updatedAt: Date
+  createdAt: String!
+  updatedAt: String!
 }
 
 type Ingredients {

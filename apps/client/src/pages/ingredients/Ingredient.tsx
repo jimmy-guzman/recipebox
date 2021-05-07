@@ -1,5 +1,6 @@
+import { useDeleteIngredient, useUpdateIngredient } from '@recipe-box/bridge'
 import { BoxItem, Button, Input } from '@recipe-box/components'
-import { useUpdateIngredient, useRemoveIngredient } from '@recipe-box/state'
+import { useState } from 'react'
 
 interface IngredientProps {
   id: string
@@ -7,24 +8,32 @@ interface IngredientProps {
 }
 
 export const Ingredient = ({ name, id }: IngredientProps): JSX.Element => {
-  const removeIngredient = useRemoveIngredient(id)
-  const updateIngredient = useUpdateIngredient(id)
+  const { mutate: deleteIngredient } = useDeleteIngredient()
+  const { mutate: updateIngredient } = useUpdateIngredient(id)
+  const [newName, setNewName] = useState(() => name)
 
   return (
     <BoxItem>
       <Input
         isFullWidth
-        value={name}
+        value={newName}
         onChange={(e): void => {
-          updateIngredient(e.target.value)
+          setNewName(e.target.value)
+        }}
+        onBlur={(): void => {
+          if (newName) {
+            updateIngredient({ name: newName })
+          }
         }}
         isReadOnly
         canEdit
       />
       <Button
         variant='secondary'
-        ariaLabel={`delete ${name}`}
-        onClick={removeIngredient}
+        ariaLabel={`delete ${newName}`}
+        onClick={(): void => {
+          deleteIngredient(id)
+        }}
       >
         X
       </Button>

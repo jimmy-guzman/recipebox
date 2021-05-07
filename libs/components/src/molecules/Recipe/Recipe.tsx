@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useRemoveRecipe } from '@recipe-box/state'
+import { useDeleteRecipe } from '@recipe-box/bridge'
 
 import { linkCss, Button } from '../../atoms'
 import { BoxItem } from '../BoxItem'
@@ -10,7 +10,7 @@ interface RecipeProps {
 }
 
 export const Recipe = ({ id, name }: RecipeProps): JSX.Element => {
-  const removeRecipe = useRemoveRecipe(id)
+  const recipe = useDeleteRecipe()
 
   return (
     <BoxItem>
@@ -20,7 +20,9 @@ export const Recipe = ({ id, name }: RecipeProps): JSX.Element => {
       <Button
         variant='secondary'
         ariaLabel={`delete ${name}`}
-        onClick={removeRecipe}
+        onClick={(): void => {
+          recipe.mutate(id)
+        }}
       >
         X
       </Button>

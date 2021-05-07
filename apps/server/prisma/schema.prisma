@@ -8,27 +8,27 @@ generator client {
 }
 
 model Recipe {
-  id          Int          @id @default(autoincrement())
+  id          String       @id @default(cuid())
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
   name        String       @db.VarChar(255)
   user        User         @relation(fields: [userId], references: [id])
-  userId      Int
+  userId      String
   ingredients Ingredient[]
 }
 
 model Ingredient {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   name      String   @db.VarChar(255)
   quantity  String?  @db.VarChar(255)
   Recipe    Recipe?  @relation(fields: [recipeId], references: [id])
-  recipeId  Int?
+  recipeId  String
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   userName  String   @unique

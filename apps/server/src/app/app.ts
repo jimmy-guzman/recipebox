@@ -1,9 +1,13 @@
 import Koa from 'koa'
 import KoaRouter from 'koa-router'
 import { ApolloServer, gql } from 'apollo-server-koa'
+import cors from '@koa/cors'
+import { PrismaClient } from '@prisma/client'
 
 import { schema, formatError } from '../utils'
 import { resolvers } from '../resolvers'
+
+const prisma = new PrismaClient()
 
 export const createApp = (): Koa => {
   const app = new Koa()
@@ -20,7 +24,7 @@ export const createApp = (): Koa => {
 
     ${schema}
   `),
-    context: ({ ctx }): unknown => ctx,
+    context: (req): unknown => ({ ...req, prisma }),
     formatError,
     resolvers,
   })
@@ -33,6 +37,7 @@ export const createApp = (): Koa => {
   router.post('/graphql', server.getMiddleware())
   router.get('/graphql', server.getMiddleware())
 
+  app.use(cors())
   app.use(router.routes())
   app.use(router.allowedMethods())
 

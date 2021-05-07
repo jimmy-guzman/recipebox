@@ -32,6 +32,12 @@
     },
     "server": {
       "implicitDependencies": []
+    },
+    "types": {
+      "implicitDependencies": []
+    },
+    "bridge": {
+      "implicitDependencies": []
     }
   },
   "affected": {

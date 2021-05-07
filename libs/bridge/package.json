@@ -1,5 +1,5 @@
 {
-  "name": "@recipe-box/components",
+  "name": "@recipe-box/bridge",
   "version": "0.0.0",
   "main": "src/index.ts",
   "license": "MIT",
@@ -8,15 +8,11 @@
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix --color",
-    "test": "jest"
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix --color"
   },
   "dependencies": {
-    "polished": "^4.1.1",
-    "@recipe-box/bridge": "*",
-    "@recipe-box/state": "*",
-    "@recipe-box/utils": "*",
-    "react-transition-group": "^4.4.1"
+    "graphql-request": "^3.4.0",
+    "react-query": "^3.15.2"
   },
   "devDependencies": {
     "@recipe-box/types": "*"

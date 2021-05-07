@@ -1,11 +1,13 @@
 import { Recipes } from '@recipe-box/components'
-import { useRecipes, useAddRecipe } from '@recipe-box/state'
+import { useRecipes, useAddRecipe } from '@recipe-box/bridge'
 
 const Home = (): JSX.Element => {
-  const recipes = useRecipes()
+  const { isLoading, data } = useRecipes()
   const addRecipe = useAddRecipe()
 
-  return <Recipes addRecipe={addRecipe} recipes={recipes} />
+  if (isLoading) return <>Loading...</>
+
+  return <Recipes addRecipe={addRecipe.mutate} recipes={data?.recipes} />
 }
 
 export default Home

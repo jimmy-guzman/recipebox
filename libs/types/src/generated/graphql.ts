@@ -17,8 +17,8 @@ export type Ingredient = {
   __typename?: 'Ingredient';
   id: Scalars['String'];
   name: Scalars['String'];
-  createdAt: Scalars['Date'];
-  updatedAt?: Maybe<Scalars['Date']>;
+  createdAt: Scalars['String'];
+  updatedAt: Scalars['String'];
 };
 
 export type Ingredients = {
@@ -99,16 +99,16 @@ export type Recipe = {
   __typename?: 'Recipe';
   id: Scalars['String'];
   name: Scalars['String'];
-  createdAt: Scalars['Date'];
-  updatedAt?: Maybe<Scalars['Date']>;
-  ingredients?: Maybe<Array<Maybe<Scalars['String']>>>;
+  createdAt: Scalars['String'];
+  updatedAt: Scalars['String'];
+  ingredients?: Maybe<Array<Ingredient>>;
 };
 
 export type Recipes = {
   __typename?: 'Recipes';
   id: Scalars['String'];
   name: Scalars['String'];
-  userId?: Maybe<Scalars['Int']>;
+  userId: Scalars['Int'];
   recipes?: Maybe<Array<Maybe<Recipe>>>;
 };
 

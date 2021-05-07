@@ -10,13 +10,13 @@ import {
   linkCss,
   AddItemForm,
 } from '@recipe-box/components'
+import { useRecipeId } from '@recipe-box/state'
 import {
-  useRecipeId,
-  useRecipes,
-  useRecipeIngredients,
-  useUpdateRecipe,
   useAddIngredient,
-} from '@recipe-box/state'
+  useRecipe,
+  useUpdateRecipe,
+} from '@recipe-box/bridge'
+import { useState } from 'react'
 
 import { Ingredient } from './Ingredient'
 
@@ -27,10 +27,12 @@ const transitionOptions = {
 
 const Ingredients = (): JSX.Element => {
   const recipeId = useRecipeId()
-  const recipes = useRecipes()
-  const recipeIngredients = useRecipeIngredients(recipeId)
-  const addItem = useAddIngredient(recipeId)
-  const updateRecipe = useUpdateRecipe(recipeId)
+  const { isLoading, data } = useRecipe(recipeId)
+  const { mutate: addItem } = useAddIngredient(recipeId)
+  const { mutate: updateRecipe } = useUpdateRecipe(recipeId)
+  const [recipeName, setRecipeName] = useState(() => data?.recipe.name)
+
+  if (isLoading) return <>Loading ...</>
 
   return (
     <Box>
@@ -38,9 +40,14 @@ const Ingredients = (): JSX.Element => {
         <Input
           size='big'
           isFullWidth
-          value={recipes[recipeId].name}
+          value={recipeName ?? data?.recipe.name}
           onChange={(e): void => {
-            updateRecipe(e.target.value)
+            setRecipeName(e.target.value)
+          }}
+          onBlur={(): void => {
+            if (recipeName) {
+              updateRecipe({ name: recipeName })
+            }
           }}
           isReadOnly
           canEdit
@@ -51,7 +58,7 @@ const Ingredients = (): JSX.Element => {
       </BoxHeader>
       <BoxContent>
         <TransitionGroup component={null}>
-          {recipeIngredients.map((ingredient) => (
+          {data?.recipe.ingredients?.map((ingredient) => (
             <CSSTransition {...transitionOptions} key={ingredient.id}>
               <Ingredient {...ingredient} />
             </CSSTransition>

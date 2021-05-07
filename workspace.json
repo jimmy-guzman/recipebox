@@ -20,6 +20,14 @@
     "server": {
       "root": "apps/server",
       "projectType": "application"
+    },
+    "types": {
+      "root": "libs/types",
+      "projectType": "library"
+    },
+    "bridge": {
+      "root": "libs/bridge",
+      "projectType": "library"
     }
   },
   "defaultProject": "client"
