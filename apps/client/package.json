@@ -15,7 +15,6 @@
   "prettier": "@comparto/prettier-config",
   "dependencies": {
     "@recipe-box/components": "*",
-    "@recipe-box/state": "*",
     "@recipe-box/utils": "*",
     "@recipe-box/bridge": "*",
     "react-transition-group": "^4.4.1"

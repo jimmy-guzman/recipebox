@@ -10,7 +10,6 @@ import {
   GridRow,
 } from '@recipe-box/components'
 import { namedLazy } from '@recipe-box/utils'
-import { BridgeProvider } from '@recipe-box/bridge'
 
 const { Home } = namedLazy(() => import('../pages/home'))
 const { Ingredients } = namedLazy(() => import('../pages/ingredients'))
@@ -19,29 +18,27 @@ export const App = (): JSX.Element => {
   const { key } = useLocation()
 
   return (
-    <BridgeProvider>
-      <PageWrapper>
-        <GlobalStyles />
-        <Header />
-        <Instructions />
-        <GridRow>
-          <Suspense fallback={<div>Loading...</div>}>
-            <TransitionGroup component={null}>
-              <CSSTransition key={key} classNames='fade' timeout={300}>
-                <Switch>
-                  <Route exact path='/'>
-                    <Home />
-                  </Route>
-                  <Route path='/recipe/:id'>
-                    <Ingredients />
-                  </Route>
-                </Switch>
-              </CSSTransition>
-            </TransitionGroup>
-          </Suspense>
-        </GridRow>
-        <Footer />
-      </PageWrapper>
-    </BridgeProvider>
+    <PageWrapper>
+      <GlobalStyles />
+      <Header />
+      <Instructions />
+      <GridRow>
+        <Suspense fallback={<div>Loading...</div>}>
+          <TransitionGroup component={null}>
+            <CSSTransition key={key} classNames='fade' timeout={300}>
+              <Switch>
+                <Route exact path='/'>
+                  <Home />
+                </Route>
+                <Route path='/recipe/:id'>
+                  <Ingredients />
+                </Route>
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+        </Suspense>
+      </GridRow>
+      <Footer />
+    </PageWrapper>
   )
 }

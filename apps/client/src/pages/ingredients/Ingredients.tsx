@@ -10,7 +10,6 @@ import {
   linkCss,
   AddItemForm,
 } from '@recipe-box/components'
-import { useRecipeId } from '@recipe-box/state'
 import {
   useAddIngredient,
   useRecipe,
@@ -18,6 +17,7 @@ import {
 } from '@recipe-box/bridge'
 import { useState } from 'react'
 
+import { useRecipeId } from '../../hooks'
 import { Ingredient } from './Ingredient'
 
 const transitionOptions = {

@@ -1,6 +1,8 @@
 import { Recipe } from '@recipe-box/types'
 import { useMutation, UseMutationResult, useQueryClient } from 'react-query'
-import { gql, request } from 'graphql-request'
+import { gql } from 'graphql-request'
+
+import { useGqlClient } from '../providers'
 
 const mutation = gql`
   mutation deleteRecipe($id: String!) {
@@ -16,14 +18,11 @@ export const useDeleteRecipe = (): UseMutationResult<
   unknown,
   string
 > => {
+  const gqlClient = useGqlClient()
   const queryClient = useQueryClient()
 
   return useMutation<Recipe, unknown, string>(
-    (id: string) => {
-      return request('http://localhost:3100/graphql', mutation, {
-        id,
-      })
-    },
+    (id: string) => gqlClient.request(mutation, { id }),
     {
       onSettled: () => {
         queryClient.invalidateQueries('recipes')

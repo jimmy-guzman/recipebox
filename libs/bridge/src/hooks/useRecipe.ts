@@ -1,6 +1,8 @@
 import { Recipe } from '@recipe-box/types'
 import { useQuery, UseQueryResult } from 'react-query'
-import { gql, request } from 'graphql-request'
+import { gql } from 'graphql-request'
+
+import { useGqlClient } from '../providers'
 
 const query = gql`
   query($id: String!) {
@@ -20,7 +22,7 @@ export const useRecipe = (
 ): UseQueryResult<{
   recipe: Recipe
 }> => {
-  return useQuery('recipe', () => {
-    return request('http://localhost:3100/graphql', query, { id })
-  })
+  const gqlClient = useGqlClient()
+
+  return useQuery('recipe', () => gqlClient.request(query, { id }))
 }
