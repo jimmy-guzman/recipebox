@@ -14,9 +14,10 @@
   },
   "prettier": "@comparto/prettier-config",
   "dependencies": {
+    "@recipe-box/bridge": "*",
     "@recipe-box/components": "*",
     "@recipe-box/utils": "*",
-    "@recipe-box/bridge": "*",
+    "react-error-boundary": "^3.1.3",
     "react-transition-group": "^4.4.1"
   },
   "devDependencies": {

@@ -3,8 +3,10 @@ import { mq } from '@recipe-box/utils'
 import { calcGridColumnWidth } from './Grid.utils'
 
 interface GridProps {
+  alignItems?: string
   children: React.ReactNode
   className?: string
+  justifyContent?: string
 }
 
 export type RowProps = GridProps
@@ -28,13 +30,20 @@ export const GridCol = ({
   )
 }
 
-export const GridRow = ({ children, className }: RowProps): JSX.Element => {
+export const GridRow = ({
+  children,
+  className,
+  justifyContent = 'center',
+  alignItems = 'center',
+}: RowProps): JSX.Element => {
   return (
     <div
       className={className}
       css={{
+        display: 'flex',
+        alignItems,
+        justifyContent,
         [mq('md')]: {
-          display: 'flex',
           flexFlow: 'row wrap',
           justifyContent: 'center',
           alignItems: 'center',

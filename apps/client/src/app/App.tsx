@@ -8,14 +8,18 @@ import {
   GlobalStyles,
   PageWrapper,
   GridRow,
+  ErrorFallback,
 } from '@recipe-box/components'
 import { namedLazy } from '@recipe-box/utils'
+import { ErrorBoundary } from 'react-error-boundary'
+import { useResetBridgeBoundary } from '@recipe-box/bridge'
 
 const { Home } = namedLazy(() => import('../pages/home'))
 const { Ingredients } = namedLazy(() => import('../pages/ingredients'))
 
 export const App = (): JSX.Element => {
   const { key } = useLocation()
+  const { reset } = useResetBridgeBoundary()
 
   return (
     <PageWrapper>
@@ -23,20 +27,22 @@ export const App = (): JSX.Element => {
       <Header />
       <Instructions />
       <GridRow>
-        <Suspense fallback={<div>Loading...</div>}>
-          <TransitionGroup component={null}>
-            <CSSTransition key={key} classNames='fade' timeout={300}>
-              <Switch>
-                <Route exact path='/'>
-                  <Home />
-                </Route>
-                <Route path='/recipe/:id'>
-                  <Ingredients />
-                </Route>
-              </Switch>
-            </CSSTransition>
-          </TransitionGroup>
-        </Suspense>
+        <ErrorBoundary onReset={reset} FallbackComponent={ErrorFallback}>
+          <Suspense fallback={<div>Loading...</div>}>
+            <TransitionGroup component={null}>
+              <CSSTransition key={key} classNames='fade' timeout={300}>
+                <Switch>
+                  <Route exact path='/'>
+                    <Home />
+                  </Route>
+                  <Route path='/recipe/:id'>
+                    <Ingredients />
+                  </Route>
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+          </Suspense>
+        </ErrorBoundary>
       </GridRow>
       <Footer />
     </PageWrapper>

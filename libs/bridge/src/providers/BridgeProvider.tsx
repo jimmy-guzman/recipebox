@@ -1,5 +1,9 @@
 import React from 'react'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import {
+  QueryClient,
+  QueryClientProvider,
+  QueryErrorResetBoundary,
+} from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
 import { GqlClientProvider } from './GqlClientProvider'
@@ -12,11 +16,13 @@ export const BridgeProvider = ({
   children: React.ReactNode
 }): JSX.Element => {
   return (
-    <GqlClientProvider>
-      <QueryClientProvider client={queryClient}>
-        {children}
-        <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
-      </QueryClientProvider>
-    </GqlClientProvider>
+    <QueryErrorResetBoundary>
+      <GqlClientProvider>
+        <QueryClientProvider client={queryClient}>
+          {children}
+          <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+        </QueryClientProvider>
+      </GqlClientProvider>
+    </QueryErrorResetBoundary>
   )
 }
