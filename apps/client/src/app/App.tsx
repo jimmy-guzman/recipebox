@@ -9,6 +9,7 @@ import {
   PageWrapper,
   GridRow,
   ErrorFallback,
+  Spinner,
 } from '@recipe-box/components'
 import { namedLazy } from '@recipe-box/utils'
 import { ErrorBoundary } from 'react-error-boundary'
@@ -28,7 +29,7 @@ export const App = (): JSX.Element => {
       <Instructions />
       <GridRow>
         <ErrorBoundary onReset={reset} FallbackComponent={ErrorFallback}>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Spinner size='large' />}>
             <TransitionGroup component={null}>
               <CSSTransition key={key} classNames='fade' timeout={300}>
                 <Switch>

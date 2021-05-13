@@ -9,6 +9,7 @@ import {
   BoxHeader,
   linkCss,
   AddItemForm,
+  Spinner,
 } from '@recipe-box/components'
 import {
   useAddIngredient,
@@ -32,7 +33,7 @@ const Ingredients = (): JSX.Element => {
   const { mutate: updateRecipe } = useUpdateRecipe(recipeId)
   const [recipeName, setRecipeName] = useState(() => data?.recipe.name)
 
-  if (isLoading) return <>Loading ...</>
+  if (isLoading) return <Spinner size='large' />
 
   return (
     <Box>

@@ -10625,6 +10625,16 @@ github-slugger@^1.0.0:
   dependencies:
     emoji-regex ">=6.0.0 <=6.1.1"
 
+gitzy@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/gitzy/-/gitzy-1.4.0.tgz#df4894ae3efb19f5c42a16b35ec458e66418b264"
+  integrity sha512-Z1VgJLLk1KUcxZJqMgjTYGCR6feFWKrv3NXuw2WRuCtlpeio1ZkG6if1fOqY3qrIS3ikNYCxKyhZ6qDNv8Kt9g==
+  dependencies:
+    ansi-colors "^4.1.1"
+    commander "^7.0.0"
+    cosmiconfig "^7.0.0"
+    enquirer "^2.3.6"
+
 glob-base@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/glob-base/-/glob-base-0.3.0.tgz#dbb164f6221b1c0b1ccf82aea328b497df0ea3c4"
