@@ -1,14 +1,14 @@
 {
   "name": "@recipe-box/types",
   "version": "0.0.0",
-  "main": "src/index.ts",
-  "license": "MIT",
   "private": true,
+  "license": "MIT",
+  "main": "src/index.ts",
   "scripts": {
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
-    "g:types": "graphql-codegen --config codegen.yml"
+    "g:types": "graphql-codegen --config codegen.yml",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color"
   },
   "dependencies": {},
   "devDependencies": {
