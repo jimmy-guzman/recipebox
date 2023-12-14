@@ -7,8 +7,7 @@
   "scripts": {
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix --color"
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color"
   },
   "dependencies": {
     "graphql-request": "^3.7.0",
@@ -16,10 +15,9 @@
     "react-query": "^3.39.3"
   },
   "devDependencies": {
-    "@recipe-box/types": "*"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "yarn": "1.18.0"
+    "@babel/runtime": "7.23.6",
+    "@recipe-box/types": "workspace:*",
+    "@types/react": "17.0.3",
+    "react": "^17.0.2"
   }
 }

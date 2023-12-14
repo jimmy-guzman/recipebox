@@ -8,21 +8,20 @@
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix --color",
     "test": "jest"
   },
   "dependencies": {
+    "@recipe-box/bridge": "workspace:*",
+    "@recipe-box/state": "workspace:*",
+    "@recipe-box/utils": "workspace:*",
     "polished": "^4.2.2",
-    "@recipe-box/bridge": "*",
-    "@recipe-box/state": "*",
-    "@recipe-box/utils": "*",
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
-    "@recipe-box/types": "*"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "yarn": "1.18.0"
+    "@babel/runtime": "7.23.6",
+    "@recipe-box/types": "workspace:*",
+    "@types/react": "17.0.3",
+    "@types/react-transition-group": "^4.4.10",
+    "react": "^17.0.2"
   }
 }

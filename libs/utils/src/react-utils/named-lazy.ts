@@ -5,7 +5,7 @@ export const namedLazy = <
 >(
   loader: (x?: string) => Promise<T>
 ): T => {
-  return new Proxy(({} as unknown) as T, {
+  return new Proxy({} as unknown as T, {
     get: (
       _target,
       componentName

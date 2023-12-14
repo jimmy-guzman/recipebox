@@ -7,16 +7,11 @@
   "scripts": {
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix --color"
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "react-redux": "^7.2.9",
     "redux-persist": "^6.0.0"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "yarn": "1.18.0"
   }
 }

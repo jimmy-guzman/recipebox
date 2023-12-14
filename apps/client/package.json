@@ -9,23 +9,20 @@
     "build": "webpack --mode production --color",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix --color"
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color"
   },
   "prettier": "@comparto/prettier-config",
   "dependencies": {
-    "@recipe-box/bridge": "*",
-    "@recipe-box/components": "*",
-    "@recipe-box/utils": "*",
+    "@recipe-box/bridge": "workspace:*",
+    "@recipe-box/components": "workspace:*",
+    "@recipe-box/utils": "workspace:*",
     "react-error-boundary": "^3.1.4",
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
-    "@recipe-box/types": "*",
+    "@babel/runtime": "7.23.6",
+    "@recipe-box/types": "workspace:*",
+    "@types/react": "17.0.3",
     "@types/react-transition-group": "^4.4.10"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "yarn": "1.18.0"
   }
 }

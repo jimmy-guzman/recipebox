@@ -11,6 +11,7 @@
     },
     "lint": {},
     "format": {},
+    "format:fix": { "cache": false },
     "start": {
       "cache": false,
       "persistent": true

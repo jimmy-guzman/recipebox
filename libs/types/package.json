@@ -8,16 +8,11 @@
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix --color",
     "g:types": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {},
   "devDependencies": {
     "@graphql-codegen/cli": "1.21.8",
     "@graphql-codegen/typescript": "1.23.0"
-  },
-  "volta": {
-    "node": "14.16.1",
-    "yarn": "1.18.0"
   }
 }
