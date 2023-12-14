@@ -1,15 +1,15 @@
 {
   "name": "@recipe-box/client",
   "version": "0.0.0",
-  "main": "index.js",
-  "license": "MIT",
   "private": "true",
+  "license": "MIT",
+  "main": "index.js",
   "scripts": {
-    "start": "dotenv-run -- webpack serve --mode development --open --color",
     "build": "webpack --mode production --color",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color"
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
+    "start": "dotenv-run -- webpack serve --mode development --open --color"
   },
   "prettier": "@comparto/prettier-config",
   "dependencies": {

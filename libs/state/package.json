@@ -1,9 +1,9 @@
 {
   "name": "@recipe-box/state",
   "version": "0.0.0",
-  "main": "src/index.ts",
-  "license": "MIT",
   "private": true,
+  "license": "MIT",
+  "main": "src/index.ts",
   "scripts": {
     "format": "prettier --check .",
     "format:fix": "prettier --write .",

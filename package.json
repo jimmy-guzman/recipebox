@@ -1,25 +1,26 @@
 {
   "name": "recipe-box",
   "version": "0.0.0",
+  "private": true,
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "Jimmy Guzman",
   "main": "index.js",
   "scripts": {
-    "start": "turbo start",
     "build": "turbo build",
+    "e2e": "pnpm -F @recipe-box/server db:seed && cypress run --headless",
+    "e2e:open": "cypress open",
     "format": "turbo format",
     "format:fix": "turbo format:fix",
     "lint": "turbo lint",
     "lint:fix": "turbo lint -- --fix",
-    "test": "turbo test",
-    "e2e": "pnpm -F @recipe-box/server db:seed && cypress run --headless",
-    "e2e:open": "cypress open",
     "sb": "storybook dev -p 6006",
-    "sb:build": "storybook build"
+    "sb:build": "storybook build",
+    "start": "turbo start",
+    "test": "turbo test"
   },
   "prettier": "@comparto/prettier-config",
-  "keywords": [],
-  "author": "Jimmy Guzman",
-  "license": "ISC",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "react": "^17.0.2",
@@ -90,6 +91,5 @@
     "webpack-merge": "^5.10.0",
     "webpack-nano": "^1.1.1"
   },
-  "packageManager": "pnpm@8.12.0",
-  "private": true
+  "packageManager": "pnpm@8.12.0"
 }
