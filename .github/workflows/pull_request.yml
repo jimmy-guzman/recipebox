@@ -1,0 +1,32 @@
+name: pull_request
+
+on: [pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🏗 Setup Repository
+        uses: actions/checkout@v3
+
+      - name: 📦 Install
+        uses: ./.github/actions/install
+        with:
+          node-version: 16
+          pnpm-version: 8.12.0
+
+      - name: 🚨 Lint
+        run: pnpm lint
+
+      - name: 🎨 Format
+        run: pnpm format
+
+      - name: ✅ Test
+        run: pnpm test
+
+      - name: 🧱 Build
+        run: pnpm build
+
+      - name: 🧱 Stories Build
+        run: pnpm sb:build
