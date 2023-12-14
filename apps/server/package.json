@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/index.js --exec babel-node -e ts",
+    "start": "dotenv-run -- nodemon src/index.js --exec babel-node -e ts",
     "test": "jest",
     "g:types": "graphql-codegen --config codegen.yml",
     "db:migrate": "npx prisma migrate deploy",

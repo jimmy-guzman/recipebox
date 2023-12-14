@@ -105,7 +105,7 @@ const getConfig = (mode_) => {
     return merge(base, dev)
   }
 
-  throw new Error(`Trying to use an unknown mode, ${mode}`)
+  return merge(base, dev)
 }
 
 module.exports = getConfig(mode)

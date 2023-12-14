@@ -1,5 +1,4 @@
 export * from './useIngredients'
 export * from './useRecipes'
-export * from './useRecipeId'
 export * from './useAppDispatch'
 export * from './useRecipeIngredients'
