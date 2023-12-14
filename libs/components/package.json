@@ -12,11 +12,11 @@
     "test": "jest"
   },
   "dependencies": {
-    "polished": "^4.1.1",
+    "polished": "^4.2.2",
     "@recipe-box/bridge": "*",
     "@recipe-box/state": "*",
     "@recipe-box/utils": "*",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
     "@recipe-box/types": "*"

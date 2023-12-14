@@ -5,7 +5,7 @@ import { gql } from 'graphql-request'
 import { useGqlClient } from '../providers'
 
 const query = gql`
-  query($id: String!) {
+  query ($id: String!) {
     recipe(id: $id) {
       id
       name
