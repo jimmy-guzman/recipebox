@@ -9,7 +9,8 @@
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
-    "start": "dotenv-run -- webpack serve --mode development --open --color"
+    "start": "dotenv-run -- webpack serve --mode development --open --color",
+    "typecheck": "tsc"
   },
   "prettier": "@comparto/prettier-config",
   "dependencies": {

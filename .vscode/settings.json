@@ -25,7 +25,8 @@
     "Storyshots",
     "SVGs",
     "testid",
-    "TODOs"
+    "TODOs",
+    "typecheck"
   ],
   "editor.formatOnSave": true,
   "[prisma]": {

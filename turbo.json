@@ -10,6 +10,7 @@
       "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
     },
     "lint": {},
+    "typecheck": { "dependsOn": ["prisma:generate"] },
     "format": {},
     "format:fix": { "cache": false },
     "prisma:generate": { "cache": false },

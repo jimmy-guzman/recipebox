@@ -25,6 +25,7 @@ describe('<Link />', () => {
   it('should render target property', () => {
     renderLink({ target: '_blank' })
 
+    // @ts-expect-error not working in pnpm monorepo
     expect(selectors.link).toHaveAttribute('target', '_blank')
   })
 })
