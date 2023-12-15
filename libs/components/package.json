@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@recipe-box/bridge": "workspace:*",
-    "@recipe-box/state": "workspace:*",
     "@recipe-box/utils": "workspace:*",
     "polished": "4.2.2",
     "react-router": "5.3.4",

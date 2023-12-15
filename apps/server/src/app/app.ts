@@ -1,5 +1,5 @@
 import Koa from 'koa'
-import KoaRouter from 'koa-router'
+import KoaRouter from '@koa/router'
 import { ApolloServer, gql } from 'apollo-server-koa'
 import cors from '@koa/cors'
 import { PrismaClient } from '@prisma/client'

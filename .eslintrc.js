@@ -55,5 +55,6 @@ module.exports = {
     'react/no-unknown-property': ['error', { ignore: ['css'] }],
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    'jest/no-deprecated-functions': 'off',
   },
 }
