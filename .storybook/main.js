@@ -1,5 +1,9 @@
 import { dirname, join } from 'path'
 
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, 'package.json')))
+}
+
 module.exports = {
   stories: [
     '../libs/*/src/**/*.stories.@(tsx)',
@@ -17,15 +21,11 @@ module.exports = {
   }),
 
   framework: {
-    name: getAbsolutePath('@storybook/react-webpack5'),
+    name: getAbsolutePath('@storybook/react-vite'),
     options: {},
   },
 
   docs: {
     autodocs: true,
   },
-}
-
-function getAbsolutePath(value) {
-  return dirname(require.resolve(join(value, 'package.json')))
 }
