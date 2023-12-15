@@ -242,8 +242,8 @@ importers:
   apps/server:
     dependencies:
       '@koa/cors':
-        specifier: 3.4.3
-        version: 3.4.3
+        specifier: 5.0.0
+        version: 5.0.0
       '@prisma/client':
         specifier: 4.16.2
         version: 4.16.2(prisma@4.16.2)
@@ -3454,9 +3454,9 @@ packages:
       vary: 1.1.2
     dev: false
 
-  /@koa/cors@3.4.3:
-    resolution: {integrity: sha512-WPXQUaAeAMVaLTEFpoq3T2O1C+FstkjJnDQqy95Ck1UdILajsRhu6mhJ8H2f4NFPRBoCNN+qywTJfq/gGki5mw==}
-    engines: {node: '>= 8.0.0'}
+  /@koa/cors@5.0.0:
+    resolution: {integrity: sha512-x/iUDjcS90W69PryLDIMgFyV21YLTnG9zOpPXS7Bkt2b8AsY3zZsIpOLBkYr9fBcF3HbkKaER5hOBZLfpLgYNw==}
+    engines: {node: '>= 14.0.0'}
     dependencies:
       vary: 1.1.2
     dev: false

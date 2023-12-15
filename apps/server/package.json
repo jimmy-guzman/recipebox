@@ -15,7 +15,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@koa/cors": "3.4.3",
+    "@koa/cors": "5.0.0",
     "@prisma/client": "4.16.2",
     "apollo-server": "3.13.0",
     "apollo-server-koa": "2.23.0",
