@@ -22,6 +22,9 @@ jobs:
       - name: 🎨 Format
         run: pnpm format
 
+      - name: 🏷️ Check Types
+        run: pnpm typecheck
+
       - name: ✅ Test
         run: pnpm test
 

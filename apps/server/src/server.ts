@@ -1,6 +1,7 @@
 import { createApp } from './app'
 
-const httpErrorHandler = (err) => {
+const httpErrorHandler = (err: { message: unknown }): void => {
+  // eslint-disable-next-line no-console
   console.error(err.message)
 }
 

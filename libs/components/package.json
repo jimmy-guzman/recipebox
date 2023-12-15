@@ -8,19 +8,23 @@
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
-    "test": "jest"
+    "test": "jest",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@recipe-box/bridge": "workspace:*",
     "@recipe-box/state": "workspace:*",
     "@recipe-box/utils": "workspace:*",
     "polished": "^4.2.2",
+    "react-router": "5.3.4",
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
     "@babel/runtime": "7.23.6",
     "@recipe-box/types": "workspace:*",
     "@types/react": "17.0.3",
+    "@types/react-router": "5.1.13",
+    "@types/react-router-dom": "5.3.3",
     "@types/react-transition-group": "^4.4.10",
     "react": "^17.0.2"
   }
