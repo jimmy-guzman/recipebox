@@ -7,7 +7,6 @@
     "db:g:migrate": "prisma migrate dev --name",
     "db:migrate": "prisma migrate deploy",
     "db:seed": "prisma db seed",
-    "g:types": "graphql-codegen --config codegen.yml",
     "prisma:generate": "prisma generate",
     "prisma:studio": "prisma studio",
     "start": "dotenv-run -- tsx src/server.ts",
@@ -16,21 +15,20 @@
   },
   "dependencies": {
     "@koa/cors": "5.0.0",
+    "@koa/router": "12.0.1",
     "@prisma/client": "4.16.2",
     "apollo-server": "3.13.0",
     "apollo-server-koa": "2.23.0",
     "graphql": "15.8.0",
     "graphql-iso-date": "3.6.1",
-    "koa": "2.14.2",
-    "koa-router": "10.0.0",
-    "nanoid": "3.3.7"
+    "koa": "2.14.2"
   },
   "devDependencies": {
     "@recipe-box/types": "workspace:*",
     "@types/graphql-iso-date": "3.4.3",
     "@types/koa": "2.13.12",
-    "@types/koa-router": "7.4.8",
     "@types/koa__cors": "3.3.0",
+    "@types/koa__router": "12.0.4",
     "@types/random-words": "1.1.4",
     "@types/supertest": "2.0.16",
     "prisma": "4.16.2",
