@@ -9,5 +9,10 @@ export default defineConfig(({ mode }) => {
     server: {
       port: parseInt(env.PORT, 10),
     },
+    test: {
+      environment: 'happy-dom',
+      globals: true,
+      setupFiles: './vitest.setup.ts',
+    },
   }
 })

@@ -8,7 +8,7 @@
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
-    "test": "jest",
+    "test": "vitest",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -20,12 +20,16 @@
     "react-transition-group": "4.4.5"
   },
   "devDependencies": {
-    "@babel/runtime": "7.23.6",
     "@recipe-box/types": "workspace:*",
+    "@testing-library/jest-dom": "5.17.0",
     "@types/react": "17.0.3",
     "@types/react-router": "5.1.13",
     "@types/react-router-dom": "5.3.3",
     "@types/react-transition-group": "4.4.10",
-    "react": "17.0.2"
+    "@vitejs/plugin-react-swc": "3.5.0",
+    "happy-dom": "12.10.3",
+    "react": "17.0.2",
+    "vite": "5.0.8",
+    "vitest": "1.0.4"
   }
 }
