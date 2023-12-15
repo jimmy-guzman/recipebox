@@ -17,13 +17,13 @@
     "@recipe-box/bridge": "workspace:*",
     "@recipe-box/components": "workspace:*",
     "@recipe-box/utils": "workspace:*",
-    "react-error-boundary": "^3.1.4",
-    "react-transition-group": "^4.4.5"
+    "react-error-boundary": "3.1.4",
+    "react-transition-group": "4.4.5"
   },
   "devDependencies": {
     "@babel/runtime": "7.23.6",
     "@recipe-box/types": "workspace:*",
     "@types/react": "17.0.3",
-    "@types/react-transition-group": "^4.4.10"
+    "@types/react-transition-group": "4.4.10"
   }
 }

@@ -11,14 +11,14 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "graphql-request": "^3.7.0",
-    "react-error-boundary": "^3.1.4",
-    "react-query": "^3.39.3"
+    "graphql-request": "3.7.0",
+    "react-error-boundary": "3.1.4",
+    "react-query": "3.39.3"
   },
   "devDependencies": {
     "@babel/runtime": "7.23.6",
     "@recipe-box/types": "workspace:*",
     "@types/react": "17.0.3",
-    "react": "^17.0.2"
+    "react": "17.0.2"
   }
 }
