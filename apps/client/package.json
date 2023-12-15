@@ -21,7 +21,7 @@
     "react-transition-group": "4.4.5"
   },
   "devDependencies": {
-    "@babel/runtime": "7.23.6",
+    "@types/node": "18.19.3",
     "@types/react": "17.0.3",
     "@types/react-transition-group": "4.4.10",
     "@vitejs/plugin-react-swc": "3.5.0",

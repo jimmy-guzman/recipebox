@@ -1,19 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Link /> should render 1`] = `
-.emotion-0 {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  color: #bf268a;
-}
-
-.emotion-0:hover {
-  color: #04d9b2;
-  cursor: pointer;
-}
-
+exports[`<Link /> > should render 1`] = `
 <a
-  class="emotion-0"
+  class="css-1fdlnxt-Link"
   href="#"
   rel="noreferrer"
 >

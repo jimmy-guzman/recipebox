@@ -1,5 +1,6 @@
 {
   "extends": "../../tsconfig.json",
-  "compilerOptions": { "module": "commonjs" },
-  "include": ["./src/**/*", "./prisma/**/*"]
+  "compilerOptions": { "module": "commonjs", "types": ["vitest/globals"] },
+  "include": ["./src/**/*", "./prisma/**/*"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
