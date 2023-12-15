@@ -6,13 +6,10 @@
   "main": "index.js",
   "scripts": {
     "build": "vite build",
-    "format": "prettier --check .",
-    "format:fix": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
     "start": "dotenv-run -- vite",
     "typecheck": "tsc"
   },
-  "prettier": "@comparto/prettier-config",
   "dependencies": {
     "@recipe-box/bridge": "workspace:*",
     "@recipe-box/components": "workspace:*",

@@ -11,8 +11,6 @@
     },
     "lint": { "dependsOn": ["prisma:generate"] },
     "typecheck": { "dependsOn": ["prisma:generate"] },
-    "format": {},
-    "format:fix": { "cache": false },
     "prisma:generate": { "cache": false },
     "start": {
       "cache": false,
