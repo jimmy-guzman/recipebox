@@ -5,11 +5,11 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production --color",
+    "build": "vite build",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
-    "start": "dotenv-run -- webpack serve --mode development --open --color",
+    "start": "dotenv-run -- vite",
     "typecheck": "tsc"
   },
   "prettier": "@comparto/prettier-config",
@@ -22,8 +22,9 @@
   },
   "devDependencies": {
     "@babel/runtime": "7.23.6",
-    "@recipe-box/types": "workspace:*",
     "@types/react": "17.0.3",
-    "@types/react-transition-group": "4.4.10"
+    "@types/react-transition-group": "4.4.10",
+    "@vitejs/plugin-react-swc": "3.5.0",
+    "vite": "5.0.8"
   }
 }

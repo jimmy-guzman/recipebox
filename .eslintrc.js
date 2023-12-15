@@ -43,7 +43,12 @@ module.exports = {
     ...noExtraneousOverrides('libs/'),
   ],
   parserOptions: {
-    project: ['./tsconfig.json', './apps/*/tsconfig.json'],
+    project: [
+      './tsconfig.json',
+      './tsconfig.node.json',
+      './apps/*/tsconfig.json',
+      './apps/*/tsconfig.node.json',
+    ],
   },
   plugins: ['cypress'],
   rules: {
