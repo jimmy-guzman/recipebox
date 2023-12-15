@@ -1,14 +1,5 @@
 import { render } from 'react-dom'
-import { BrowserRouter as Router } from 'react-router-dom'
-import { BridgeProvider } from '@recipe-box/bridge'
 
-import { App } from './app'
+import { Main } from './main'
 
-render(
-  <BridgeProvider>
-    <Router>
-      <App />
-    </Router>
-  </BridgeProvider>,
-  document.getElementById('app')
-)
+render(<Main />, document.getElementById('app'))

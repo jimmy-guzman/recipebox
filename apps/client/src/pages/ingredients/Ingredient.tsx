@@ -1,6 +1,8 @@
-import { useDeleteIngredient, useUpdateIngredient } from '@recipe-box/bridge'
 import { BoxItem, Button, Input } from '@recipe-box/components'
 import { useState } from 'react'
+
+import { trpc } from '../../trpc'
+import { useRecipeId } from '../../hooks'
 
 interface IngredientProps {
   id: string
@@ -8,8 +10,18 @@ interface IngredientProps {
 }
 
 export const Ingredient = ({ name, id }: IngredientProps): JSX.Element => {
-  const { mutate: deleteIngredient } = useDeleteIngredient()
-  const { mutate: updateIngredient } = useUpdateIngredient(id)
+  const recipeId = useRecipeId()
+  const utils = trpc.useUtils()
+  const { mutate: deleteIngredient } = trpc.deleteIngredientById.useMutation({
+    onSettled: async () => {
+      await utils.recipeById.invalidate({ id: recipeId })
+    },
+  })
+  const { mutate: updateIngredient } = trpc.updateIngredientById.useMutation({
+    onSettled: async () => {
+      await utils.recipeById.invalidate({ id: recipeId })
+    },
+  })
   const [newName, setNewName] = useState(() => name)
 
   return (
@@ -22,7 +34,7 @@ export const Ingredient = ({ name, id }: IngredientProps): JSX.Element => {
         }}
         onBlur={(): void => {
           if (newName) {
-            updateIngredient({ name: newName })
+            updateIngredient({ id, name: newName })
           }
         }}
         isReadOnly
@@ -32,7 +44,7 @@ export const Ingredient = ({ name, id }: IngredientProps): JSX.Element => {
         variant='secondary'
         ariaLabel={`delete ${newName}`}
         onClick={(): void => {
-          deleteIngredient(id)
+          deleteIngredient({ id })
         }}
       >
         X

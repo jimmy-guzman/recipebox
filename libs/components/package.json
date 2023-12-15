@@ -10,14 +10,12 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@recipe-box/bridge": "workspace:*",
     "@recipe-box/utils": "workspace:*",
     "polished": "4.2.2",
     "react-router": "5.3.4",
     "react-transition-group": "4.4.5"
   },
   "devDependencies": {
-    "@recipe-box/types": "workspace:*",
     "@testing-library/jest-dom": "5.17.0",
     "@types/react": "17.0.3",
     "@types/react-router": "5.1.13",
