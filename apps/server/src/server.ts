@@ -1,20 +1,29 @@
-import { createApp } from './app'
+import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify'
+import fastify from 'fastify'
+import cors from '@fastify/cors'
 
-const httpErrorHandler = (err: { message: unknown }): void => {
-  // eslint-disable-next-line no-console
-  console.error(err.message)
+import { createContext } from './context'
+import { appRouter } from './router'
+
+const server = fastify({
+  maxParamLength: 5000,
+  logger: true,
+})
+
+server.register(cors)
+
+server.register(fastifyTRPCPlugin, {
+  prefix: '/trpc',
+  trpcOptions: { router: appRouter, createContext },
+})
+
+const start = async (): Promise<void> => {
+  try {
+    await server.listen({ port: 3000 })
+  } catch (err: unknown) {
+    server.log.error(err)
+    process.exit(1)
+  }
 }
 
-const main = (): void => {
-  const app = createApp()
-  const port = process.env.PORT ?? 3100
-
-  const server = app.listen(port)
-
-  // eslint-disable-next-line no-console
-  console.log(`Listening on port ${port}`)
-
-  server.on('error', httpErrorHandler)
-}
-
-main()
+start()

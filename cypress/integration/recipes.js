@@ -1,5 +1,5 @@
 /* eslint-disable jest/expect-expect */
-const newRecipe = 'banana smoothie'
+const newRecipe = 'banana strawberry smoothie'
 const newRecipeName = 'soda smoothie'
 const newIngredient = '1x banana'
 const newIngredientName = '2x soda'

@@ -5,6 +5,7 @@
     "codegen",
     "comparto",
     "cssnano",
+    "fastify",
     "flexbox",
     "fontsize",
     "gitzy",
@@ -24,8 +25,10 @@
     "Serializers",
     "Storyshots",
     "SVGs",
+    "tanstack",
     "testid",
     "TODOs",
+    "trpc",
     "typecheck"
   ],
   "editor.formatOnSave": true,
