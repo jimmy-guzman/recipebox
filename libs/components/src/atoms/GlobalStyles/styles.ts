@@ -10,64 +10,6 @@ import {
   FONT_URL,
 } from '../../constants'
 
-export const animations = css`
-  .slide-left {
-    &-enter {
-      opacity: 0.01;
-      transform: translateX(-100%);
-    }
-    &-enter.slide-left-enter-active {
-      opacity: 1;
-      transform: translateX(0);
-      transition: 500ms ease-in;
-    }
-    &-exit {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    &-exit.slide-left-exit-active {
-      opacity: 0.01;
-      transform: translateX(-100%);
-      transition: 300ms ease-in;
-    }
-  }
-
-  .slide-enter {
-    &-enter {
-      opacity: 0.01;
-      transform: translateX(100%);
-    }
-    &-enter.slide-right-enter-active {
-      opacity: 1;
-      transform: translateX(0);
-      transition: 500ms ease-in;
-    }
-    &-exit {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    &-exit.slide-right-exit-active {
-      opacity: 0.01;
-      transform: translateX(100%);
-      transition: 300ms ease-in;
-    }
-  }
-
-  .fade {
-    &-enter {
-      opacity: 0;
-      z-index: 1;
-    }
-    &-enter.fade-enter-active {
-      opacity: 1;
-      transition: all 300ms ease-in;
-    }
-    &-exit {
-      display: none;
-    }
-  }
-`
-
 export const scrollbar = css`
   ::-webkit-scrollbar {
     width: ${em('12px')};

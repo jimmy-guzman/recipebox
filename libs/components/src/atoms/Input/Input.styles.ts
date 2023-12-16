@@ -1,5 +1,5 @@
 import { css, SerializedStyles } from '@emotion/react'
-import { em } from 'polished'
+import { em } from '@recipe-box/utils'
 
 import {
   COLOR_PRIMARY,

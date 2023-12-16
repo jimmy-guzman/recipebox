@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { em } from '@recipe-box/utils'
+import React from 'react'
 
 import { COLOR_WHITE } from '../../constants'
 
@@ -7,9 +8,11 @@ interface BoxItemProps {
   children: React.ReactNode
 }
 
-export const BoxItem = ({ children }: BoxItemProps): JSX.Element => {
-  return (
+// eslint-disable-next-line react/display-name
+export const BoxItem = React.forwardRef<HTMLLIElement, BoxItemProps>(
+  (props, ref) => (
     <li
+      ref={ref}
       css={css`
         background: ${COLOR_WHITE};
         width: 90%;
@@ -26,7 +29,7 @@ export const BoxItem = ({ children }: BoxItemProps): JSX.Element => {
         }
       `}
     >
-      {children}
+      {props.children}
     </li>
   )
-}
+)

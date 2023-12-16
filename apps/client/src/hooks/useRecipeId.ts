@@ -1,7 +1,11 @@
 import { useParams } from 'react-router-dom'
 
-export const useRecipeId = (): string => {
-  const { id: recipeId } = useParams<{ id: string }>()
+const useRequiredParams = <T extends Record<string, unknown>>(): T => {
+  return useParams() as T
+}
 
-  return recipeId
+export const useRecipeId = (): string => {
+  const { id } = useRequiredParams<{ id: string }>()
+
+  return id
 }

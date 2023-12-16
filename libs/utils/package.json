@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@types/node": "18.19.3",
-    "@types/react": "17.0.3",
-    "react": "17.0.2"
+    "@types/react": "18.2.45",
+    "react": "18.2.0"
   }
 }
