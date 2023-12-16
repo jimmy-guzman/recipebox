@@ -17,7 +17,7 @@ export const AddRecipeForm = (): JSX.Element => {
       <form
         onSubmit={(e): void => {
           e.preventDefault();
-          mutate({ name, userId: 'ckodlpl9y28553rslvrsc5ujc' });
+          mutate({ name, userId: import.meta.env.VITE_USER_ID });
           setName('');
         }}
       >
