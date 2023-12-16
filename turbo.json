@@ -3,21 +3,28 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build", "prisma:generate"],
-      "outputs": [".dist/**"]
+      "outputs": ["dist/**", "storybook-static/**"]
     },
     "test": {
-      "dependsOn": ["prisma:generate"],
-      "inputs": ["src/**/*.tsx", "src/**/*.ts"]
-    },
-    "e2e": {
       "dependsOn": ["prisma:generate"]
     },
-    "lint": { "dependsOn": ["prisma:generate"] },
-    "typecheck": { "dependsOn": ["prisma:generate"] },
-    "prisma:generate": { "cache": false },
+    "e2e": {
+      "dependsOn": ["prisma:generate"],
+      "outputs": ["playwright-report/**", "test-results/**"]
+    },
+    "lint": {
+      "dependsOn": ["prisma:generate"]
+    },
+    "typecheck": {
+      "dependsOn": ["prisma:generate"]
+    },
+    "prisma:generate": {
+      "cache": false
+    },
     "dev": {
       "cache": false,
       "persistent": true
     }
-  }
+  },
+  "globalDependencies": ["pnpm-lock.yaml"]
 }
