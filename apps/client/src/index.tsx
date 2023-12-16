@@ -1,5 +1,11 @@
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 
 import { Main } from './main'
 
-render(<Main />, document.getElementById('app'))
+const rootElement = document.getElementById('app')
+
+if (rootElement) {
+  const root = createRoot(rootElement)
+
+  root.render(<Main />)
+}

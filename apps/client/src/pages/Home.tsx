@@ -8,16 +8,16 @@ import {
   Typography,
   linkCss,
 } from '@recipe-box/components'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { Link } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import { trpc } from '../trpc'
 import { AddRecipeForm } from '../components/AddRecipeForm'
+import { fade, slide } from '../configs/variants'
 
-const transitionOptions = {
-  classNames: 'slide-left',
-  timeout: { enter: 500, exit: 500 },
-}
+const MotionBox = motion(Box)
+
+const MotionBoxItem = motion(BoxItem)
 
 const Home = (): JSX.Element => {
   const utils = trpc.useUtils()
@@ -31,34 +31,44 @@ const Home = (): JSX.Element => {
   if (isLoading) return <Spinner size='large' />
 
   return (
-    <Box>
+    <MotionBox
+      variant='primary'
+      initial='hidden'
+      animate='visible'
+      exit='exit'
+      variants={fade}
+    >
       <BoxHeader>
         <Typography variant='h2'>Recipes</Typography>
       </BoxHeader>
       <BoxContent>
-        <TransitionGroup component={null}>
+        <AnimatePresence>
           {data?.map((recipe) => (
-            <CSSTransition {...transitionOptions} key={recipe.id}>
-              <BoxItem>
-                <Link to={`/recipe/${recipe.id}`} css={linkCss}>
-                  {recipe.name}
-                </Link>
-                <Button
-                  variant='secondary'
-                  ariaLabel={`delete ${recipe.name}`}
-                  onClick={(): void => {
-                    deleteRecipe({ id: recipe.id })
-                  }}
-                >
-                  X
-                </Button>
-              </BoxItem>
-            </CSSTransition>
+            <MotionBoxItem
+              initial='initial'
+              animate='animate'
+              exit='exit'
+              variants={slide}
+              key={recipe.id}
+            >
+              <Link to={`/recipe/${recipe.id}`} css={linkCss}>
+                {recipe.name}
+              </Link>
+              <Button
+                variant='secondary'
+                ariaLabel={`delete ${recipe.name}`}
+                onClick={(): void => {
+                  deleteRecipe({ id: recipe.id })
+                }}
+              >
+                X
+              </Button>
+            </MotionBoxItem>
           ))}
-        </TransitionGroup>
+        </AnimatePresence>
         <AddRecipeForm />
       </BoxContent>
-    </Box>
+    </MotionBox>
   )
 }
 

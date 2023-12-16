@@ -1,4 +1,4 @@
-import { BoxItem, Button, Input } from '@recipe-box/components'
+import { Button, Input } from '@recipe-box/components'
 import { useState } from 'react'
 
 import { trpc } from '../trpc'
@@ -25,7 +25,7 @@ export const Ingredient = ({ name, id }: IngredientProps): JSX.Element => {
   const [newName, setNewName] = useState(() => name)
 
   return (
-    <BoxItem>
+    <>
       <Input
         isFullWidth
         value={newName}
@@ -49,6 +49,6 @@ export const Ingredient = ({ name, id }: IngredientProps): JSX.Element => {
       >
         X
       </Button>
-    </BoxItem>
+    </>
   )
 }

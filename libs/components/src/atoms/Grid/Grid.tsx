@@ -1,25 +1,25 @@
 import { mq } from '@recipe-box/utils'
+import React from 'react'
 
 import { calcGridColumnWidth } from './Grid.utils'
 
-export const GridCol = ({
-  children,
-  className,
-  size,
-}: {
-  children: React.ReactNode
-  className?: string
-  size: number
-}): JSX.Element => {
-  return (
-    <div
-      className={className}
-      css={{ [mq('md')]: { width: calcGridColumnWidth(size) } }}
-    >
-      {children}
-    </div>
-  )
-}
+// eslint-disable-next-line react/display-name
+export const GridCol = React.forwardRef<
+  HTMLDivElement,
+  {
+    children: React.ReactNode
+    className?: string
+    size: number
+  }
+>((props, ref) => (
+  <div
+    ref={ref}
+    className={props.className}
+    css={{ [mq('md')]: { width: calcGridColumnWidth(props.size) } }}
+  >
+    {props.children}
+  </div>
+))
 
 export const GridRow = ({
   children,

@@ -57,8 +57,8 @@ export const Main = (): JSX.Element => {
         <QueryClientProvider client={queryClient}>
           <Router>
             <App />
-            <Toaster />
           </Router>
+          <Toaster />
         </QueryClientProvider>
       </trpc.Provider>
     </QueryErrorResetBoundary>
