@@ -1,13 +1,28 @@
 import cors from '@fastify/cors';
 import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify';
+import { type FastifyServerOptions } from 'fastify';
 import { fastify } from 'fastify';
 
 import { createContext } from './context';
 import { appRouter } from './routers/_app';
 
+const loggerByEnv: Record<string, FastifyServerOptions['logger']> = {
+  development: {
+    transport: {
+      target: 'pino-pretty',
+      options: {
+        ignore: 'pid,hostname',
+        singleLine: true,
+      },
+    },
+  },
+  production: true,
+  test: false,
+};
+
 const server = fastify({
   maxParamLength: 5000,
-  logger: true,
+  logger: process.env.NODE_ENV ? loggerByEnv[process.env.NODE_ENV] : true,
 });
 
 void server.register(cors);

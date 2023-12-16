@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "eslint-config-recipebox": "workspace:*",
+    "pino-pretty": "10.3.0",
     "prisma": "5.7.0",
     "random-words": "2.0.0",
     "tsx": "4.6.2",
