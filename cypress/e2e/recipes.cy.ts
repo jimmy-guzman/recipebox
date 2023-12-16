@@ -29,13 +29,13 @@ describe('instructions', () => {
     cy.findByDisplayValue(newIngredientName).should('exist')
 
     // delete ingredient
-    cy.findByRole(/button/, { name: `delete ${newIngredientName}` }).click()
+    cy.findByRole('button', { name: `delete ${newIngredientName}` }).click()
     cy.findByDisplayValue(newIngredientName).should('not.exist')
 
-    cy.findByRole(/link/, { name: 'back' }).click()
+    cy.findByRole('link', { name: 'back' }).click()
     cy.findByText(newRecipeName).should('exist')
 
-    cy.findByRole(/button/, { name: `delete ${newRecipeName}` }).dblclick()
+    cy.findByRole('button', { name: `delete ${newRecipeName}` }).dblclick()
     cy.findByText(newRecipeName).should('not.exist')
   })
 })
