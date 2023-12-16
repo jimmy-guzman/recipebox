@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
-import { styles } from './Input.styles'
-import { InputProps } from './Input.types'
+import { styles } from './Input.styles';
+import { type InputProps } from './Input.types';
 
 export const Input = ({
   canEdit,
@@ -14,7 +14,7 @@ export const Input = ({
   size = 'default',
   value,
 }: InputProps): JSX.Element => {
-  const [willReadyOnly, setWillReadyOnly] = useState(() => isReadOnly ?? false)
+  const [willReadyOnly, setWillReadyOnly] = useState(() => isReadOnly ?? false);
 
   return (
     <input
@@ -25,23 +25,23 @@ export const Input = ({
       onChange={onChange}
       onDoubleClick={(e): void => {
         if (onDoubleClick) {
-          onDoubleClick(e)
+          onDoubleClick(e);
         }
 
         if (canEdit && isReadOnly) {
-          setWillReadyOnly(false)
+          setWillReadyOnly(false);
         }
       }}
       onBlur={(e): void => {
         if (onBlur) {
-          onBlur(e)
+          onBlur(e);
         }
 
         if (canEdit && isReadOnly) {
-          setWillReadyOnly(true)
+          setWillReadyOnly(true);
         }
       }}
       readOnly={isReadOnly && willReadyOnly}
     />
-  )
-}
+  );
+};

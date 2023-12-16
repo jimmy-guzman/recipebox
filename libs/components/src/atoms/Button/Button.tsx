@@ -1,15 +1,15 @@
-import { css } from '@emotion/react'
-import { em } from '@recipe-box/utils'
-import { MouseEventHandler } from 'react'
+import { css } from '@emotion/react';
+import { em } from '@recipe-box/utils';
+import { type MouseEventHandler } from 'react';
 
-import { base, primary, secondary } from './Button.styles'
+import { base, primary, secondary } from './Button.styles';
 
 export interface ButtonProps {
-  ariaLabel?: string
-  children: React.ReactNode
-  onClick?: MouseEventHandler<HTMLButtonElement>
-  size?: 'default' | 'big'
-  variant?: 'primary' | 'secondary'
+  ariaLabel?: string;
+  children: React.ReactNode;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  size?: 'default' | 'big';
+  variant?: 'primary' | 'secondary';
 }
 
 /**
@@ -37,5 +37,5 @@ export const Button = ({
     >
       {children}
     </button>
-  )
-}
+  );
+};

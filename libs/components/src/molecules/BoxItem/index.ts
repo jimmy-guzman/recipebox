@@ -1,1 +1,1 @@
-export { BoxItem } from './BoxItem'
+export { BoxItem } from './BoxItem';

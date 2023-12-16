@@ -1,21 +1,21 @@
-import React, { Suspense } from 'react'
-import { useLocation, useRoutes } from 'react-router-dom'
 import {
-  Header,
-  Instructions,
   Footer,
   GlobalStyles,
-  PageWrapper,
   GridRow,
+  Header,
+  Instructions,
+  PageWrapper,
   Spinner,
-} from '@recipe-box/components'
-import { AnimatePresence } from 'framer-motion'
+} from '@recipe-box/components';
+import { AnimatePresence } from 'framer-motion';
+import { cloneElement, Suspense } from 'react';
+import { useLocation, useRoutes } from 'react-router-dom';
 
-import Home from '../pages/Home'
-import Ingredients from '../pages/Ingredients'
+import Home from '../pages/Home';
+import Ingredients from '../pages/Ingredients';
 
 export const App = (): JSX.Element => {
-  const location = useLocation()
+  const location = useLocation();
 
   const element = useRoutes([
     {
@@ -26,7 +26,7 @@ export const App = (): JSX.Element => {
       path: '/recipe/:id',
       element: <Ingredients />,
     },
-  ])
+  ]);
 
   return (
     <PageWrapper>
@@ -37,12 +37,12 @@ export const App = (): JSX.Element => {
         <GridRow>
           {element && (
             <AnimatePresence mode='wait'>
-              {React.cloneElement(element, { key: location.pathname })}
+              {cloneElement(element, { key: location.pathname })}
             </AnimatePresence>
           )}
         </GridRow>
       </Suspense>
       <Footer />
     </PageWrapper>
-  )
-}
+  );
+};

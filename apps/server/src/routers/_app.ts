@@ -1,10 +1,10 @@
-import { router } from '../trpc'
-import { recipeRouter } from './recipe'
-import { ingredientRouter } from './ingredient'
+import { router } from '../trpc';
+import { ingredientRouter } from './ingredient';
+import { recipeRouter } from './recipe';
 
 export const appRouter = router({
   ingredient: ingredientRouter,
   recipe: recipeRouter,
-})
+});
 
-export type AppRouter = typeof appRouter
+export type AppRouter = typeof appRouter;

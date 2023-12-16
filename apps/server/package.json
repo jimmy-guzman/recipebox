@@ -8,7 +8,7 @@
     "db:migrate": "prisma migrate deploy",
     "db:seed": "prisma db seed",
     "dev": "dotenv-run -- tsx watch --clear-screen=false src/server.ts",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
+    "lint": "eslint .",
     "prisma:generate": "prisma generate",
     "prisma:studio": "prisma studio",
     "test": "vitest --passWithNoTests",
@@ -22,6 +22,7 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
+    "eslint-config-recipebox": "workspace:*",
     "prisma": "4.16.2",
     "random-words": "2.0.0",
     "tsx": "4.6.2",

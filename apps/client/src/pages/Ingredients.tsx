@@ -1,38 +1,38 @@
-import { Link } from 'react-router-dom'
-import { css } from '@emotion/react'
+import { css } from '@emotion/react';
 import {
-  Input,
   BackIcon,
   Box,
   BoxContent,
   BoxHeader,
+  BoxItem,
+  Input,
   linkCss,
   Spinner,
-  BoxItem,
-} from '@recipe-box/components'
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+} from '@recipe-box/components';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { useRecipeId } from '../hooks'
-import { trpc } from '../trpc'
-import { Ingredient } from '../components/Ingredient'
-import { AddIngredientForm } from '../components/AddIngredientForm'
-import { fade, slide } from '../configs/variants'
+import { AddIngredientForm } from '../components/AddIngredientForm';
+import { Ingredient } from '../components/Ingredient';
+import { fade, slide } from '../configs/variants';
+import { useRecipeId } from '../hooks';
+import { trpc } from '../trpc';
 
-const MotionComponent = motion(Box)
+const MotionComponent = motion(Box);
 
-const MotionBoxItem = motion(BoxItem)
+const MotionBoxItem = motion(BoxItem);
 
 const Ingredients = (): JSX.Element => {
-  const recipeId = useRecipeId()
+  const recipeId = useRecipeId();
   const { isLoading, data } = trpc.recipe.byId.useQuery({
     id: recipeId,
-  })
+  });
 
-  const { mutate: updateRecipe } = trpc.recipe.update.useMutation()
-  const [recipeName, setRecipeName] = useState(() => data?.name)
+  const { mutate: updateRecipe } = trpc.recipe.update.useMutation();
+  const [recipeName, setRecipeName] = useState(() => data?.name);
 
-  if (isLoading) return <Spinner size='large' />
+  if (isLoading) return <Spinner size='large' />;
 
   return (
     <MotionComponent
@@ -48,11 +48,11 @@ const Ingredients = (): JSX.Element => {
           isFullWidth
           value={recipeName ?? data?.name}
           onChange={(e): void => {
-            setRecipeName(e.target.value)
+            setRecipeName(e.target.value);
           }}
           onBlur={(): void => {
             if (recipeName) {
-              updateRecipe({ id: recipeId, name: recipeName })
+              updateRecipe({ id: recipeId, name: recipeName });
             }
           }}
           isReadOnly
@@ -79,7 +79,7 @@ const Ingredients = (): JSX.Element => {
         <AddIngredientForm />
       </BoxContent>
     </MotionComponent>
-  )
-}
+  );
+};
 
-export default Ingredients
+export default Ingredients;

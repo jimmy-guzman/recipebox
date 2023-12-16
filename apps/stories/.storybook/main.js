@@ -1,7 +1,7 @@
-import { dirname, join, resolve } from 'path'
+import { dirname, join, resolve } from 'path';
 
 function getAbsolutePath(value) {
-  return dirname(require.resolve(join(value, 'package.json')))
+  return dirname(require.resolve(join(value, 'package.json')));
 }
 
 module.exports = {
@@ -25,4 +25,4 @@ module.exports = {
   docs: {
     autodocs: true,
   },
-}
+};

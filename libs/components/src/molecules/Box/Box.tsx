@@ -1,21 +1,20 @@
-import { em } from '@recipe-box/utils'
-import React from 'react'
+import { em } from '@recipe-box/utils';
+import { forwardRef } from 'react';
 
+import { GridCol } from '../../atoms/Grid';
 import {
   COLOR_BOX_BG,
   COLOR_WHITE,
   FONT_SECONDARY,
   PRIMARY_BOX_SHADOW,
-} from '../../constants'
-import { GridCol } from '../../atoms/Grid'
+} from '../../constants';
 
 interface BoxProps {
-  children: React.ReactNode
-  variant?: 'primary' | 'secondary'
+  children: React.ReactNode;
+  variant?: 'primary' | 'secondary';
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type, react/display-name
-export const Box = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
+export const Box = forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
   <GridCol
     ref={ref}
     size={6}
@@ -29,4 +28,4 @@ export const Box = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
   >
     {props.children}
   </GridCol>
-))
+));

@@ -1,12 +1,12 @@
 /* eslint-disable sort-keys */
-import { z } from 'zod'
+import { z } from 'zod';
 
-import { router, publicProcedure } from '../trpc'
-import { prisma } from '../prisma'
+import { prisma } from '../prisma';
+import { publicProcedure, router } from '../trpc';
 
 export const ingredientRouter = router({
   list: publicProcedure.query(async () => {
-    return prisma.ingredient.findMany({ orderBy: { createdAt: 'asc' } })
+    return prisma.ingredient.findMany({ orderBy: { createdAt: 'asc' } });
   }),
   update: publicProcedure
     .input(z.object({ id: z.string(), name: z.string() }))
@@ -14,16 +14,16 @@ export const ingredientRouter = router({
       return prisma.ingredient.update({
         where: { id: opts.input.id },
         data: { name: opts.input.name },
-      })
+      });
     }),
   create: publicProcedure
     .input(z.object({ name: z.string(), recipeId: z.string() }))
     .mutation(async (opts) => {
-      return prisma.ingredient.create({ data: opts.input })
+      return prisma.ingredient.create({ data: opts.input });
     }),
   remove: publicProcedure
     .input(z.object({ id: z.string() }))
     .mutation(async (opts) => {
-      return prisma.ingredient.delete({ where: { id: opts.input.id } })
+      return prisma.ingredient.delete({ where: { id: opts.input.id } });
     }),
-})
+});

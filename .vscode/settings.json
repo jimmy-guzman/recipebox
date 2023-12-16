@@ -36,5 +36,9 @@
   "editor.formatOnSave": true,
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
-  }
+  },
+  "eslint.workingDirectories": [
+    { "pattern": "./apps/*" },
+    { "pattern": "./libs/*" }
+  ]
 }

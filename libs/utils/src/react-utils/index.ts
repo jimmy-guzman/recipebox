@@ -1,1 +1,1 @@
-export { namedLazy } from './named-lazy'
+export { namedLazy } from './named-lazy';

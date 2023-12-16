@@ -1,12 +1,12 @@
-import { css } from '@emotion/react'
-import { mq, em } from '@recipe-box/utils'
+import { css } from '@emotion/react';
+import { em, mq } from '@recipe-box/utils';
 
 import {
   COLOR_SECONDARY,
   COLOR_TEXT_BASE,
   COLOR_TEXT_LIGHT,
   FONT_PRIMARY,
-} from '../../constants'
+} from '../../constants';
 
 export const wrapper = css`
   position: relative;
@@ -15,7 +15,7 @@ export const wrapper = css`
   ${mq('md')} {
     width: 60%;
   }
-`
+`;
 
 export const list = css`
   width: 100%;
@@ -30,7 +30,7 @@ export const list = css`
   li {
     width: 100%;
   }
-`
+`;
 
 export const close = css`
   font-family: ${FONT_PRIMARY};
@@ -43,4 +43,4 @@ export const close = css`
     color: ${COLOR_TEXT_BASE};
     cursor: pointer;
   }
-`
+`;

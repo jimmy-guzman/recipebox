@@ -1,6 +1,6 @@
 interface ListProps {
-  children: React.ReactNode
-  className?: string
+  children: React.ReactNode;
+  className?: string;
 }
 
 export const List = ({ children, className }: ListProps): JSX.Element => {
@@ -15,5 +15,5 @@ export const List = ({ children, className }: ListProps): JSX.Element => {
     >
       {children}
     </ul>
-  )
-}
+  );
+};

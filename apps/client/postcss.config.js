@@ -1,1 +1,6 @@
-module.exports = require('../../postcss.config')
+module.exports = {
+  plugins: {
+    autoprefixer: {},
+    cssnano: {},
+  },
+};

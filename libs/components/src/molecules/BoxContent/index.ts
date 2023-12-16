@@ -1,1 +1,1 @@
-export { BoxContent } from './BoxContent'
+export { BoxContent } from './BoxContent';

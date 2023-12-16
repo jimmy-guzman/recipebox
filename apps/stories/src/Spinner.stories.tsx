@@ -1,5 +1,5 @@
-import { Story, Meta } from '@storybook/react'
-import { Spinner } from '@recipe-box/components'
+import { Spinner } from '@recipe-box/components';
+import { type Meta, type Story } from '@storybook/react';
 
 export default {
   title: 'components/atoms/Spinner',
@@ -20,11 +20,11 @@ export default {
       },
     },
   },
-} as Meta
+} as Meta;
 
-const Template: Story = (args) => <Spinner {...args} />
+const Template: Story = (args) => <Spinner {...args} />;
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 
-export const Secondary = Template.bind({})
-Secondary.args = { color: 'secondary' }
+export const Secondary = Template.bind({});
+Secondary.args = { color: 'secondary' };

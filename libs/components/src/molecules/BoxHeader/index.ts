@@ -1,1 +1,1 @@
-export { BoxHeader } from './BoxHeader'
+export { BoxHeader } from './BoxHeader';

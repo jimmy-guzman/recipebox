@@ -1,14 +1,14 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
-import { List } from '../../atoms/List'
-import { wrapper, list, close } from './Instructions.styles'
+import { List } from '../../atoms/List';
+import { close, list, wrapper } from './Instructions.styles';
 
 export const Instructions = (): JSX.Element | null => {
-  const [isOpened, setIsOpened] = useState(true)
+  const [isOpened, setIsOpened] = useState(true);
 
   const handleClick = (): void => {
-    setIsOpened(false)
-  }
+    setIsOpened(false);
+  };
 
   if (isOpened) {
     return (
@@ -36,8 +36,8 @@ export const Instructions = (): JSX.Element | null => {
           X
         </span>
       </div>
-    )
+    );
   }
 
-  return null
-}
+  return null;
+};

@@ -1,31 +1,31 @@
-import { render, RenderResult, screen } from '@testing-library/react'
+import { type RenderResult } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
-import { Link } from './Link'
+import { Link } from './Link';
 
 const selectors = {
   get link(): HTMLElement {
-    return screen.getByRole('link', { name: 'I am a link!' })
+    return screen.getByRole('link', { name: 'I am a link!' });
   },
-}
+};
 
 const renderLink = (props = {}): RenderResult => {
   return render(
     <Link to='#' {...props}>
       I am a link!
-    </Link>
-  )
-}
+    </Link>,
+  );
+};
 
 describe('<Link />', () => {
   it('should render', () => {
-    renderLink()
+    renderLink();
 
-    expect(selectors.link).toMatchSnapshot()
-  })
+    expect(selectors.link).toMatchSnapshot();
+  });
   it('should render target property', () => {
-    renderLink({ target: '_blank' })
+    renderLink({ target: '_blank' });
 
-    // @ts-expect-error not working in pnpm monorepo
-    expect(selectors.link).toHaveAttribute('target', '_blank')
-  })
-})
+    expect(selectors.link).toHaveAttribute('target', '_blank');
+  });
+});

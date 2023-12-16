@@ -1,9 +1,9 @@
-import { css } from '@emotion/react'
+import { css } from '@emotion/react';
 
-import { List } from '../../atoms/List'
+import { List } from '../../atoms/List';
 
 interface BoxContentProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const BoxContent = ({ children }: BoxContentProps): JSX.Element => {
@@ -17,5 +17,5 @@ export const BoxContent = ({ children }: BoxContentProps): JSX.Element => {
     >
       {children}
     </List>
-  )
-}
+  );
+};

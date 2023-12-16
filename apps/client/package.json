@@ -9,7 +9,7 @@
     "dev": "dotenv-run -- vite",
     "e2e": "playwright test",
     "e2e:ui": "playwright test --ui",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
+    "lint": "eslint .",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -32,6 +32,10 @@
     "@types/react": "18.2.45",
     "@types/react-dom": "18.2.18",
     "@vitejs/plugin-react-swc": "3.5.0",
+    "autoprefixer": "10.4.16",
+    "cssnano": "6.0.2",
+    "eslint-config-recipebox": "workspace:*",
+    "postcss": "8.4.32",
     "vite": "5.0.10"
   }
 }

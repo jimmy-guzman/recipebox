@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion'
+import { type Variants } from 'framer-motion';
 
 export const fade = {
   hidden: {
@@ -14,7 +14,7 @@ export const fade = {
   exit: {
     opacity: 0,
   },
-} satisfies Variants
+} satisfies Variants;
 
 export const slide = {
   initial: {
@@ -32,4 +32,4 @@ export const slide = {
       duration: 0.5,
     },
   },
-} satisfies Variants
+} satisfies Variants;
