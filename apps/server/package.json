@@ -16,14 +16,14 @@
   },
   "dependencies": {
     "@fastify/cors": "8.4.2",
-    "@prisma/client": "4.16.2",
+    "@prisma/client": "5.7.0",
     "@trpc/server": "10.44.1",
     "fastify": "4.25.1",
     "zod": "3.22.4"
   },
   "devDependencies": {
     "eslint-config-recipebox": "workspace:*",
-    "prisma": "4.16.2",
+    "prisma": "5.7.0",
     "random-words": "2.0.0",
     "tsx": "4.6.2",
     "vite": "5.0.10",
