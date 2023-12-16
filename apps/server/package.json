@@ -26,7 +26,6 @@
     "prisma": "4.16.2",
     "random-words": "2.0.0",
     "tsx": "4.6.2",
-    "typescript": "5.3.3",
     "vite": "5.0.10",
     "vitest": "1.0.4"
   },

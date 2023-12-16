@@ -9,7 +9,6 @@
     "typecheck": "tsc"
   },
   "devDependencies": {
-    "@types/node": "20.10.4",
     "@types/react": "18.2.45",
     "eslint-config-recipebox": "workspace:*",
     "react": "18.2.0"
