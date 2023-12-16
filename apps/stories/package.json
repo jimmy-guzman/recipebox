@@ -1,34 +1,35 @@
 {
-  "name": "@recipe-box/client",
+  "name": "@recipe-box/stories",
   "version": "0.0.0",
   "private": "true",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "build": "vite build",
-    "dev": "dotenv-run -- vite",
+    "build": "storybook build",
+    "dev": "storybook dev -p 6006",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
+    "preview": "serve storybook-static",
     "typecheck": "tsc"
   },
   "dependencies": {
     "@emotion/react": "11.11.1",
     "@recipe-box/components": "workspace:*",
-    "@recipe-box/server": "workspace:*",
-    "@recipe-box/utils": "workspace:*",
-    "@tanstack/react-query": "4",
-    "@trpc/client": "10.44.1",
-    "@trpc/react-query": "10.44.1",
-    "framer-motion": "10.16.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hot-toast": "2.4.1",
     "react-router-dom": "6.21.0"
   },
   "devDependencies": {
+    "@emotion/babel-preset-css-prop": "11.11.0",
+    "@storybook/addon-actions": "7.6.5",
+    "@storybook/addon-essentials": "7.6.5",
+    "@storybook/addon-links": "7.6.5",
+    "@storybook/react": "7.6.5",
+    "@storybook/react-vite": "7.6.5",
     "@types/node": "18.19.3",
     "@types/react": "18.2.45",
     "@types/react-dom": "18.2.18",
     "@vitejs/plugin-react-swc": "3.5.0",
+    "storybook": "7.6.5",
     "vite": "5.0.10"
   }
 }

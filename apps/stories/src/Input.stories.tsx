@@ -1,7 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-
-import { Input } from './Input'
-import { InputProps } from './Input.types'
+import { Input, InputProps } from '@recipe-box/components'
 
 export default {
   title: 'components/atoms/Input',

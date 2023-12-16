@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 import { MemoryRouter } from 'react-router-dom'
-
-import { Header } from './Header'
+import { Header } from '@recipe-box/components'
 
 const withRouter = (story: () => JSX.Element): JSX.Element => {
   return <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>

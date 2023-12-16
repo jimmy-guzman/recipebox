@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-
-import { Typography, TypographyProps } from './Typography'
+import { Typography, TypographyProps } from '@recipe-box/components'
 
 export default {
   title: 'components/atoms/Typography',

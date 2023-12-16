@@ -30,6 +30,3 @@ jobs:
 
       - name: 🧱 Build
         run: pnpm build
-
-      - name: 🧱 Stories Build
-        run: pnpm sb:build

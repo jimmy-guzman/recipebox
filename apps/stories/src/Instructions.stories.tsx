@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-
-import { Instructions } from './Instructions'
+import { Instructions } from '@recipe-box/components'
 
 export default {
   title: 'components/molecules/Instructions',
