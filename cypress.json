@@ -1,5 +1,0 @@
-{
-  "baseUrl": "http://localhost:5173/",
-  "videosFolder": "./.reports/cypress/videos",
-  "screenshotsFolder": "./.reports/cypress/screenshots"
-}
