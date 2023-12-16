@@ -21,13 +21,11 @@
   },
   "devDependencies": {
     "@dotenv-run/cli": "1.2.3",
-    "depcheck": "1.4.7",
-    "eslint": "8.54.0",
-    "gitzy": "1.4.0",
+    "eslint": "8.56.0",
+    "gitzy": "4.0.0",
     "prettier": "3.1.1",
-    "react": "18.2.0",
     "turbo": "1.11.2",
-    "typescript": "4.9.5"
+    "typescript": "5.3.3"
   },
   "packageManager": "pnpm@8.12.0"
 }
