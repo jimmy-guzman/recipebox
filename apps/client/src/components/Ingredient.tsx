@@ -1,8 +1,8 @@
 import { BoxItem, Button, Input } from '@recipe-box/components'
 import { useState } from 'react'
 
-import { trpc } from '../../trpc'
-import { useRecipeId } from '../../hooks'
+import { trpc } from '../trpc'
+import { useRecipeId } from '../hooks'
 
 interface IngredientProps {
   id: string
@@ -12,14 +12,14 @@ interface IngredientProps {
 export const Ingredient = ({ name, id }: IngredientProps): JSX.Element => {
   const recipeId = useRecipeId()
   const utils = trpc.useUtils()
-  const { mutate: deleteIngredient } = trpc.deleteIngredientById.useMutation({
+  const { mutate: deleteIngredient } = trpc.ingredient.remove.useMutation({
     onSettled: async () => {
-      await utils.recipeById.invalidate({ id: recipeId })
+      await utils.recipe.byId.invalidate({ id: recipeId })
     },
   })
-  const { mutate: updateIngredient } = trpc.updateIngredientById.useMutation({
+  const { mutate: updateIngredient } = trpc.ingredient.update.useMutation({
     onSettled: async () => {
-      await utils.recipeById.invalidate({ id: recipeId })
+      await utils.recipe.byId.invalidate({ id: recipeId })
     },
   })
   const [newName, setNewName] = useState(() => name)

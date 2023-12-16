@@ -9,56 +9,24 @@ import {
   BoxHeader,
   linkCss,
   Spinner,
-  BoxItem,
 } from '@recipe-box/components'
 import { useState } from 'react'
 
-import { useRecipeId } from '../../hooks'
-import { Ingredient } from './Ingredient'
-import { trpc } from '../../trpc'
+import { useRecipeId } from '../hooks'
+import { trpc } from '../trpc'
+import { Ingredient } from '../components/Ingredient'
+import { AddIngredientForm } from '../components/AddIngredientForm'
 
 const transitionOptions = {
   classNames: 'slide-left',
   timeout: { enter: 500, exit: 300 },
 }
 
-const AddItemForm = (): JSX.Element => {
-  const recipeId = useRecipeId()
-  const [name, setName] = useState('')
-  const utils = trpc.useUtils()
-  const { mutate: addItem } = trpc.addIngredient.useMutation({
-    onSettled: async () => {
-      await utils.recipeById.invalidate({ id: recipeId })
-    },
-  })
-
-  return (
-    <BoxItem>
-      <form
-        onSubmit={(e): void => {
-          e.preventDefault()
-          addItem({ name, recipeId })
-          setName('')
-        }}
-      >
-        <Input
-          isFullWidth
-          value={name}
-          placeholder={`new ingredient`}
-          onChange={(e): void => {
-            setName(e.target.value)
-          }}
-        />
-      </form>
-    </BoxItem>
-  )
-}
-
 const Ingredients = (): JSX.Element => {
   const recipeId = useRecipeId()
-  const { isLoading, data } = trpc.recipeById.useQuery({ id: recipeId })
+  const { isLoading, data } = trpc.recipe.byId.useQuery({ id: recipeId })
 
-  const { mutate: updateRecipe } = trpc.updateRecipeById.useMutation()
+  const { mutate: updateRecipe } = trpc.recipe.update.useMutation()
   const [recipeName, setRecipeName] = useState(() => data?.name)
 
   if (isLoading) return <Spinner size='large' />
@@ -93,7 +61,7 @@ const Ingredients = (): JSX.Element => {
             </CSSTransition>
           ))}
         </TransitionGroup>
-        <AddItemForm />
+        <AddIngredientForm />
       </BoxContent>
     </Box>
   )

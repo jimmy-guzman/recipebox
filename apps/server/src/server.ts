@@ -3,7 +3,7 @@ import fastify from 'fastify'
 import cors from '@fastify/cors'
 
 import { createContext } from './context'
-import { appRouter } from './router'
+import { appRouter } from './routers/_app'
 
 const server = fastify({
   maxParamLength: 5000,
