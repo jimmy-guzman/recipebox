@@ -12,6 +12,7 @@
     "healthz",
     "immer",
     "json's",
+    "manypkg",
     "noreferrer",
     "nrwl",
     "persistor",

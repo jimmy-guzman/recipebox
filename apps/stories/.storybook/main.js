@@ -1,14 +1,11 @@
-import { dirname, join } from 'path'
+import { dirname, join, resolve } from 'path'
 
 function getAbsolutePath(value) {
   return dirname(require.resolve(join(value, 'package.json')))
 }
 
 module.exports = {
-  stories: [
-    '../libs/*/src/**/*.stories.@(tsx)',
-    '../apps/*/src/**/*.stories.@(tsx)',
-  ],
+  stories: ['../src/*.stories.tsx', '../src/**/*.stories.tsx'],
 
   addons: [
     getAbsolutePath('@storybook/addon-links'),

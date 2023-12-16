@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-
-import { Spinner } from './Spinner'
+import { Spinner } from '@recipe-box/components'
 
 export default {
   title: 'components/atoms/Spinner',

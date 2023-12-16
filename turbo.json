@@ -12,7 +12,7 @@
     "lint": { "dependsOn": ["prisma:generate"] },
     "typecheck": { "dependsOn": ["prisma:generate"] },
     "prisma:generate": { "cache": false },
-    "start": {
+    "dev": {
       "cache": false,
       "persistent": true
     }

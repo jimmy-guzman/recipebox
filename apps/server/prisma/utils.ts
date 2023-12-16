@@ -1,4 +1,4 @@
-import randomWords from 'random-words'
+import { generate } from 'random-words'
 
 interface Ingredient {
   name: string
@@ -36,7 +36,7 @@ const randomPhrases = (
   max = 8,
   formatter = toSentenceCase
 ): string[] => {
-  const potentialPhrases = randomWords({
+  const potentialPhrases = generate({
     min,
     max,
     wordsPerString: randomNumber(2, 4),
@@ -64,7 +64,7 @@ const createRecipes = (): Recipe[] => {
 }
 
 const randomUserNames = (min: number, max: number): string[] => {
-  const potentialUserNames = randomWords({
+  const potentialUserNames = generate({
     min,
     max,
     wordsPerString: 2,

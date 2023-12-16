@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-
-import { Button, ButtonProps } from './Button'
+import { Button, ButtonProps } from '@recipe-box/components'
 
 export default {
   title: 'components/atoms/Button',

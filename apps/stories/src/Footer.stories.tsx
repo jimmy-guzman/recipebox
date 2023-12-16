@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-
-import { Footer } from './Footer'
+import { Footer } from '@recipe-box/components'
 
 export default {
   title: 'components/molecules/Footer',
