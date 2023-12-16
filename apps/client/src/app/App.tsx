@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { Suspense, lazy } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import {
@@ -10,10 +10,9 @@ import {
   GridRow,
   Spinner,
 } from '@recipe-box/components'
-import { namedLazy } from '@recipe-box/utils'
 
-const { Home } = namedLazy(() => import('../pages/home'))
-const { Ingredients } = namedLazy(() => import('../pages/ingredients'))
+const Home = lazy(() => import('../pages/Home'))
+const Ingredients = lazy(() => import('../pages/Ingredients'))
 
 export const App = (): JSX.Element => {
   const { key } = useLocation()

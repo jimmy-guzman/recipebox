@@ -4,59 +4,27 @@ import {
   BoxHeader,
   BoxItem,
   Button,
-  Input,
   Spinner,
   Typography,
   linkCss,
 } from '@recipe-box/components'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 
-import { trpc } from '../../trpc'
+import { trpc } from '../trpc'
+import { AddRecipeForm } from '../components/AddRecipeForm'
 
 const transitionOptions = {
   classNames: 'slide-left',
   timeout: { enter: 500, exit: 500 },
 }
 
-const AddItemForm = (): JSX.Element => {
-  const [name, setName] = useState('')
-  const utils = trpc.useUtils()
-  const { mutate } = trpc.addRecipe.useMutation({
-    onSettled: async () => {
-      await utils.recipes.invalidate()
-    },
-  })
-
-  return (
-    <BoxItem>
-      <form
-        onSubmit={(e): void => {
-          e.preventDefault()
-          mutate({ name, userId: 'ckodlpl9y28553rslvrsc5ujc' })
-          setName('')
-        }}
-      >
-        <Input
-          isFullWidth
-          value={name}
-          placeholder={`new recipe`}
-          onChange={(e): void => {
-            setName(e.target.value)
-          }}
-        />
-      </form>
-    </BoxItem>
-  )
-}
-
 const Home = (): JSX.Element => {
   const utils = trpc.useUtils()
-  const { data, isLoading } = trpc.recipes.useQuery()
-  const { mutate: deleteRecipe } = trpc.deleteRecipeById.useMutation({
+  const { data, isLoading } = trpc.recipe.list.useQuery()
+  const { mutate: deleteRecipe } = trpc.recipe.remove.useMutation({
     onSettled: async () => {
-      await utils.recipes.invalidate()
+      await utils.recipe.list.invalidate()
     },
   })
 
@@ -88,7 +56,7 @@ const Home = (): JSX.Element => {
             </CSSTransition>
           ))}
         </TransitionGroup>
-        <AddItemForm />
+        <AddRecipeForm />
       </BoxContent>
     </Box>
   )

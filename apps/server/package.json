@@ -2,7 +2,7 @@
   "name": "@recipe-box/server",
   "version": "1.0.0",
   "license": "MIT",
-  "main": "src/router.ts",
+  "main": "src/routers/_app.ts",
   "scripts": {
     "db:g:migrate": "prisma migrate dev --name",
     "db:migrate": "prisma migrate deploy",
