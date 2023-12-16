@@ -7,6 +7,8 @@
   "scripts": {
     "build": "vite build",
     "dev": "dotenv-run -- vite",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --color",
     "typecheck": "tsc"
   },
@@ -25,6 +27,7 @@
     "react-router-dom": "6.21.0"
   },
   "devDependencies": {
+    "@playwright/test": "1.40.1",
     "@types/node": "18.19.3",
     "@types/react": "18.2.45",
     "@types/react-dom": "18.2.18",

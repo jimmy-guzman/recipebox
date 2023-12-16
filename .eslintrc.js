@@ -33,7 +33,6 @@ const noExtraneousOverrides = (pkgDir) => {
 module.exports = {
   extends: [
     '@comparto/eslint-config',
-    'plugin:cypress/recommended',
     '@comparto/eslint-config/src/rules/typescript',
     '@comparto/eslint-config/src/rules/react',
     '@comparto/eslint-config/src/rules/jest',
@@ -50,7 +49,6 @@ module.exports = {
       './apps/*/tsconfig.node.json',
     ],
   },
-  plugins: ['cypress'],
   rules: {
     'react/no-unknown-property': ['error', { ignore: ['css'] }],
     'react/jsx-uses-react': 'off',
