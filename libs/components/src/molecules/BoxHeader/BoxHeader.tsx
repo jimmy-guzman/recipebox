@@ -1,16 +1,16 @@
-import { em } from '@recipe-box/utils'
+import { em } from '@recipe-box/utils';
 
 import {
   COLOR_BOX_HEADER_BG,
   COLOR_PRIMARY,
   COLOR_TEXT_BASE,
   COLOR_TEXT_LIGHT,
-} from '../../constants'
+} from '../../constants';
 
 interface BoxHeaderProps {
-  children: React.ReactNode
-  className?: string
-  variant?: 'primary' | 'secondary'
+  children: React.ReactNode;
+  className?: string;
+  variant?: 'primary' | 'secondary';
 }
 
 export const BoxHeader = ({
@@ -35,5 +35,5 @@ export const BoxHeader = ({
     >
       {children}
     </header>
-  )
-}
+  );
+};

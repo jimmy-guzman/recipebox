@@ -1,37 +1,37 @@
-import { BrowserRouter as Router } from 'react-router-dom'
 import {
   MutationCache,
   QueryCache,
   QueryClient,
   QueryClientProvider,
   QueryErrorResetBoundary,
-} from '@tanstack/react-query'
-import { TRPCClientError, httpBatchLink } from '@trpc/client'
-import { useState } from 'react'
-import toast, { Toaster } from 'react-hot-toast'
+} from '@tanstack/react-query';
+import { httpBatchLink, TRPCClientError } from '@trpc/client';
+import { useState } from 'react';
+import { toast, Toaster } from 'react-hot-toast';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import { App } from './app'
-import { trpc } from './trpc'
+import { App } from './app';
+import { trpc } from './trpc';
 
 const queryCache = new QueryCache({
   onError: (error): void => {
     if (error instanceof TRPCClientError) {
-      toast.error(error.message)
+      toast.error(error.message);
     } else {
-      toast.error('Something went wrong')
+      toast.error('Something went wrong');
     }
   },
-})
+});
 
 const mutationCache = new MutationCache({
   onError: (error): void => {
     if (error instanceof TRPCClientError) {
-      toast.error(error.message)
+      toast.error(error.message);
     } else {
-      toast.error('Something went wrong')
+      toast.error('Something went wrong');
     }
   },
-})
+});
 
 export const Main = (): JSX.Element => {
   const [queryClient] = useState(
@@ -39,8 +39,8 @@ export const Main = (): JSX.Element => {
       new QueryClient({
         queryCache,
         mutationCache,
-      })
-  )
+      }),
+  );
   const [trpcClient] = useState(() =>
     trpc.createClient({
       links: [
@@ -48,8 +48,8 @@ export const Main = (): JSX.Element => {
           url: 'http://localhost:3000/trpc',
         }),
       ],
-    })
-  )
+    }),
+  );
 
   return (
     <QueryErrorResetBoundary>
@@ -62,5 +62,5 @@ export const Main = (): JSX.Element => {
         </QueryClientProvider>
       </trpc.Provider>
     </QueryErrorResetBoundary>
-  )
-}
+  );
+};

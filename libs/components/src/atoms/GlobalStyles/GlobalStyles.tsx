@@ -1,7 +1,7 @@
-import { css, Global } from '@emotion/react'
+import { css, Global } from '@emotion/react';
 
-import { scrollbar, base } from './styles'
+import { base, scrollbar } from './styles';
 
 export const GlobalStyles = (): JSX.Element => {
-  return <Global styles={css([base, scrollbar])} />
-}
+  return <Global styles={css([base, scrollbar])} />;
+};

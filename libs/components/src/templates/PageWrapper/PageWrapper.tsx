@@ -1,13 +1,14 @@
-import background from './background.svg'
+import background from './background.svg';
 
 interface PageWrapperProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const PageWrapper = ({ children }: PageWrapperProps): JSX.Element => {
   return (
     <div
       css={{
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         backgroundImage: `url(${background})`,
         backgroundRepeat: 'repeat',
         display: 'flex',
@@ -18,5 +19,5 @@ export const PageWrapper = ({ children }: PageWrapperProps): JSX.Element => {
     >
       {children}
     </div>
-  )
-}
+  );
+};

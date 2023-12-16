@@ -1,12 +1,12 @@
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom';
 
-import { Typography } from '../../atoms/Typography'
+import { linkCss } from '../../atoms/Link';
+import { Typography } from '../../atoms/Typography';
 import {
   COLOR_HIGHLIGHT,
   COLOR_PRIMARY,
   COLOR_SECONDARY,
-} from '../../constants'
-import { linkCss } from '../../atoms/Link'
+} from '../../constants';
 
 export const Header = (): JSX.Element => (
   <header
@@ -24,4 +24,4 @@ export const Header = (): JSX.Element => (
       </RouterLink>
     </Typography>
   </header>
-)
+);

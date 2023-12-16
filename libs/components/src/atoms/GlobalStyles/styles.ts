@@ -1,14 +1,14 @@
-import { css } from '@emotion/react'
+import { css } from '@emotion/react';
+import { em } from '@recipe-box/utils';
 // ! Using full path since tree shaking does work for darken, https://github.com/styled-components/polished/issues/478
-import darken from 'polished/lib/color/darken'
-import { em } from '@recipe-box/utils'
+import darken from 'polished/lib/color/darken';
 
 import {
   COLOR_SECONDARY,
   COLOR_TEXT_BASE,
   FONT_PRIMARY,
   FONT_URL,
-} from '../../constants'
+} from '../../constants';
 
 export const scrollbar = css`
   ::-webkit-scrollbar {
@@ -23,7 +23,7 @@ export const scrollbar = css`
   ::-webkit-scrollbar-thumb:hover {
     background: ${darken(0.1, COLOR_SECONDARY)};
   }
-`
+`;
 
 export const base = css`
   @import url(${FONT_URL});
@@ -36,4 +36,4 @@ export const base = css`
       font-family: ${FONT_PRIMARY};
     }
   }
-`
+`;

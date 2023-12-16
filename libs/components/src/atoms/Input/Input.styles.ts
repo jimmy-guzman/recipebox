@@ -1,12 +1,13 @@
-import { css, SerializedStyles } from '@emotion/react'
-import { em } from '@recipe-box/utils'
+import { type SerializedStyles } from '@emotion/react';
+import { css } from '@emotion/react';
+import { em } from '@recipe-box/utils';
 
 import {
   COLOR_PRIMARY,
-  FONT_WEIGHT_REGULAR,
   COLOR_SECONDARY,
-} from '../../constants'
-import { InputProps } from './Input.types'
+  FONT_WEIGHT_REGULAR,
+} from '../../constants';
+import { type InputProps } from './Input.types';
 
 export const styles = ({
   size,
@@ -30,4 +31,4 @@ export const styles = ({
     color: ${COLOR_SECONDARY};
     cursor: pointer;
   }
-`
+`;

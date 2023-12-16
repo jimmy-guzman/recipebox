@@ -1,6 +1,6 @@
-import { em } from '@recipe-box/utils'
+import { em } from '@recipe-box/utils';
 
-import { Link } from '../../atoms'
+import { Link } from '../../atoms';
 
 export const Footer = (): JSX.Element => {
   return (
@@ -10,5 +10,5 @@ export const Footer = (): JSX.Element => {
         Jimmy Guzman
       </Link>
     </footer>
-  )
-}
+  );
+};

@@ -1,8 +1,8 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client';
 
 const prismaGlobal = global as typeof global & {
-  prisma?: PrismaClient
-}
+  prisma?: PrismaClient;
+};
 
 export const prisma: PrismaClient =
   prismaGlobal.prisma ??
@@ -11,8 +11,8 @@ export const prisma: PrismaClient =
       process.env.NODE_ENV === 'development'
         ? ['query', 'error', 'warn']
         : ['error'],
-  })
+  });
 
 if (process.env.NODE_EN !== 'production') {
-  prismaGlobal.prisma = prisma
+  prismaGlobal.prisma = prisma;
 }

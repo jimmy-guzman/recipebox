@@ -1,12 +1,12 @@
-import { Button, GridRow, Typography } from '../../atoms'
-import { Box } from '../Box'
-import { BoxHeader } from '../BoxHeader'
+import { Button, GridRow, Typography } from '../../atoms';
+import { Box } from '../Box';
+import { BoxHeader } from '../BoxHeader';
 
 interface ErrorFallbackProps {
   error: {
-    message: string
-  }
-  resetErrorBoundary: () => void
+    message: string;
+  };
+  resetErrorBoundary: () => void;
 }
 
 export const ErrorFallback = ({
@@ -25,5 +25,5 @@ export const ErrorFallback = ({
         <Button onClick={resetErrorBoundary}>Try again</Button>
       </GridRow>
     </Box>
-  )
-}
+  );
+};

@@ -1,7 +1,7 @@
-import { keyframes } from '@emotion/react'
-import { em } from '@recipe-box/utils'
+import { keyframes } from '@emotion/react';
+import { em } from '@recipe-box/utils';
 
-import { COLOR_PRIMARY, COLOR_SECONDARY } from '../../constants'
+import { COLOR_PRIMARY, COLOR_SECONDARY } from '../../constants';
 
 const svgAnimation = keyframes`
   0% {
@@ -10,7 +10,7 @@ const svgAnimation = keyframes`
   100% {
     transform: rotateZ(360deg)
   }
-`
+`;
 
 const circleAnimation = keyframes`
   0%,
@@ -29,26 +29,26 @@ const circleAnimation = keyframes`
     stroke-dashoffset: 280;
     transform: rotate(360deg);
   }
-`
+`;
 
 const getDashValue = (radius: number, percentage: string): number => {
-  const circumference = 2 * Math.PI * radius
-  const percentageAsDecimal = parseFloat(percentage) / 100
+  const circumference = 2 * Math.PI * radius;
+  const percentageAsDecimal = parseFloat(percentage) / 100;
 
-  return circumference * percentageAsDecimal
-}
+  return circumference * percentageAsDecimal;
+};
 
 interface SpinnerProps {
-  color?: 'primary' | 'secondary'
-  size?: 'small' | 'default' | 'large'
+  color?: 'primary' | 'secondary';
+  size?: 'small' | 'default' | 'large';
 }
 
 const sizes = {
   small: em('50px'),
   default: em('100px'),
   large: em('200px'),
-}
-const RADIUS = 45
+};
+const RADIUS = 45;
 
 export const Spinner = ({
   color = 'primary',
@@ -80,5 +80,5 @@ export const Spinner = ({
         }}
       />
     </svg>
-  )
-}
+  );
+};

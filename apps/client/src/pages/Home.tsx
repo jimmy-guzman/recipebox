@@ -4,31 +4,31 @@ import {
   BoxHeader,
   BoxItem,
   Button,
+  linkCss,
   Spinner,
   Typography,
-  linkCss,
-} from '@recipe-box/components'
-import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+} from '@recipe-box/components';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
-import { trpc } from '../trpc'
-import { AddRecipeForm } from '../components/AddRecipeForm'
-import { fade, slide } from '../configs/variants'
+import { AddRecipeForm } from '../components/AddRecipeForm';
+import { fade, slide } from '../configs/variants';
+import { trpc } from '../trpc';
 
-const MotionBox = motion(Box)
+const MotionBox = motion(Box);
 
-const MotionBoxItem = motion(BoxItem)
+const MotionBoxItem = motion(BoxItem);
 
 const Home = (): JSX.Element => {
-  const utils = trpc.useUtils()
-  const { data, isLoading } = trpc.recipe.list.useQuery()
+  const utils = trpc.useUtils();
+  const { data, isLoading } = trpc.recipe.list.useQuery();
   const { mutate: deleteRecipe } = trpc.recipe.remove.useMutation({
     onSettled: async () => {
-      await utils.recipe.list.invalidate()
+      await utils.recipe.list.invalidate();
     },
-  })
+  });
 
-  if (isLoading) return <Spinner size='large' />
+  if (isLoading) return <Spinner size='large' />;
 
   return (
     <MotionBox
@@ -58,7 +58,7 @@ const Home = (): JSX.Element => {
                 variant='secondary'
                 ariaLabel={`delete ${recipe.name}`}
                 onClick={(): void => {
-                  deleteRecipe({ id: recipe.id })
+                  deleteRecipe({ id: recipe.id });
                 }}
               >
                 X
@@ -69,7 +69,7 @@ const Home = (): JSX.Element => {
         <AddRecipeForm />
       </BoxContent>
     </MotionBox>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

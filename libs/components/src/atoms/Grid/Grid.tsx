@@ -1,15 +1,14 @@
-import { mq } from '@recipe-box/utils'
-import React from 'react'
+import { mq } from '@recipe-box/utils';
+import { forwardRef } from 'react';
 
-import { calcGridColumnWidth } from './Grid.utils'
+import { calcGridColumnWidth } from './Grid.utils';
 
-// eslint-disable-next-line react/display-name
-export const GridCol = React.forwardRef<
+export const GridCol = forwardRef<
   HTMLDivElement,
   {
-    children: React.ReactNode
-    className?: string
-    size: number
+    children: React.ReactNode;
+    className?: string;
+    size: number;
   }
 >((props, ref) => (
   <div
@@ -19,7 +18,7 @@ export const GridCol = React.forwardRef<
   >
     {props.children}
   </div>
-))
+));
 
 export const GridRow = ({
   children,
@@ -27,10 +26,10 @@ export const GridRow = ({
   justifyContent = 'center',
   alignItems = 'center',
 }: {
-  alignItems?: string
-  children: React.ReactNode
-  className?: string
-  justifyContent?: string
+  alignItems?: string;
+  children: React.ReactNode;
+  className?: string;
+  justifyContent?: string;
 }): JSX.Element => {
   return (
     <div
@@ -48,5 +47,5 @@ export const GridRow = ({
     >
       {children}
     </div>
-  )
-}
+  );
+};
