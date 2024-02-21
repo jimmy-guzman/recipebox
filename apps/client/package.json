@@ -36,6 +36,6 @@
     "cssnano": "6.0.2",
     "eslint-config-recipebox": "workspace:*",
     "postcss": "8.4.32",
-    "vite": "5.0.10"
+    "vite": "5.0.12"
   }
 }
