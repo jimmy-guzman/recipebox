@@ -30,6 +30,6 @@
     "@types/react-dom": "18.2.18",
     "eslint-config-recipebox": "workspace:*",
     "storybook": "7.6.5",
-    "vite": "5.0.10"
+    "vite": "5.0.12"
   }
 }
